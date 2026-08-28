@@ -1,6 +1,24 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
 import LegalPage from "@/components/legal/LegalPage";
+
+export const metadata: Metadata = {
+    title: "Mentions légales",
+    description:
+        "Mentions légales du site PaxSolutio : informations sur l'éditeur, l'hébergement, la propriété intellectuelle et les responsabilités.",
+
+    alternates: {
+        canonical: "/mentions-legales",
+    },
+
+    openGraph: {
+        title: "Mentions légales | PaxSolutio",
+        description:
+            "Informations légales relatives au site PaxSolutio.",
+        url: "/mentions-legales",
+    },
+};
 
 export default function LegalNoticePage() {
     return (
@@ -76,8 +94,8 @@ export default function LegalNoticePage() {
                     </h2>
 
                     <p className="mt-3">
-                        Les informations relatives à l&apos;hébergeur seront précisées
-                        après la mise en production définitive du site.
+                        Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133,
+                        Covina, CA 91723, États-Unis.
                     </p>
                 </section>
 

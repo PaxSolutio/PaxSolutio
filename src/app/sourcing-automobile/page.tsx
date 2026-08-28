@@ -13,9 +13,20 @@ import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Sourcing Automobile International | PaxSolutio",
+  title: "Sourcing Automobile Chine & Import de Véhicules",
   description:
-    "Recherche de véhicules, vérification, négociation, export et transport international avec PaxSolutio.",
+    "PaxSolutio accompagne les professionnels dans le sourcing automobile en Chine : recherche de véhicules, vérification, négociation, export et logistique internationale.",
+
+  alternates: {
+    canonical: "/sourcing-automobile",
+  },
+
+  openGraph: {
+    title: "Sourcing Automobile Chine & Import de Véhicules | PaxSolutio",
+    description:
+      "Recherche de véhicules en Chine, vérification, négociation, organisation de l'export et transport international vers votre marché.",
+    url: "/sourcing-automobile",
+  },
 };
 
 const benefits = [

@@ -36,10 +36,6 @@ export const metadata: Metadata = {
   creator: "PaxSolutio",
   publisher: "PaxSolutio",
 
-  alternates: {
-    canonical: "https://paxsolutio.com",
-  },
-
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -94,6 +90,50 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://paxsolutio.com/#organization",
+
+  name: "PaxSolutio",
+  legalName: "Medhy Desgrugillers",
+  url: "https://paxsolutio.com",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://paxsolutio.com/paxsolutio-logo.png",
+  },
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61582208032908&locale=fr_FR",
+    "https://www.instagram.com/paxsolutiofr/",
+    "https://www.linkedin.com/in/medhy-desgrugillers/",
+    "https://www.tiktok.com/@paxsolutio",
+  ],
+
+  description:
+    "PaxSolutio accompagne les entreprises dans le sourcing international, la recherche de fournisseurs, le contrôle qualité, le sourcing automobile et la logistique internationale.",
+
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "9 rue des entrepreneurs",
+    postalCode: "59124",
+    addressLocality: "Escaudain",
+    addressCountry: "FR",
+  },
+
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+33743574234",
+    email: "PaxSolutio@gmail.com",
+    contactType: "customer service",
+    availableLanguage: ["French", "English"],
+  },
+
+  areaServed: {
+    "@type": "Country",
+    name: "France",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -101,7 +141,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
+        {children}
+      </body>
     </html>
   );
 }

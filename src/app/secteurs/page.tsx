@@ -8,9 +8,20 @@ import IndustriesGrid from "@/components/industries/IndustriesGrid";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Secteurs & Industries | PaxSolutio",
+  title: "Sourcing par Secteur & Solutions d'Import",
   description:
-    "Solutions de sourcing, contrôle et logistique adaptées à différents secteurs d'activité.",
+    "PaxSolutio accompagne les entreprises dans leurs projets de sourcing et d'importation dans différents secteurs : industrie, automobile, mobilier, e-commerce et équipements.",
+
+  alternates: {
+    canonical: "/secteurs",
+  },
+
+  openGraph: {
+    title: "Sourcing par Secteur & Solutions d'Import | PaxSolutio",
+    description:
+      "Découvrez les secteurs accompagnés par PaxSolutio pour le sourcing, la recherche fournisseurs, le contrôle qualité et la logistique internationale.",
+    url: "/secteurs",
+  },
 };
 
 export default function IndustriesPage() {

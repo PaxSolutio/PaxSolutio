@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CredibilitySection from "@/components/home/CredibilitySection";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
@@ -14,6 +15,23 @@ import SupplierNetwork from "@/components/home/SupplierNetwork";
 import QualitySection from "@/components/home/QualitySection";
 import ProjectForm from "@/components/home/ProjectForm";
 import FinalCTA from "@/components/home/FinalCTA";
+
+export const metadata: Metadata = {
+  title: "Sourcing Chine & Import International",
+  description:
+    "PaxSolutio accompagne les entreprises dans le sourcing en Chine : recherche de fournisseurs, négociation, contrôle qualité, import automobile et logistique internationale.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "PaxSolutio | Sourcing Chine & Import International",
+    description:
+      "Recherche de fournisseurs, contrôle qualité, sourcing automobile et logistique internationale depuis la Chine.",
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (

@@ -13,9 +13,20 @@ import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Logistique Internationale | PaxSolutio",
+  title: "Logistique Chine-France & Transport International",
   description:
-    "Transport maritime, aérien, ferroviaire et routier avec PaxSolutio et OneBillionForwarders.",
+    "PaxSolutio accompagne les entreprises dans leur logistique Chine-France et internationale : fret maritime, aérien, ferroviaire et routier, consolidation et acheminement.",
+
+  alternates: {
+    canonical: "/logistique",
+  },
+
+  openGraph: {
+    title: "Logistique Chine-France & Transport International | PaxSolutio",
+    description:
+      "Solutions de transport international depuis la Chine : fret maritime, aérien, ferroviaire et routier, consolidation et coordination logistique.",
+    url: "/logistique",
+  },
 };
 
 const benefits = [

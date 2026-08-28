@@ -10,9 +10,20 @@ import ServiceOfferGrid from "@/components/services/ServiceOfferGrid";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Sourcing International | PaxSolutio",
+  title: "Sourcing Chine & Recherche Fournisseurs",
   description:
-    "Recherche de fournisseurs, négociation, vérification et accompagnement sourcing pour vos projets d'import internationaux.",
+    "PaxSolutio accompagne les entreprises dans le sourcing en Chine : recherche et qualification de fournisseurs, négociation, échantillonnage, contrôle qualité et logistique.",
+
+  alternates: {
+    canonical: "/sourcing",
+  },
+
+  openGraph: {
+    title: "Sourcing Chine & Recherche Fournisseurs | PaxSolutio",
+    description:
+      "Recherche de fabricants, qualification fournisseurs, négociation, contrôle qualité et accompagnement import depuis la Chine.",
+    url: "/sourcing",
+  },
 };
 
 const benefits = [

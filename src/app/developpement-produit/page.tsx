@@ -5,9 +5,21 @@ import Footer from "@/components/layout/Footer";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Développement produit | PaxSolutio",
+  title: "Développement Produit en Chine | OEM, ODM & Private Label",
   description:
-    "Développement produit, OEM, ODM, personnalisation et accompagnement fournisseur avec PaxSolutio.",
+    "PaxSolutio accompagne les entreprises dans le développement de produits en Chine : OEM, ODM, Private Label, personnalisation, packaging, échantillons et recherche fabricant.",
+
+  alternates: {
+    canonical: "/developpement-produit",
+  },
+
+  openGraph: {
+    title:
+      "Développement Produit en Chine | OEM, ODM & Private Label | PaxSolutio",
+    description:
+      "Développement et personnalisation de produits en Chine : OEM, ODM, Private Label, packaging, échantillons et accompagnement fabricant.",
+    url: "/developpement-produit",
+  },
 };
 
 export default function ProductDevelopmentPage() {

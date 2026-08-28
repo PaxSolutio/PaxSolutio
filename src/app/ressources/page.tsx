@@ -9,9 +9,20 @@ import ResourcesGrid from "@/components/resources/ResourcesGrid";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Ressources Import & Sourcing | PaxSolutio",
+  title: "Guides Sourcing Chine, Import & Logistique",
   description:
-    "Guides et ressources sur le sourcing, l'importation, la logistique, le contrôle qualité et l'automobile.",
+    "Guides et ressources PaxSolutio sur le sourcing en Chine, la recherche fournisseurs, les Incoterms, les coûts d'importation, le contrôle qualité et la logistique.",
+
+  alternates: {
+    canonical: "/ressources",
+  },
+
+  openGraph: {
+    title: "Guides Sourcing Chine, Import & Logistique | PaxSolutio",
+    description:
+      "Guides pratiques sur le sourcing en Chine, les fournisseurs, l'importation, les Incoterms, le contrôle qualité et la logistique internationale.",
+    url: "/ressources",
+  },
 };
 
 export default function ResourcesPage() {

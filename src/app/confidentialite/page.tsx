@@ -1,6 +1,24 @@
+import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
 import LegalPage from "@/components/legal/LegalPage";
+
+export const metadata: Metadata = {
+  title: "Politique de confidentialité",
+  description:
+    "Politique de confidentialité de PaxSolutio : collecte, utilisation, conservation et protection des données personnelles.",
+
+  alternates: {
+    canonical: "/confidentialite",
+  },
+
+  openGraph: {
+    title: "Politique de confidentialité | PaxSolutio",
+    description:
+      "Informations sur la collecte, l'utilisation et la protection des données personnelles sur le site PaxSolutio.",
+    url: "/confidentialite",
+  },
+};
 
 export default function PrivacyPage() {
     return (

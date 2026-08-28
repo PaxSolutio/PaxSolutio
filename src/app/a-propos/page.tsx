@@ -9,9 +9,20 @@ import PaxObf from "@/components/about/PaxObf";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "À propos | PaxSolutio",
+  title: "À propos | Sourcing & Import International",
   description:
-    "Découvrez PaxSolutio et son approche intégrée du sourcing, du contrôle qualité et de la logistique internationale.",
+    "Découvrez PaxSolutio, son implantation entre la France et la Chine, son réseau fournisseurs et son approche du sourcing, du contrôle qualité et de la logistique internationale.",
+
+  alternates: {
+    canonical: "/a-propos",
+  },
+
+  openGraph: {
+    title: "À propos de PaxSolutio | Sourcing & Import International",
+    description:
+      "Découvrez l'approche PaxSolutio pour accompagner les entreprises dans leurs projets de sourcing, d'importation, de contrôle qualité et de logistique internationale.",
+    url: "/a-propos",
+  },
 };
 
 export default function AboutPage() {

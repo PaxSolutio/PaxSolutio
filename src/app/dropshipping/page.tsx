@@ -14,9 +14,20 @@ import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Dropshipping & Fulfillment | PaxSolutio",
+  title: "Dropshipping Chine & Fulfillment E-commerce",
   description:
-    "Solutions de sourcing, stockage, préparation de commandes et expédition internationale pour les activités e-commerce.",
+    "PaxSolutio accompagne les e-commerçants dans le dropshipping depuis la Chine : sourcing produit, stockage, préparation de commandes, packaging et expédition internationale.",
+
+  alternates: {
+    canonical: "/dropshipping",
+  },
+
+  openGraph: {
+    title: "Dropshipping Chine & Fulfillment E-commerce | PaxSolutio",
+    description:
+      "Sourcing, stockage, préparation de commandes et expédition internationale pour vos activités e-commerce depuis la Chine.",
+    url: "/dropshipping",
+  },
 };
 
 const benefits = [

@@ -10,9 +10,20 @@ import IntegratedSolution from "@/components/solutions/IntegratedSolution";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Solutions | PaxSolutio",
+  title: "Solutions Sourcing, Import & Supply Chain",
   description:
-    "Sourcing, fournisseurs, automobile, contrôle qualité, logistique et fulfillment international.",
+    "Découvrez les solutions PaxSolutio pour le sourcing international, la recherche fournisseurs, l'automobile, le contrôle qualité, la logistique et le fulfillment.",
+
+  alternates: {
+    canonical: "/solutions",
+  },
+
+  openGraph: {
+    title: "Solutions Sourcing, Import & Supply Chain | PaxSolutio",
+    description:
+      "Une offre intégrée pour accompagner vos projets de sourcing, importation, contrôle qualité, logistique et e-commerce.",
+    url: "/solutions",
+  },
 };
 
 export default function SolutionsPage() {

@@ -13,9 +13,20 @@ import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Recherche Fournisseurs | PaxSolutio",
+  title: "Recherche de Fournisseurs Chine & Fabricants",
   description:
-    "Recherche et présélection de fabricants et fournisseurs selon votre produit, votre secteur et vos critères.",
+    "PaxSolutio accompagne les entreprises dans la recherche de fournisseurs et fabricants en Chine : présélection, vérification, comparaison et qualification selon vos critères.",
+
+  alternates: {
+    canonical: "/fournisseurs",
+  },
+
+  openGraph: {
+    title: "Recherche de Fournisseurs Chine & Fabricants | PaxSolutio",
+    description:
+      "Identification et qualification de fournisseurs chinois, fabricants et partenaires industriels adaptés à votre projet.",
+    url: "/fournisseurs",
+  },
 };
 
 const benefits = [

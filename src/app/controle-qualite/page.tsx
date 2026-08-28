@@ -13,9 +13,20 @@ import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Audit Usine & Contrôle Qualité | PaxSolutio",
+  title: "Contrôle Qualité Chine & Audit Fournisseur",
   description:
-    "Vérification fournisseur, audit usine et inspection qualité avant expédition avec PaxSolutio.",
+    "PaxSolutio accompagne les entreprises dans le contrôle qualité en Chine : vérification fournisseur, audit usine, inspection avant expédition et rapport de contrôle.",
+
+  alternates: {
+    canonical: "/controle-qualite",
+  },
+
+  openGraph: {
+    title: "Contrôle Qualité Chine & Audit Fournisseur | PaxSolutio",
+    description:
+      "Inspection qualité, vérification fournisseur et audit usine en Chine avant expédition de vos marchandises.",
+    url: "/controle-qualite",
+  },
 };
 
 const benefits = [
