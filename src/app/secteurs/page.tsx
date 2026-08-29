@@ -8,18 +8,18 @@ import IndustriesGrid from "@/components/industries/IndustriesGrid";
 import ServiceCTA from "@/components/services/ServiceCTA";
 
 export const metadata: Metadata = {
-  title: "Sourcing par Secteur & Solutions d'Import",
+  title: "Sourcing par Secteur en Chine & Solutions d'Import",
   description:
-    "PaxSolutio accompagne les entreprises dans leurs projets de sourcing et d'importation dans différents secteurs : industrie, automobile, mobilier, e-commerce et équipements.",
+    "Découvrez les secteurs accompagnés par PaxSolutio pour le sourcing en Chine : automobile, machines, mobilier, beauté, électronique, textile, maison et e-commerce.",
 
   alternates: {
     canonical: "/secteurs",
   },
 
   openGraph: {
-    title: "Sourcing par Secteur & Solutions d'Import | PaxSolutio",
+    title: "Sourcing par Secteur en Chine | PaxSolutio",
     description:
-      "Découvrez les secteurs accompagnés par PaxSolutio pour le sourcing, la recherche fournisseurs, le contrôle qualité et la logistique internationale.",
+      "Automobile, machines, mobilier, beauté, électronique, textile, maison et e-commerce : découvrez nos solutions de sourcing et d'importation par secteur.",
     url: "/secteurs",
   },
 };
@@ -34,8 +34,8 @@ export default function IndustriesPage() {
       <IndustriesGrid />
 
       <ServiceCTA
-        title="Votre secteur n'apparaît pas dans cette liste ?"
-        description="Présentez-nous votre produit et votre besoin. Nos solutions de sourcing ne sont pas limitées aux secteurs présentés ici."
+        title="Votre produit ou votre secteur n'apparaît pas ici ?"
+        description="Présentez-nous votre besoin. Notre réseau de fournisseurs et nos méthodes de sourcing ne se limitent pas aux secteurs présentés sur cette page."
         buttonLabel="Présenter mon projet"
         href="/#project"
       />
