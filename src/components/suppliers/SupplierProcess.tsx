@@ -1,39 +1,39 @@
 const steps = [
   {
     number: "01",
-    title: "Votre besoin",
+    title: "Définition du besoin",
     description:
-      "Produit, caractéristiques, quantités, budget, destination et contraintes.",
+      "Produit recherché, caractéristiques techniques, quantités, budget, marché de destination et contraintes du projet.",
   },
   {
     number: "02",
-    title: "Recherche",
+    title: "Recherche de fournisseurs",
     description:
-      "Identification de fournisseurs susceptibles de répondre au cahier des charges.",
+      "Identification de fabricants et fournisseurs en Chine susceptibles de répondre au cahier des charges.",
   },
   {
     number: "03",
-    title: "Premier filtre",
+    title: "Présélection",
     description:
-      "Analyse des informations disponibles et des conditions commerciales.",
+      "Premier filtrage selon les capacités, les informations disponibles, les MOQ, les délais et les conditions commerciales.",
   },
   {
     number: "04",
-    title: "Échanges",
+    title: "Qualification",
     description:
-      "Questions complémentaires sur prix, MOQ, délais, personnalisation et capacités.",
+      "Échanges avec les fournisseurs sur les prix, capacités de production, personnalisation, packaging et exigences techniques.",
   },
   {
     number: "05",
-    title: "Comparatif",
+    title: "Comparaison",
     description:
-      "Organisation des différentes options afin de faciliter leur comparaison.",
+      "Organisation des différentes propositions afin de comparer les fournisseurs sur des critères concrets.",
   },
   {
     number: "06",
-    title: "Shortlist",
+    title: "Shortlist fournisseurs",
     description:
-      "Sélection des fournisseurs qui correspondent le mieux aux critères définis.",
+      "Sélection des fabricants les plus adaptés avant négociation, échantillonnage, contrôle qualité ou lancement de commande.",
   },
 ];
 
@@ -46,13 +46,18 @@ export default function SupplierProcess() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[780px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Supplier Research
+            Notre méthode de recherche
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Du besoin initial
-            <span className="text-[#176BFF]"> à une shortlist exploitable.</span>
+            Du cahier des charges
+            <span className="text-[#176BFF]"> à une shortlist de fournisseurs qualifiés.</span>
           </h2>
+          
+          <p className="mt-6 max-w-[720px] text-lg leading-8 text-[#657386]">
+            Notre processus vise à réduire le nombre d'options progressivement afin de
+            comparer les fabricants sur les critères réellement importants pour votre projet.
+          </p>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

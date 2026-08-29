@@ -32,21 +32,21 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Recherche ciblée",
+    title: "Identifier les bons fabricants",
     description:
-      "La mission part de critères définis plutôt que d'une recherche générique par produit.",
+      "La recherche est réalisée selon votre produit, vos quantités, votre budget, vos exigences techniques et votre marché afin d'identifier des fournisseurs réellement adaptés au projet.",
   },
   {
     number: "02",
-    title: "Comparaison structurée",
+    title: "Comparer avant de choisir",
     description:
-      "Les propositions peuvent être comparées sur plusieurs éléments : prix, MOQ, délais, capacités et personnalisation.",
+      "Prix, MOQ, délais de production, capacités, personnalisation, packaging et conditions commerciales peuvent être comparés avant toute sélection.",
   },
   {
     number: "03",
-    title: "Évolutif",
+    title: "Vérifier et sécuriser la suite",
     description:
-      "Une simple recherche fournisseur peut ensuite évoluer vers négociation, contrôle qualité ou logistique si nécessaire.",
+      "La recherche fournisseur peut être complétée par des échanges de qualification, une vérification du fabricant, des échantillons, un contrôle qualité et l'organisation logistique.",
   },
 ];
 
@@ -58,8 +58,8 @@ export default function SuppliersPage() {
       <SuppliersHero />
 
       <ServiceBenefits
-        title="Un bon fournisseur doit correspondre à votre modèle économique."
-        intro="Le prix seul ne suffit pas. MOQ, qualité, capacité, délais et possibilités de personnalisation peuvent avoir autant d'impact sur votre projet."
+        title="Trouver un fournisseur en Chine ne consiste pas seulement à comparer les prix."
+        intro="Le fabricant sélectionné doit pouvoir répondre à vos volumes, vos exigences qualité, vos délais, votre budget et vos besoins de personnalisation. PaxSolutio structure la recherche afin de comparer plusieurs critères avant de retenir un fournisseur."
         benefits={benefits}
       />
 
@@ -72,8 +72,8 @@ export default function SuppliersPage() {
       <SupplierRequestForm />
 
       <ServiceCTA
-        title="Vous avez déjà une référence produit ou un exemple précis ?"
-        description="Envoyez un maximum d'informations afin que la recherche parte d'un cahier des charges clair."
+        title="Vous recherchez un fabricant ou un fournisseur en Chine ?"
+        description="Envoyez-nous votre produit, vos photos ou liens de référence, les quantités envisagées, votre budget et vos exigences afin de lancer une recherche ciblée."
         buttonLabel="Rechercher mes fournisseurs"
         href="#supplier-request"
       />

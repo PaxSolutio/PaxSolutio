@@ -9,13 +9,19 @@ export default function SuppliersHero() {
       <div className="mx-auto grid max-w-[1320px] gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-10">
         <div className="relative z-10">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Supplier Network
+            Recherche fournisseurs en Chine
           </div>
 
           <h1 className="max-w-[800px] text-[46px] font-extrabold leading-[1.02] tracking-[-0.055em] text-[#071B33] sm:text-[58px] lg:text-[70px]">
-            Trouvez des fournisseurs
-            <span className="text-[#176BFF]"> adaptés à votre secteur.</span>
+            Trouvez un fournisseur en Chine
+            <span className="text-[#176BFF]"> adapté à votre produit et à votre marché.</span>
           </h1>
+
+          <p className="mt-7 max-w-[720px] text-lg leading-8 text-[#657386] lg:text-xl">
+            PaxSolutio recherche, présélectionne et compare des fabricants et fournisseurs
+            en Chine selon votre produit, vos volumes, votre budget, vos exigences qualité
+            et les critères définis dans votre cahier des charges.
+          </p>
 
           <p className="mt-7 max-w-[720px] text-lg leading-8 text-[#657386] lg:text-xl">
             PaxSolutio recherche et présélectionne des fabricants selon votre

@@ -13,18 +13,19 @@ export default function SupplierProfilePreview() {
       <div className="mx-auto grid max-w-[1320px] gap-16 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-10">
         <div>
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            Supplier Profile
+            Comparatif fournisseur
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] sm:text-[48px] lg:text-[54px]">
-            Comparez plus que
-            <span className="text-[#6EA4FF]"> le prix unitaire.</span>
+            Comparez les fournisseurs au-delà
+            <span className="text-[#6EA4FF]"> du simple prix unitaire.</span>
           </h2>
 
           <p className="mt-6 max-w-[580px] text-base leading-8 text-white/60">
-            Selon la mission et les informations disponibles, la comparaison
-            peut intégrer plusieurs éléments : MOQ, capacités, personnalisation,
-            délais, marchés export et options de vérification.
+            Selon la mission et les informations disponibles, un fournisseur peut être
+            comparé sur ses MOQ, ses délais, ses capacités de production, ses options
+            OEM/ODM, ses marchés export, ses possibilités de personnalisation et les
+            vérifications disponibles.
           </p>
         </div>
 
