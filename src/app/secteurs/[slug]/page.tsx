@@ -27,17 +27,25 @@ export async function generateMetadata({
 }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const industry = industries.find(
-    (item) => item.slug === slug
-  );
+  const industry = industries.find((item) => item.slug === slug);
 
   if (!industry) {
     return {};
   }
 
   return {
-    title: `${industry.name} | Sourcing & Import | PaxSolutio`,
-    description: industry.description,
+    title: industry.metaTitle,
+    description: industry.metaDescription,
+
+    alternates: {
+      canonical: `/secteurs/${industry.slug}`,
+    },
+
+    openGraph: {
+      title: `${industry.metaTitle} | PaxSolutio`,
+      description: industry.metaDescription,
+      url: `/secteurs/${industry.slug}`,
+    },
   };
 }
 
@@ -46,9 +54,7 @@ export default async function IndustryPage({
 }: Props) {
   const { slug } = await params;
 
-  const industry = industries.find(
-    (item) => item.slug === slug
-  );
+  const industry = industries.find((item) => item.slug === slug);
 
   if (!industry) {
     notFound();
@@ -64,8 +70,8 @@ export default async function IndustryPage({
 
       <ServiceCTA
         title={`Vous avez un projet dans le secteur ${industry.name} ?`}
-        description="Présentez-nous votre produit, vos volumes et votre marché cible afin d'étudier les solutions adaptées."
-        buttonLabel="Démarrer mon projet"
+        description="Présentez-nous votre produit, les quantités envisagées, vos spécifications et votre marché cible. Nous pourrons étudier les étapes de sourcing, de contrôle et d'importation adaptées."
+        buttonLabel="Présenter mon projet"
         href="/#project"
       />
 
