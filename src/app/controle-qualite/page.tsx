@@ -32,21 +32,21 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Vérifier plus tôt",
+    title: "Détecter les écarts avant expédition",
     description:
-      "Contrôler certains éléments avant expédition permet d'identifier des écarts tant qu'une action reste encore possible.",
+      "Une inspection réalisée avant l'envoi permet d'identifier certains défauts, différences ou non-conformités tant qu'une action corrective reste encore possible.",
   },
   {
     number: "02",
-    title: "Décider avec davantage d'informations",
+    title: "Décider avec des éléments concrets",
     description:
-      "Photos, observations et résultats de contrôle apportent une vision plus claire avant validation.",
+      "Photos, observations, quantités contrôlées et résultats d'inspection permettent d'évaluer plus précisément l'état de la commande avant validation.",
   },
   {
     number: "03",
-    title: "Adapter le contrôle",
+    title: "Adapter le contrôle à votre produit",
     description:
-      "L'inspection peut être structurée selon votre produit, vos exigences et les risques spécifiques à votre commande.",
+      "Les points de contrôle peuvent être définis selon votre cahier des charges, votre produit, votre marché et les principaux risques identifiés.",
   },
 ];
 
@@ -58,8 +58,8 @@ export default function QualityControlPage() {
       <QualityHero />
 
       <ServiceBenefits
-        title="La qualité se sécurise avant l'arrivée de la marchandise."
-        intro="Le contrôle qualité ne supprime pas tous les risques, mais il permet de mieux comprendre l'état d'une commande avant son expédition."
+        title="Le contrôle qualité en Chine permet d'agir avant l'expédition."
+        intro="Une inspection ne supprime pas tous les risques liés à une production, mais elle permet de vérifier des critères définis avant que la marchandise ne quitte le fournisseur et de prendre une décision avec davantage d'informations."
         benefits={benefits}
       />
 
@@ -72,9 +72,9 @@ export default function QualityControlPage() {
       <InspectionRequestForm />
 
       <ServiceCTA
-        title="Votre commande est presque prête à être expédiée ?"
-        description="Transmettez-nous les informations disponibles sur le produit, le fournisseur et les points que vous souhaitez contrôler."
-        buttonLabel="Planifier un contrôle"
+        title="Vous souhaitez contrôler une production avant son expédition ?"
+        description="Transmettez-nous les informations sur votre produit, votre fournisseur, votre commande et les critères à vérifier afin d'étudier l'organisation d'une inspection en Chine."
+        buttonLabel="Planifier une inspection"
         href="#inspection-request"
       />
 

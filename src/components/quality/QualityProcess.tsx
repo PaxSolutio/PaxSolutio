@@ -1,39 +1,39 @@
 const steps = [
   {
     number: "01",
-    title: "Définir les critères",
+    title: "Définition des critères",
     description:
-      "Produit, quantité, tolérances, packaging, dimensions, fonctions ou points critiques.",
+      "Définition des quantités, dimensions, fonctionnalités, tolérances, packaging et autres points critiques à vérifier.",
   },
   {
     number: "02",
-    title: "Planifier le contrôle",
+    title: "Planification de l'inspection",
     description:
-      "Coordination de l'intervention avec le fournisseur et définition du moment pertinent.",
+      "Coordination avec le fournisseur afin d'organiser le contrôle au stade de production le plus pertinent.",
   },
   {
     number: "03",
-    title: "Inspection",
+    title: "Contrôle sur place",
     description:
-      "Vérification des éléments convenus selon les informations et critères disponibles.",
+      "Vérification des critères convenus selon le produit, le cahier des charges et les informations disponibles.",
   },
   {
     number: "04",
-    title: "Documentation",
+    title: "Collecte des éléments",
     description:
-      "Collecte des observations, photos et résultats issus du contrôle.",
+      "Documentation des observations, mesures, résultats, photos et éventuelles anomalies identifiées pendant l'inspection.",
   },
   {
     number: "05",
-    title: "Rapport",
+    title: "Rapport d'inspection",
     description:
-      "Présentation synthétique des éléments conformes, écarts et anomalies détectées.",
+      "Présentation synthétique des contrôles réalisés, des éléments conformes et des écarts observés.",
   },
   {
     number: "06",
-    title: "Décision",
+    title: "Décision avant expédition",
     description:
-      "Vous disposez de davantage d'informations avant de valider la suite de l'opération.",
+      "Vous disposez de davantage d'informations pour valider, corriger ou suspendre l'expédition selon les résultats obtenus.",
   },
 ];
 
@@ -46,13 +46,19 @@ export default function QualityProcess() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Inspection Process
+            Processus d'inspection
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Un contrôle utile commence
-            <span className="text-[#176BFF]"> par de bons critères.</span>
+            Un contrôle qualité efficace commence
+            <span className="text-[#176BFF]"> par des critères clairement définis.</span>
           </h2>
+
+          <p className="mt-6 max-w-[720px] text-lg leading-8 text-[#657386]">
+            Chaque inspection est préparée autour des caractéristiques du produit et
+            des risques identifiés afin que les vérifications réalisées soient réellement
+            utiles à votre décision.
+          </p>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

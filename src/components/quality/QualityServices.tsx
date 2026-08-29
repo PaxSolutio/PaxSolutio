@@ -1,39 +1,39 @@
 const qualityServices = [
   {
     code: "VERIFY",
-    title: "Supplier Verification",
+    title: "Vérification fournisseur",
     description:
-      "Vérification des informations essentielles du fournisseur avant engagement.",
+      "Vérification des informations essentielles du fournisseur avant engagement ou lancement d'une commande.",
   },
   {
     code: "AUDIT",
-    title: "Factory Audit",
+    title: "Audit usine",
     description:
-      "Évaluation des capacités de production, de l'organisation et du site industriel.",
+      "Évaluation du site de production, de l'organisation, des capacités industrielles et des informations disponibles sur le fabricant.",
   },
   {
     code: "DUPRO",
-    title: "During Production Inspection",
+    title: "Inspection pendant production",
     description:
-      "Contrôle pendant la production afin de détecter des écarts avant la fin de fabrication.",
+      "Contrôle réalisé en cours de fabrication afin d'identifier certains écarts avant la fin de la production.",
   },
   {
     code: "PSI",
-    title: "Pre-Shipment Inspection",
+    title: "Inspection avant expédition",
     description:
-      "Inspection de la marchandise avant départ afin de vérifier les critères définis.",
+      "Contrôle de la marchandise terminée avant son départ selon les critères définis dans le cahier des charges.",
   },
   {
     code: "LOAD",
-    title: "Loading Supervision",
+    title: "Supervision du chargement",
     description:
-      "Vérification du chargement lorsque le projet nécessite une supervision complémentaire.",
+      "Vérification du chargement et de certains éléments logistiques lorsque le projet nécessite une supervision complémentaire.",
   },
   {
     code: "REPORT",
-    title: "Inspection Report",
+    title: "Rapport d'inspection",
     description:
-      "Synthèse des éléments vérifiés, observations, photos et anomalies identifiées.",
+      "Synthèse des contrôles réalisés avec observations, photos, résultats et anomalies identifiées.",
   },
 ];
 
@@ -43,17 +43,18 @@ export default function QualityServices() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Quality Services
+            Services de contrôle qualité
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
             Plusieurs niveaux de contrôle
-            <span className="text-[#176BFF]"> selon votre risque.</span>
+            <span className="text-[#176BFF]"> selon votre produit et votre risque.</span>
           </h2>
 
           <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
-            Le type d&apos;inspection dépend du produit, du fournisseur, du
-            stade de production et des points que vous souhaitez vérifier.
+            Le type d&apos;inspection dépend du fournisseur, du stade de production,
+            des caractéristiques du produit et des points critiques que vous souhaitez
+            vérifier avant l&apos;expédition.
           </p>
         </div>
 

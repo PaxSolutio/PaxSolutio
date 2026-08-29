@@ -9,18 +9,18 @@ export default function QualityHero() {
       <div className="mx-auto grid max-w-[1320px] gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-10">
         <div className="relative z-10">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            Quality Control & Factory Audit
+            Contrôle qualité & audit fournisseur en Chine
           </div>
 
           <h1 className="max-w-[780px] text-[46px] font-extrabold leading-[1.02] tracking-[-0.055em] sm:text-[58px] lg:text-[70px]">
-            Vérifiez avant
-            <span className="text-[#6EA4FF]"> d&apos;expédier.</span>
+            Contrôlez votre production en Chine
+            <span className="text-[#6EA4FF]"> avant son expédition.</span>
           </h1>
 
           <p className="mt-7 max-w-[700px] text-lg leading-8 text-white/60 lg:text-xl">
-            PaxSolutio vous accompagne dans la vérification des fournisseurs,
-            l&apos;audit usine et le contrôle de vos marchandises avant leur
-            expédition.
+            PaxSolutio accompagne les entreprises dans la vérification fournisseur,
+            l&apos;audit usine et l&apos;inspection de marchandises en Chine afin de
+            disposer d&apos;éléments concrets avant validation et expédition.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -28,7 +28,7 @@ export default function QualityHero() {
               href="#inspection-request"
               className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#2A79FF]"
             >
-              Demander un contrôle
+              Planifier une inspection
               <span className="ml-3">→</span>
             </Link>
 

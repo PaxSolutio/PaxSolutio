@@ -1,11 +1,11 @@
 export default function InspectionReport() {
   const reportItems = [
-    ["Supplier", "Factory / supplier"],
-    ["Inspection", "Pre-Shipment"],
-    ["Quantity", "Checked"],
-    ["Packaging", "Reviewed"],
-    ["Visual defects", "Reported"],
-    ["Photos", "Included"],
+    ["Fournisseur", "Usine / fournisseur"],
+    ["Inspection", "Avant expédition"],
+    ["Quantité", "Contrôlée"],
+    ["Packaging", "Vérifié"],
+    ["Défauts visuels", "Signalés"],
+    ["Photos", "Incluses"],
   ];
 
   return (
@@ -13,18 +13,18 @@ export default function InspectionReport() {
       <div className="mx-auto grid max-w-[1320px] gap-16 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-10">
         <div>
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            Inspection Report
+            Rapport de contrôle qualité
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] sm:text-[48px] lg:text-[54px]">
-            Des observations
-            <span className="text-[#6EA4FF]"> exploitables.</span>
+            Un rapport d&apos;inspection
+            <span className="text-[#6EA4FF]"> pour décider avant expédition.</span>
           </h2>
 
           <p className="mt-6 max-w-[580px] text-base leading-8 text-white/60">
-            L&apos;objectif n&apos;est pas simplement d&apos;indiquer
-            “contrôlé”, mais de fournir des éléments permettant de comprendre
-            ce qui a été observé avant expédition.
+            Le rapport rassemble les principaux éléments observés pendant le contrôle :
+            photos, quantités, packaging, aspects visuels, tests réalisés et éventuels
+            écarts par rapport aux critères définis.
           </p>
         </div>
 
@@ -32,11 +32,11 @@ export default function InspectionReport() {
           <div className="flex items-center justify-between border-b border-white/10 pb-6">
             <div>
               <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/35">
-                Quality Control
+                Contrôle qualité
               </div>
 
               <div className="mt-2 text-xl font-extrabold">
-                Inspection Summary
+                Synthèse d'inspection
               </div>
             </div>
 
