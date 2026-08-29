@@ -33,21 +33,21 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Centraliser les opérations",
+    title: "Centraliser sourcing et fulfillment",
     description:
-      "Sourcing, stockage, préparation et transport peuvent être pensés comme une seule chaîne.",
+      "La recherche produit, le stockage, la préparation des commandes et l'expédition peuvent être organisés dans une même chaîne opérationnelle.",
   },
   {
     number: "02",
-    title: "Construire votre expérience client",
+    title: "Maîtriser l'expérience client",
     description:
-      "Packaging, préparation et mode d'expédition ont un impact direct sur l'expérience après l'achat.",
+      "Contrôle du produit, packaging, préparation de commande et méthode d'expédition influencent directement la qualité de l'expérience après l'achat.",
   },
   {
     number: "03",
-    title: "Faire évoluer le modèle",
+    title: "Adapter la logistique à votre croissance",
     description:
-      "La solution peut évoluer avec vos références, vos volumes et les marchés que vous développez.",
+      "L'organisation peut évoluer avec votre catalogue, vos volumes de commandes, vos besoins de stockage et les différents marchés que vous développez.",
   },
 ];
 
@@ -59,8 +59,8 @@ export default function DropshippingPage() {
       <DropshippingHero />
 
       <ServiceBenefits
-        title="Votre boutique n'est que la partie visible de votre e-commerce."
-        intro="Derrière chaque commande se trouve une chaîne de fournisseurs, de stock, de préparation et de transport qu'il faut organiser."
+        title="Le dropshipping depuis la Chine ne se résume pas à expédier un produit."
+        intro="Derrière chaque commande se trouvent un fournisseur, un produit à contrôler, du stock à gérer, une préparation à effectuer et un transport à organiser. Structurer ces étapes permet de construire une activité e-commerce plus fiable."
         benefits={benefits}
       />
 
@@ -75,9 +75,9 @@ export default function DropshippingPage() {
       <DropshippingRequestForm />
 
       <ServiceCTA
-        title="Vous avez déjà une boutique, un produit ou un fournisseur ?"
-        description="Présentez-nous votre organisation actuelle et les volumes envisagés afin d'étudier les étapes à mettre en place."
-        buttonLabel="Présenter mon projet"
+        title="Vous avez déjà une boutique, un produit ou un fournisseur en Chine ?"
+        description="Présentez-nous votre activité, vos produits, vos volumes de commandes, vos marchés de destination et votre organisation actuelle afin d'étudier une solution adaptée."
+        buttonLabel="Étudier mon projet e-commerce"
         href="#dropshipping-request"
       />
 

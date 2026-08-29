@@ -1,24 +1,24 @@
 const models = [
   {
-    badge: "MODEL 01",
+    badge: "MODÈLE 01",
     title: "Dropshipping fournisseur",
     description:
-      "Le fournisseur prépare et expédie les commandes selon le fonctionnement défini avec votre activité.",
+      "Le fournisseur prépare et expédie directement les commandes selon l'organisation définie avec votre activité e-commerce.",
     points: [
-      "Pas ou peu de stock intermédiaire",
-      "Organisation dépendante du fournisseur",
-      "Adapté à certains catalogues",
-      "Flux plus direct",
+      "Peu ou pas de stock intermédiaire",
+      "Flux directement lié au fournisseur",
+      "Organisation dépendante de ses capacités",
+      "Adapté à certains catalogues et volumes",
     ],
   },
   {
-    badge: "MODEL 02",
+    badge: "MODÈLE 02",
     title: "Fulfillment avec stock",
     description:
-      "Les produits sont réceptionnés et stockés avant préparation individuelle des commandes.",
+      "Les produits sont réceptionnés et stockés avant d'être préparés individuellement à chaque nouvelle commande.",
     points: [
       "Stock centralisé",
-      "Contrôle avant expédition",
+      "Vérification avant expédition",
       "Packaging personnalisé",
       "Préparation commande par commande",
     ],
@@ -31,18 +31,22 @@ export default function DropshippingModels() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Operating Models
+            Modèles e-commerce
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Le dropshipping et le fulfillment
-            <span className="text-[#176BFF]"> ne sont pas la même chose.</span>
+            Dropshipping ou fulfillment :
+            <span className="text-[#176BFF]">
+              {" "}
+              deux organisations différentes.
+            </span>
           </h2>
 
           <p className="mt-6 max-w-[700px] text-lg leading-8 text-[#657386]">
-            Le modèle doit être choisi selon vos volumes, vos fournisseurs,
-            votre besoin de personnalisation et l&apos;expérience que vous
-            souhaitez offrir à vos clients.
+            Le modèle adapté dépend de vos fournisseurs, du nombre de
+            références, de vos volumes, de votre besoin de contrôle, du
+            packaging et de l&apos;expérience que vous souhaitez proposer à
+            vos clients.
           </p>
         </div>
 

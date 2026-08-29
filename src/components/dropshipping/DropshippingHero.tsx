@@ -9,18 +9,22 @@ export default function DropshippingHero() {
       <div className="mx-auto grid max-w-[1320px] gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-10">
         <div className="relative z-10">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            Dropshipping & Fulfillment
+            Dropshipping Chine & fulfillment e-commerce
           </div>
 
           <h1 className="max-w-[790px] text-[46px] font-extrabold leading-[1.02] tracking-[-0.055em] sm:text-[58px] lg:text-[70px]">
-            Votre supply chain e-commerce
-            <span className="text-[#6EA4FF]"> derrière chaque commande.</span>
+            Structurez votre dropshipping depuis la Chine
+            <span className="text-[#6EA4FF]">
+              {" "}
+              derrière chaque commande.
+            </span>
           </h1>
 
           <p className="mt-7 max-w-[720px] text-lg leading-8 text-white/60 lg:text-xl">
-            Sourcing produit, réception fournisseur, stockage, préparation,
-            personnalisation du colis et expédition internationale : construisez
-            une solution logistique adaptée à votre activité e-commerce.
+            PaxSolutio accompagne les e-commerçants dans le sourcing produit,
+            la réception fournisseur, le stockage, la préparation des
+            commandes, le packaging et l&apos;expédition internationale depuis
+            la Chine.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -28,7 +32,7 @@ export default function DropshippingHero() {
               href="#dropshipping-request"
               className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#2A79FF]"
             >
-              Étudier mon projet
+              Étudier mon projet e-commerce
               <span className="ml-3">→</span>
             </Link>
 
@@ -41,10 +45,10 @@ export default function DropshippingHero() {
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-white/55">
-            <span>✓ Sourcing</span>
-            <span>✓ Warehousing</span>
+            <span>✓ Sourcing produit</span>
+            <span>✓ Stockage</span>
             <span>✓ Pick & Pack</span>
-            <span>✓ Worldwide Shipping</span>
+            <span>✓ Expédition internationale</span>
           </div>
         </div>
 
@@ -55,25 +59,25 @@ export default function DropshippingHero() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#7FAEFF]">
-                  Fulfillment Order
+                  Commande fulfillment
                 </div>
 
                 <div className="mt-3 text-xl font-extrabold">
-                  Order #PS-10482
+                  Commande #PS-10482
                 </div>
               </div>
 
               <span className="rounded-full bg-[#176BFF]/20 px-4 py-2 text-[10px] font-black text-[#8CB8FF]">
-                PROCESSING
+                EN PRÉPARATION
               </span>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               {[
-                ["Product", "In Stock"],
-                ["Packaging", "Custom"],
+                ["Produit", "En stock"],
+                ["Packaging", "Personnalisé"],
                 ["Destination", "France"],
-                ["Status", "Ready"],
+                ["Statut", "Prêt"],
               ].map(([label, value]) => (
                 <div
                   key={label}
@@ -83,29 +87,27 @@ export default function DropshippingHero() {
                     {label}
                   </div>
 
-                  <div className="mt-1 text-sm font-bold">
-                    {value}
-                  </div>
+                  <div className="mt-1 text-sm font-bold">{value}</div>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="absolute bottom-[9%] left-[7%] right-[7%] grid grid-cols-4 gap-2">
-            {["Stock", "Order", "Pack", "Ship"].map((item, index) => (
-              <div
-                key={item}
-                className="rounded-[18px] border border-white/10 bg-[#0B2848] p-4 text-center"
-              >
-                <div className="text-[10px] font-black text-[#6EA4FF]">
-                  0{index + 1}
-                </div>
+            {["Stock", "Commande", "Préparation", "Expédition"].map(
+              (item, index) => (
+                <div
+                  key={item}
+                  className="rounded-[18px] border border-white/10 bg-[#0B2848] p-4 text-center"
+                >
+                  <div className="text-[10px] font-black text-[#6EA4FF]">
+                    0{index + 1}
+                  </div>
 
-                <div className="mt-3 text-xs font-extrabold">
-                  {item}
+                  <div className="mt-3 text-xs font-extrabold">{item}</div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </div>

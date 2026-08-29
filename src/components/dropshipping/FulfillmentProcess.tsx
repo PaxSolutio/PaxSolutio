@@ -1,51 +1,51 @@
 const steps = [
   {
     number: "01",
-    title: "Sourcing",
+    title: "Sourcing produit",
     description:
-      "Recherche ou utilisation de votre fournisseur existant pour approvisionner les produits.",
+      "Recherche d'un fournisseur ou intégration de votre fournisseur existant afin d'organiser l'approvisionnement des produits.",
   },
   {
     number: "02",
-    title: "Réception",
+    title: "Réception des marchandises",
     description:
-      "Les marchandises peuvent être réceptionnées dans un point de stockage ou de consolidation.",
+      "Les produits sont réceptionnés dans un point de stockage ou de consolidation avant leur mise à disposition.",
   },
   {
     number: "03",
-    title: "Stock",
+    title: "Gestion du stock",
     description:
-      "Organisation du stock disponible pour les commandes de votre activité.",
+      "Les références disponibles sont organisées afin de préparer les commandes selon les besoins de votre activité.",
   },
   {
     number: "04",
-    title: "Commande",
+    title: "Réception de la commande",
     description:
-      "Une commande client déclenche la préparation du produit correspondant.",
+      "Une commande client déclenche la sélection du produit correspondant dans le stock disponible.",
   },
   {
     number: "05",
     title: "Pick & Pack",
     description:
-      "Sélection du produit, préparation et éventuelle personnalisation du colis.",
+      "Le produit est sélectionné, préparé puis conditionné avec les éléments de packaging prévus pour votre marque.",
   },
   {
     number: "06",
     title: "Expédition",
     description:
-      "Le colis est remis au réseau de transport adapté à la destination finale.",
+      "Le colis est remis à une solution de transport adaptée au pays de destination et au niveau de service recherché.",
   },
   {
     number: "07",
-    title: "Tracking",
+    title: "Suivi",
     description:
-      "Transmission ou exploitation des données de suivi lorsqu'elles sont disponibles.",
+      "Les informations de suivi disponibles peuvent être exploitées et transmises selon les solutions de transport utilisées.",
   },
   {
     number: "08",
-    title: "Client",
+    title: "Livraison client",
     description:
-      "La commande poursuit son acheminement jusqu'au destinataire final.",
+      "La commande poursuit son acheminement jusqu'au destinataire final selon le réseau logistique sélectionné.",
   },
 ];
 
@@ -58,13 +58,22 @@ export default function FulfillmentProcess() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[820px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Fulfillment Flow
+            Processus de fulfillment
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Du fournisseur
-            <span className="text-[#176BFF]"> jusqu&apos;au client final.</span>
+            Du fournisseur en Chine
+            <span className="text-[#176BFF]">
+              {" "}
+              jusqu&apos;au client final.
+            </span>
           </h2>
+
+          <p className="mt-6 max-w-[720px] text-lg leading-8 text-[#657386]">
+            Une organisation fulfillment relie l&apos;approvisionnement, le
+            stock, la préparation de commande et l&apos;expédition afin de
+            transformer chaque vente en un flux logistique structuré.
+          </p>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
