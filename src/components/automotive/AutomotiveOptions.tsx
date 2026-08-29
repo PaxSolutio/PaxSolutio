@@ -1,33 +1,33 @@
 const options = [
   {
-    title: "Recherche personnalisée",
+    title: "Recherche de véhicules en Chine",
     description:
-      "Vous nous indiquez marque, modèle, finition, motorisation, année, quantité et budget.",
+      "Recherche ciblée selon la marque, le modèle, la finition, la motorisation, l'année, la quantité, le budget et le pays de destination.",
   },
   {
     title: "Vérification du véhicule",
     description:
-      "Lorsque disponible, nous pouvons organiser des vérifications documentaires ou physiques avant achat.",
+      "Étude des informations disponibles sur le véhicule et possibilité d'organiser des vérifications complémentaires selon le projet et la localisation.",
   },
   {
-    title: "Négociation & achat",
+    title: "Comparaison & négociation",
     description:
-      "Nous échangeons avec le vendeur ou fournisseur afin d'obtenir les conditions correspondant au projet.",
+      "Comparaison des offres disponibles et échanges avec les vendeurs ou fournisseurs sur le prix, les quantités et les conditions de vente.",
   },
   {
-    title: "Export",
+    title: "Coordination export",
     description:
-      "Préparation et coordination des étapes nécessaires à la sortie du véhicule depuis le pays d'origine.",
+      "Préparation et coordination des principales étapes nécessaires à l'expédition du véhicule depuis la Chine.",
   },
   {
     title: "Transport RoRo",
     description:
-      "Solution adaptée lorsque le véhicule peut être transporté roulier selon la route disponible.",
+      "Étude du transport roulier lorsque des lignes compatibles existent entre le port de départ et le marché de destination.",
   },
   {
-    title: "Transport conteneur",
+    title: "Transport en conteneur",
     description:
-      "Alternative permettant un acheminement conteneurisé, notamment selon le véhicule ou la destination.",
+      "Organisation possible d'un transport conteneurisé selon les dimensions du véhicule, le volume et la destination.",
   },
 ];
 
@@ -37,13 +37,19 @@ export default function AutomotiveOptions() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Automotive Services
+            Services de sourcing automobile
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Une solution adaptée au niveau
-            <span className="text-[#176BFF]"> d&apos;accompagnement recherché.</span>
+            De la recherche du véhicule
+            <span className="text-[#176BFF]"> jusqu&apos;à son export.</span>
           </h2>
+
+          <p className="mt-6 max-w-[700px] text-lg leading-8 text-[#657386]">
+            L&apos;accompagnement peut couvrir uniquement la recherche d&apos;un
+            modèle ou intégrer plusieurs étapes : vérification, négociation,
+            coordination export et transport international.
+          </p>
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

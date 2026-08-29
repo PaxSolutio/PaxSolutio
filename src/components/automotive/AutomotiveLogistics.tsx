@@ -7,19 +7,21 @@ export default function AutomotiveLogistics() {
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#74A8FF]">
-              Automotive Logistics
+              Logistique automobile internationale
             </div>
 
             <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] sm:text-[48px] lg:text-[54px]">
-              Le véhicule sélectionné.
+              Le véhicule est sélectionné.
               <br />
-              <span className="text-[#6EA4FF]">La logistique déjà connectée.</span>
+              <span className="text-[#6EA4FF]">
+                Il faut maintenant organiser son acheminement.
+              </span>
             </h2>
 
             <p className="mt-6 max-w-[580px] text-base leading-8 text-white/60">
-              Selon la route, le véhicule et la destination, nous pouvons
-              étudier une solution RoRo ou conteneur avec notre partenaire
-              logistique OneBillionForwarders.
+              Selon le véhicule, le port de départ, les lignes disponibles et le pays
+              de destination, PaxSolutio peut étudier avec OneBillionForwarders une
+              solution de transport RoRo ou en conteneur.
             </p>
 
             <Link
@@ -38,12 +40,12 @@ export default function AutomotiveLogistics() {
               </span>
 
               <h3 className="mt-12 text-2xl font-extrabold">
-                Roll-on / Roll-off
+                Transport RoRo
               </h3>
 
               <p className="mt-4 text-sm leading-7 text-white/55">
-                Transport roulier selon les lignes disponibles, le port de
-                départ et la destination.
+                Le véhicule est chargé et déchargé en roulant sur un navire roulier,
+                lorsque des lignes adaptées sont disponibles entre les ports concernés.
               </p>
             </div>
 
@@ -53,12 +55,13 @@ export default function AutomotiveLogistics() {
               </span>
 
               <h3 className="mt-12 text-2xl font-extrabold">
-                Container Shipping
+                Transport en conteneur
               </h3>
 
               <p className="mt-4 text-sm leading-7 text-white/55">
-                Acheminement conteneurisé selon les dimensions, le volume et
-                les contraintes du projet.
+                Le véhicule est acheminé dans un conteneur lorsque cette solution est
+                compatible avec ses dimensions, la route disponible et les contraintes
+                de l'opération.
               </p>
             </div>
           </div>

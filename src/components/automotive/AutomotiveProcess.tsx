@@ -1,39 +1,39 @@
 const steps = [
   {
     number: "01",
-    title: "Votre demande",
+    title: "Définition de votre recherche",
     description:
-      "Modèle, finition, quantité, budget, année et pays de destination.",
+      "Marque, modèle, version, motorisation, année, quantité, budget et pays de destination sont définis avant le lancement de la recherche.",
   },
   {
     number: "02",
-    title: "Recherche marché",
+    title: "Recherche sur le marché chinois",
     description:
-      "Identification de vendeurs, distributeurs ou sources compatibles avec votre besoin.",
+      "Identification de vendeurs, distributeurs ou fournisseurs susceptibles de proposer le véhicule correspondant à votre demande.",
   },
   {
     number: "03",
-    title: "Sélection",
+    title: "Comparaison des offres",
     description:
-      "Comparaison des options disponibles selon prix, spécifications et conditions.",
+      "Les véhicules disponibles sont comparés selon leur prix, leurs spécifications, leur disponibilité et les conditions proposées.",
   },
   {
     number: "04",
     title: "Vérification",
     description:
-      "Contrôle des informations disponibles sur le véhicule et le vendeur.",
+      "Les informations disponibles sur le véhicule et le vendeur sont étudiées avant validation et des vérifications complémentaires peuvent être organisées lorsque cela est nécessaire.",
   },
   {
     number: "05",
-    title: "Achat & export",
+    title: "Validation & coordination export",
     description:
-      "Validation de l'offre, préparation documentaire et coordination export.",
+      "Après sélection de l'offre, les informations et documents nécessaires à l'opération d'export sont coordonnés avec les intervenants concernés.",
   },
   {
     number: "06",
-    title: "Transport",
+    title: "Transport international",
     description:
-      "Acheminement par RoRo ou conteneur selon disponibilité et destination.",
+      "Le véhicule peut ensuite être acheminé par RoRo ou conteneur selon les routes disponibles, le véhicule et le pays de destination.",
   },
 ];
 
@@ -43,13 +43,19 @@ export default function AutomotiveProcess() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Process
+            Notre méthode automobile
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            De la recherche du véhicule
-            <span className="text-[#176BFF]"> à son expédition.</span>
+            Du véhicule recherché
+            <span className="text-[#176BFF]"> à son expédition internationale.</span>
           </h2>
+
+          <p className="mt-6 max-w-[700px] text-lg leading-8 text-[#657386]">
+            Chaque projet est structuré autour du véhicule demandé, du pays de
+            destination et des contraintes de l&apos;opération afin de comparer
+            les offres avant toute validation.
+          </p>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

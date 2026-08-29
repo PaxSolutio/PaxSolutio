@@ -32,21 +32,21 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Recherche ciblée",
+    title: "Rechercher le bon véhicule",
     description:
-      "La recherche part du véhicule réellement demandé : modèle, version, année, quantité, budget et destination.",
+      "La recherche est structurée selon le modèle, la version, l'année, la motorisation, la quantité, le budget et le marché de destination.",
   },
   {
     number: "02",
-    title: "Plus de visibilité",
+    title: "Vérifier avant de valider",
     description:
-      "Les informations disponibles sur le véhicule, le vendeur et les conditions sont étudiées avant validation.",
+      "Les informations disponibles sur le véhicule, le vendeur, les conditions de vente et les éléments nécessaires à l'export sont étudiés avant décision.",
   },
   {
     number: "03",
-    title: "Une chaîne complète",
+    title: "Coordonner l'export et le transport",
     description:
-      "Le sourcing peut être relié directement aux étapes d'export et de logistique internationale.",
+      "Le sourcing automobile peut être relié directement à l'organisation de l'export et du transport international vers le marché cible.",
   },
 ];
 
@@ -58,8 +58,8 @@ export default function AutomotivePage() {
       <AutomotiveHero />
 
       <ServiceBenefits
-        title="L'achat du véhicule n'est qu'une partie de l'opération."
-        intro="La sélection du bon véhicule doit être pensée avec sa disponibilité, son export et son acheminement jusqu'au marché cible."
+        title="Importer un véhicule depuis la Chine ne se résume pas à son prix d'achat."
+        intro="Le modèle, la version, la disponibilité, l'état du véhicule, les conditions de vente, les documents disponibles, le mode d'export et le transport doivent être étudiés ensemble avant de valider une opération."
         benefits={benefits}
       />
 
@@ -72,9 +72,9 @@ export default function AutomotivePage() {
       <VehicleRequestForm />
 
       <ServiceCTA
-        title="Vous avez déjà trouvé un véhicule ou reçu une offre ?"
-        description="Transmettez-nous les informations disponibles afin que nous puissions étudier les prochaines étapes possibles."
-        buttonLabel="Présenter mon véhicule"
+        title="Vous recherchez un véhicule en Chine ou vous avez déjà reçu une offre ?"
+        description="Envoyez-nous le modèle, la version, l'année, les photos ou l'annonce disponible, votre budget, la quantité et le pays de destination afin d'étudier votre projet."
+        buttonLabel="Présenter mon projet automobile"
         href="#vehicle-request"
       />
 

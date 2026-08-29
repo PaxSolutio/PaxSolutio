@@ -9,18 +9,18 @@ export default function AutomotiveHero() {
       <div className="mx-auto grid max-w-[1320px] gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-10">
         <div className="relative z-10">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            PaxSolutio Automotive
+            Sourcing automobile en Chine
           </div>
 
           <h1 className="max-w-[780px] text-[46px] font-extrabold leading-[1.02] tracking-[-0.055em] sm:text-[58px] lg:text-[70px]">
-            Sourcez des véhicules
-            <span className="text-[#6EA4FF]"> à l&apos;international.</span>
+            Trouvez et importez des véhicules depuis la Chine
+            <span className="text-[#6EA4FF]"> selon votre marché.</span>
           </h1>
 
           <p className="mt-7 max-w-[700px] text-lg leading-8 text-white/60 lg:text-xl">
-            Recherche de modèles, vérification du vendeur, inspection,
-            négociation, formalités export et organisation du transport
-            jusqu&apos;à destination.
+            PaxSolutio accompagne les professionnels dans la recherche de véhicules
+            en Chine, la vérification des offres, la négociation, la coordination
+            export et l&apos;organisation du transport international.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -42,8 +42,8 @@ export default function AutomotiveHero() {
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-white/55">
             <span>✓ Véhicules neufs</span>
-            <span>✓ Achat B2B</span>
-            <span>✓ Export</span>
+            <span>✓ Recherche B2B</span>
+            <span>✓ Coordination export</span>
             <span>✓ RoRo / Conteneur</span>
           </div>
         </div>
@@ -53,19 +53,19 @@ export default function AutomotiveHero() {
 
           <div className="absolute left-[9%] top-[9%] right-[9%] rounded-[24px] border border-white/10 bg-white/[0.05] p-6 backdrop-blur">
             <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#7FAEFF]">
-              Vehicle Sourcing Request
+              Recherche automobile
             </div>
 
             <div className="mt-3 text-2xl font-extrabold">
-              BYD Seal / Toyota / BMW...
+              BYD / Geely / Toyota / BMW...
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               {[
-                ["Market", "International"],
-                ["Status", "Sourcing"],
-                ["Inspection", "Available"],
-                ["Shipping", "RoRo / Container"],
+                ["Marché", "International"],
+                ["Statut", "Recherche"],
+                ["Inspection", "Disponible"],
+                ["Transport", "RoRo / Conteneur"],
               ].map(([label, value]) => (
                 <div
                   key={label}
@@ -81,7 +81,7 @@ export default function AutomotiveHero() {
           </div>
 
           <div className="absolute bottom-[9%] left-[9%] right-[9%] grid grid-cols-3 gap-3">
-            {["Source", "Verify", "Export"].map((item, index) => (
+            {["Rechercher", "Vérifier", "Exporter"].map((item, index) => (
               <div
                 key={item}
                 className="rounded-[20px] border border-white/10 bg-[#0B2848] p-5"
