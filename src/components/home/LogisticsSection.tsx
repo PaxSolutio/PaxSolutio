@@ -3,23 +3,27 @@ import Link from "next/link";
 const freightModes = [
   {
     code: "SEA",
-    title: "Sea Freight",
-    description: "FCL, LCL et solutions conteneurisées.",
+    title: "Fret maritime",
+    description:
+      "FCL, LCL et solutions conteneurisées pour les volumes importants.",
   },
   {
     code: "AIR",
-    title: "Air Freight",
-    description: "Pour les expéditions rapides ou sensibles.",
+    title: "Fret aérien",
+    description:
+      "Pour les marchandises nécessitant un acheminement plus rapide.",
   },
   {
     code: "RAIL",
-    title: "Rail Freight",
-    description: "Alternative équilibrée entre coût et délai.",
+    title: "Transport ferroviaire",
+    description:
+      "Alternative Chine-Europe recherchant un équilibre coût / délai.",
   },
   {
     code: "TRUCK",
-    title: "Truck Freight",
-    description: "Solutions routières et connexions intermodales.",
+    title: "Transport routier",
+    description:
+      "Solutions routières et connexions intermodales selon les destinations.",
   },
 ];
 
@@ -43,27 +47,28 @@ export default function LogisticsSection() {
               </div>
 
               <div className="mt-7 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-                Connected logistics
+                Logistique Chine-France & international
               </div>
 
               <h2 className="mt-5 text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-                Le sourcing connecté directement
-                <span className="text-[#176BFF]"> à la logistique.</span>
+                Connectez directement votre sourcing
+                <span className="text-[#176BFF]"> au transport.</span>
               </h2>
 
-              <p className="mt-6 max-w-[560px] text-base leading-8 text-[#657386]">
-                Après validation de vos marchandises, leur acheminement peut
-                être coordonné avec OneBillionForwarders selon la destination,
-                le volume et le délai recherché.
+              <p className="mt-6 max-w-[580px] text-base leading-8 text-[#657386]">
+                Une fois les marchandises prêtes, leur collecte, leur
+                consolidation et leur transport peuvent être coordonnés avec
+                notre partenaire OneBillionForwarders selon la destination, le
+                volume et le délai recherché.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-2">
                 {[
                   "Consolidation",
-                  "Warehousing",
-                  "Documentation",
-                  "Customs",
-                  "Tracking",
+                  "Stockage",
+                  "Documents transport",
+                  "Coordination douanière",
+                  "Suivi",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -79,7 +84,7 @@ export default function LogisticsSection() {
                   href="/logistique"
                   className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#071B33] px-6 text-sm font-extrabold !text-white transition hover:-translate-y-0.5 hover:bg-[#0D2948]"
                 >
-                  Nos solutions logistiques
+                  Découvrir la logistique
                   <span className="ml-3">→</span>
                 </Link>
 

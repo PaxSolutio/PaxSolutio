@@ -1,33 +1,33 @@
 const credibilityItems = [
   {
     value: "5+ ans",
-    label: "Présence en Asie",
+    label: "Présence opérationnelle en Asie",
     description:
-      "Expérience terrain et réseau opérationnel développés progressivement en Asie.",
+      "Réseau et expérience terrain développés progressivement au contact de fournisseurs et partenaires asiatiques.",
   },
   {
     value: "10 000+",
     label: "Contacts fournisseurs",
     description:
-      "Portefeuille multi-secteurs composé de fabricants, distributeurs et partenaires.",
+      "Réseau multi-secteurs composé de fabricants, grossistes, distributeurs et partenaires industriels.",
   },
   {
     value: "500 000 €+",
-    label: "Volume traité",
+    label: "Volume cumulé",
     description:
-      "Volume cumulé en sourcing et e-commerce sur les opérations accompagnées.",
+      "Volume cumulé d'opérations réalisées dans le sourcing, l'importation et l'e-commerce.",
   },
   {
     value: "France + Chine",
     label: "Équipe opérationnelle",
     description:
-      "Suivi client en France et présence terrain en Chine pour les opérations locales.",
+      "Suivi commercial en France et relais terrain en Chine pour coordonner les opérations locales.",
   },
   {
     value: "Chine",
     label: "Présence physique",
     description:
-      "Locaux et capacité de coordination sur place auprès des fournisseurs et partenaires.",
+      "Présence locale permettant de faciliter les échanges avec fabricants, fournisseurs et partenaires.",
   },
 ];
 
@@ -38,19 +38,19 @@ export default function CredibilitySection() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-              Présence & expérience
+              Présence & réseau
             </div>
 
             <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-              Une structure pensée pour
-              <span className="text-[#176BFF]"> travailler sur le terrain.</span>
+              Le sourcing se construit
+              <span className="text-[#176BFF]"> aussi sur le terrain.</span>
             </h2>
           </div>
 
-          <p className="max-w-[560px] text-base leading-8 text-[#657386] lg:justify-self-end">
-            PaxSolutio combine présence locale, réseau fournisseur et
-            coordination internationale afin d&apos;accompagner des projets de
-            sourcing, de contrôle et d&apos;acheminement.
+          <p className="max-w-[590px] text-base leading-8 text-[#657386] lg:justify-self-end">
+            PaxSolutio associe présence en Chine, réseau fournisseurs et
+            coordination en France afin d&apos;accompagner des opérations de
+            sourcing, de contrôle qualité et d&apos;importation internationale.
           </p>
         </div>
 

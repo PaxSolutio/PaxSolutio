@@ -1,24 +1,36 @@
 const values = [
   {
     number: "01",
-    title: "Trouver",
+    title: "Sourcer",
     description:
-      "Nous recherchons et sélectionnons les fournisseurs adaptés à votre produit, vos volumes et votre marché.",
-    details: ["Recherche fournisseur", "Négociation", "Échantillons"],
+      "Identifier et comparer des fabricants adaptés à votre produit, vos volumes, votre budget et votre marché.",
+    details: [
+      "Recherche fournisseur",
+      "Comparaison",
+      "Négociation",
+    ],
   },
   {
     number: "02",
     title: "Sécuriser",
     description:
-      "Nous vérifions les fournisseurs et contrôlons vos marchandises avant qu'elles ne quittent leur lieu de production.",
-    details: ["Supplier verification", "Factory audit", "Quality control"],
+      "Vérifier les partenaires, organiser les échantillons et contrôler les marchandises avant leur expédition.",
+    details: [
+      "Vérification fournisseur",
+      "Audit usine",
+      "Contrôle qualité",
+    ],
   },
   {
     number: "03",
     title: "Acheminer",
     description:
-      "Nous coordonnons le transport international de vos marchandises jusqu'à leur destination.",
-    details: ["Sea", "Air", "Rail & Truck"],
+      "Coordonner la collecte, la consolidation et le transport international jusqu'à votre marché de destination.",
+    details: [
+      "Maritime",
+      "Aérien",
+      "Rail & Route",
+    ],
   },
 ];
 
@@ -26,23 +38,23 @@ export default function ValueProposition() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
-        <div className="max-w-[800px]">
+        <div className="max-w-[820px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Une solution intégrée
+            Une approche intégrée
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
-            Importer ne devrait pas nécessiter
+            Du fournisseur au transport,
             <span className="text-[#176BFF]">
               {" "}
-              cinq prestataires différents.
+              gardez une vision globale de votre import.
             </span>
           </h2>
 
-          <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
-            PaxSolutio centralise les étapes essentielles de votre projet
-            d&apos;approvisionnement afin de simplifier les échanges et
-            conserver une vision claire de toute votre opération.
+          <p className="mt-6 max-w-[700px] text-lg leading-8 text-[#657386]">
+            PaxSolutio peut intervenir sur une étape précise ou coordonner
+            plusieurs opérations afin de limiter les intermédiaires et
+            simplifier le suivi de votre projet.
           </p>
         </div>
 

@@ -137,20 +137,21 @@ export default function ProjectForm() {
         <div className="rounded-[36px] border border-[#E1E8F0] bg-white p-7 shadow-[0_25px_80px_rgba(7,27,51,0.06)] sm:p-10 lg:p-14">
           <div className="max-w-[700px]">
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-              Votre projet
+              Étudions votre projet
             </div>
 
             <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-              Parlez-nous de ce que
+              Donnez-nous les premières informations
               <span className="text-[#176BFF]">
                 {" "}
-                vous recherchez.
+                sur votre projet.
               </span>
             </h2>
 
-            <p className="mt-5 text-base leading-8 text-[#657386]">
-              Quelques informations suffisent pour nous permettre de comprendre
-              votre besoin.
+            <p className="mt-5 max-w-[650px] text-base leading-8 text-[#657386]">
+              Produit, fournisseur, véhicule, contrôle qualité ou transport :
+              quelques informations suffisent pour nous permettre de comprendre
+              votre besoin et d&apos;orienter votre demande.
             </p>
           </div>
 
@@ -192,8 +193,8 @@ export default function ProjectForm() {
                       setError("");
                     }}
                     className={`rounded-2xl border px-5 py-5 text-left text-sm font-bold transition ${projectType === type.value
-                        ? "border-[#176BFF] bg-[#F2F7FF] text-[#176BFF]"
-                        : "border-[#E2E8F0] bg-white text-[#52647B] hover:border-[#BECBDD]"
+                      ? "border-[#176BFF] bg-[#F2F7FF] text-[#176BFF]"
+                      : "border-[#E2E8F0] bg-white text-[#52647B] hover:border-[#BECBDD]"
                       }`}
                   >
                     {type.label}

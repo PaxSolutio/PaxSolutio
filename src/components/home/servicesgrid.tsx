@@ -8,21 +8,22 @@ export default function ServicesGrid() {
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <div>
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-              Nos solutions
+              Sourcing & import
             </div>
 
-            <h2 className="max-w-[700px] text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
-              Tout ce dont votre projet
+            <h2 className="max-w-[720px] text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
+              Des solutions pour chaque étape
               <span className="text-[#176BFF]">
                 {" "}
-                d&apos;import a besoin.
+                de votre projet en Chine.
               </span>
             </h2>
           </div>
 
-          <p className="max-w-[420px] text-base leading-7 text-[#657386]">
-            Sélectionnez une solution ou confiez-nous l&apos;ensemble du
-            parcours, depuis votre besoin initial jusqu&apos;à la livraison.
+          <p className="max-w-[450px] text-base leading-7 text-[#657386]">
+            Recherche fournisseur, développement produit, contrôle qualité,
+            automobile, logistique ou fulfillment : sélectionnez uniquement
+            les services dont votre opération a besoin.
           </p>
         </div>
 
@@ -31,24 +32,27 @@ export default function ServicesGrid() {
             <Link
               key={service.slug}
               href={service.href}
-              className={`group relative flex min-h-[380px] flex-col overflow-hidden rounded-[28px] border p-8 transition duration-300 hover:-translate-y-1 ${service.featured
-                ? "border-[#176BFF] bg-[#071B33] text-white shadow-[0_25px_80px_rgba(7,27,51,0.18)]"
-                : "border-[#E5EAF1] bg-white text-[#071B33] hover:shadow-[0_25px_70px_rgba(7,27,51,0.08)]"
-                }`}
+              className={`group relative flex min-h-[380px] flex-col overflow-hidden rounded-[28px] border p-8 transition duration-300 hover:-translate-y-1 ${
+                service.featured
+                  ? "border-[#176BFF] bg-[#071B33] text-white shadow-[0_25px_80px_rgba(7,27,51,0.18)]"
+                  : "border-[#E5EAF1] bg-white text-[#071B33] hover:shadow-[0_25px_70px_rgba(7,27,51,0.08)]"
+              }`}
             >
               <div
-                className={`absolute right-[-60px] top-[-60px] h-[180px] w-[180px] rounded-full ${service.featured
-                  ? "bg-[#176BFF]/20"
-                  : "bg-[#EAF2FF]"
-                  }`}
+                className={`absolute right-[-60px] top-[-60px] h-[180px] w-[180px] rounded-full ${
+                  service.featured
+                    ? "bg-[#176BFF]/20"
+                    : "bg-[#EAF2FF]"
+                }`}
               />
 
               <div className="relative z-10">
                 <span
-                  className={`text-[11px] font-black uppercase tracking-[0.18em] ${service.featured
-                    ? "text-[#74A8FF]"
-                    : "text-[#176BFF]"
-                    }`}
+                  className={`text-[11px] font-black uppercase tracking-[0.18em] ${
+                    service.featured
+                      ? "text-[#74A8FF]"
+                      : "text-[#176BFF]"
+                  }`}
                 >
                   {service.category}
                 </span>
@@ -56,19 +60,21 @@ export default function ServicesGrid() {
 
               <div className="relative z-10 mt-auto">
                 <h3
-                  className={`text-[27px] font-extrabold leading-tight tracking-[-0.035em] ${service.featured
-                    ? "text-white"
-                    : "text-[#071B33]"
-                    }`}
+                  className={`text-[27px] font-extrabold leading-tight tracking-[-0.035em] ${
+                    service.featured
+                      ? "text-white"
+                      : "text-[#071B33]"
+                  }`}
                 >
                   {service.title}
                 </h3>
 
                 <p
-                  className={`mt-4 text-sm leading-7 ${service.featured
-                    ? "text-white/70"
-                    : "text-[#657386]"
-                    }`}
+                  className={`mt-4 text-sm leading-7 ${
+                    service.featured
+                      ? "text-white/70"
+                      : "text-[#657386]"
+                  }`}
                 >
                   {service.shortDescription}
                 </p>
@@ -77,10 +83,11 @@ export default function ServicesGrid() {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`rounded-full px-3 py-2 text-[11px] font-bold ${service.featured
-                        ? "bg-white/10 text-white"
-                        : "bg-[#F6F8FB] text-[#52647B]"
-                        }`}
+                      className={`rounded-full px-3 py-2 text-[11px] font-bold ${
+                        service.featured
+                          ? "bg-white/10 text-white"
+                          : "bg-[#F6F8FB] text-[#52647B]"
+                      }`}
                     >
                       {tag}
                     </span>
@@ -88,10 +95,11 @@ export default function ServicesGrid() {
                 </div>
 
                 <div
-                  className={`mt-8 flex items-center gap-3 text-sm font-extrabold ${service.featured
+                  className={`mt-8 flex items-center gap-3 text-sm font-extrabold ${
+                    service.featured
                       ? "text-white"
                       : "text-[#176BFF]"
-                    }`}
+                  }`}
                 >
                   Découvrir
 

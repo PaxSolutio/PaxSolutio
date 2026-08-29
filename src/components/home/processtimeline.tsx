@@ -1,51 +1,51 @@
 const steps = [
   {
     number: "01",
-    title: "Brief",
+    title: "Cahier des charges",
     description:
-      "Vous nous présentez votre produit, votre budget, vos volumes et votre marché cible.",
+      "Vous nous présentez le produit, les quantités, le budget, les spécifications et le marché de destination.",
   },
   {
     number: "02",
     title: "Recherche",
     description:
-      "Nous identifions et qualifions les fournisseurs correspondant à vos critères.",
+      "Identification de fabricants ou fournisseurs correspondant aux principaux critères définis.",
   },
   {
     number: "03",
-    title: "Proposition",
+    title: "Comparaison",
     description:
-      "Vous recevez une sélection structurée avec prix, MOQ, délais et conditions.",
+      "Prix, MOQ, capacités, personnalisation, délais et conditions sont comparés avant sélection.",
   },
   {
     number: "04",
-    title: "Validation",
+    title: "Échantillon",
     description:
-      "Échantillons, négociation finale et validation du fournisseur retenu.",
+      "Lorsque nécessaire, un échantillon ou prototype permet de valider le produit avant production.",
   },
   {
     number: "05",
     title: "Production",
     description:
-      "Nous suivons les échanges avec le fabricant pendant la préparation de la commande.",
+      "Les échanges avec le fabricant sont suivis pendant la préparation de votre commande.",
   },
   {
     number: "06",
-    title: "Inspection",
+    title: "Contrôle qualité",
     description:
-      "La marchandise peut être contrôlée avant expédition selon votre cahier des charges.",
+      "La marchandise peut être inspectée avant expédition selon les critères définis.",
   },
   {
     number: "07",
     title: "Logistique",
     description:
-      "Collecte, consolidation et transport selon la solution la plus adaptée.",
+      "Collecte, consolidation et transport sont organisés selon le volume, la destination et le délai.",
   },
   {
     number: "08",
-    title: "Livraison",
+    title: "Acheminement",
     description:
-      "Votre marchandise poursuit son acheminement jusqu'à la destination convenue.",
+      "La marchandise poursuit son transport international jusqu'à la destination prévue.",
   },
 ];
 
@@ -56,18 +56,22 @@ export default function ProcessTimeline() {
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <div>
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-              De la demande à la livraison
+              Notre méthode
             </div>
 
             <h2 className="max-w-[720px] text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
-              Une méthode claire
-              <span className="text-[#176BFF]"> à chaque étape.</span>
+              Du besoin initial
+              <span className="text-[#176BFF]">
+                {" "}
+                à l&apos;expédition.
+              </span>
             </h2>
           </div>
 
-          <p className="max-w-[420px] text-base leading-7 text-[#657386]">
-            Chaque projet peut être pris en charge intégralement ou uniquement
-            sur les étapes dont vous avez besoin.
+          <p className="max-w-[440px] text-base leading-7 text-[#657386]">
+            Chaque projet peut suivre l&apos;ensemble du parcours ou seulement
+            certaines étapes selon votre organisation et vos partenaires
+            existants.
           </p>
         </div>
 

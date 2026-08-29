@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const automotiveSteps = [
-  "Recherche du véhicule",
+  "Recherche du véhicule en Chine",
   "Vérification vendeur / véhicule",
-  "Négociation",
-  "Formalités export",
+  "Comparaison des offres",
+  "Coordination export",
   "Transport RoRo ou conteneur",
   "Suivi logistique",
 ];
@@ -19,7 +19,7 @@ export default function AutomotiveSection() {
           <div className="absolute left-[8%] top-[10%] h-[82%] w-[84%] rounded-[28px] border border-white/10 bg-white/[0.03]" />
 
           <div className="absolute left-[13%] top-[16%] rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#8EB6FF]">
-            Automotive sourcing
+            Sourcing automobile Chine
           </div>
 
           <div className="absolute bottom-[14%] left-[12%] right-[12%]">
@@ -27,11 +27,11 @@ export default function AutomotiveSection() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-[0.14em] text-white/50">
-                    Vehicle request
+                    Recherche véhicule
                   </div>
 
                   <div className="mt-2 text-xl font-extrabold">
-                    BYD • Toyota • BMW • Mercedes...
+                    BYD • Geely • Toyota • BMW...
                   </div>
                 </div>
 
@@ -43,23 +43,23 @@ export default function AutomotiveSection() {
               <div className="mt-6 grid grid-cols-3 gap-3">
                 <div className="rounded-2xl bg-white/[0.05] p-4">
                   <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/40">
-                    Source
+                    Rechercher
                   </div>
-                  <div className="mt-1 text-sm font-bold">Market</div>
+                  <div className="mt-1 text-sm font-bold">Marché chinois</div>
                 </div>
 
                 <div className="rounded-2xl bg-white/[0.05] p-4">
                   <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/40">
-                    Verify
+                    Vérifier
                   </div>
-                  <div className="mt-1 text-sm font-bold">Inspection</div>
+                  <div className="mt-1 text-sm font-bold">Offre</div>
                 </div>
 
                 <div className="rounded-2xl bg-white/[0.05] p-4">
                   <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/40">
-                    Ship
+                    Exporter
                   </div>
-                  <div className="mt-1 text-sm font-bold">Export</div>
+                  <div className="mt-1 text-sm font-bold">Transport</div>
                 </div>
               </div>
             </div>
@@ -70,18 +70,18 @@ export default function AutomotiveSection() {
 
         <div>
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#74A8FF]">
-            PaxSolutio Automotive
+            Sourcing automobile
           </div>
 
-          <h2 className="max-w-[650px] text-[40px] font-extrabold leading-[1.06] tracking-[-0.05em] sm:text-[50px] lg:text-[58px]">
-            Accédez autrement au marché automobile international.
+          <h2 className="max-w-[680px] text-[40px] font-extrabold leading-[1.06] tracking-[-0.05em] sm:text-[50px] lg:text-[58px]">
+            Recherchez et importez des véhicules depuis la Chine.
           </h2>
 
-          <p className="mt-6 max-w-[620px] text-lg leading-8 text-white/60">
-            Vous recherchez un modèle précis ou souhaitez développer une
-            activité d&apos;import automobile ? PaxSolutio peut vous
-            accompagner depuis l&apos;identification du véhicule jusqu&apos;à
-            son export.
+          <p className="mt-6 max-w-[630px] text-lg leading-8 text-white/60">
+            PaxSolutio accompagne les professionnels dans la recherche de
+            véhicules sur le marché chinois, la comparaison des offres, la
+            vérification des informations disponibles et l&apos;organisation
+            de l&apos;export et du transport international.
           </p>
 
           <div className="mt-9 grid gap-3 sm:grid-cols-2">
@@ -103,10 +103,10 @@ export default function AutomotiveSection() {
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/contact"
+              href="/sourcing-automobile#vehicle-request"
               className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#2E7BFF]"
             >
-              Décrire le véhicule recherché
+              Rechercher un véhicule
               <span className="ml-3">→</span>
             </Link>
 
@@ -114,7 +114,7 @@ export default function AutomotiveSection() {
               href="/sourcing-automobile"
               className="inline-flex min-h-14 items-center justify-center rounded-xl border border-white/15 px-7 text-sm font-extrabold text-white transition hover:bg-white/5"
             >
-              Découvrir l&apos;automobile
+              Découvrir le sourcing automobile
             </Link>
           </div>
         </div>

@@ -3,27 +3,27 @@ import Link from "next/link";
 const services = [
   {
     number: "01",
-    title: "Supplier Verification",
+    title: "Vérification fournisseur",
     description:
-      "Vérification de l'existence, des informations et du profil du fournisseur.",
+      "Vérification des informations disponibles sur l'entreprise et le profil du fournisseur.",
   },
   {
     number: "02",
-    title: "Factory Audit",
+    title: "Audit usine",
     description:
-      "Analyse des capacités, de l'organisation et des conditions de production.",
+      "Évaluation sur site des capacités, de l'organisation et des conditions de production.",
   },
   {
     number: "03",
-    title: "During Production",
+    title: "Contrôle en production",
     description:
-      "Inspection pendant la fabrication afin d'identifier les anomalies en amont.",
+      "Inspection pendant la fabrication afin d'identifier certains écarts avant la fin de production.",
   },
   {
     number: "04",
-    title: "Pre-Shipment Inspection",
+    title: "Inspection avant expédition",
     description:
-      "Contrôle final de la marchandise avant autorisation de l'expédition.",
+      "Contrôle des marchandises avant leur départ selon les critères définis pour la commande.",
   },
 ];
 
@@ -34,24 +34,28 @@ export default function QualitySection() {
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div className="lg:sticky lg:top-12">
             <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-              Quality Control
+              Contrôle qualité en Chine
             </div>
 
             <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-              Contrôlez avant de payer
-              <span className="text-[#176BFF]"> le prix des erreurs.</span>
+              Vérifiez avant
+              <span className="text-[#176BFF]">
+                {" "}
+                que la marchandise ne quitte la Chine.
+              </span>
             </h2>
 
-            <p className="mt-6 max-w-[500px] text-lg leading-8 text-[#657386]">
-              Vérifiez vos partenaires et votre marchandise avant que les
-              problèmes ne deviennent coûteux à corriger.
+            <p className="mt-6 max-w-[520px] text-lg leading-8 text-[#657386]">
+              Les inspections permettent d&apos;identifier certains écarts et
+              de disposer d&apos;éléments concrets avant de valider
+              l&apos;expédition de votre commande.
             </p>
 
             <Link
               href="/controle-qualite"
               className="mt-9 inline-flex min-h-14 items-center justify-center rounded-xl bg-[#071B33] px-7 text-sm font-extrabold !text-white transition hover:-translate-y-0.5"
             >
-              Planifier une inspection
+              Découvrir le contrôle qualité
               <span className="ml-3">→</span>
             </Link>
           </div>
@@ -86,14 +90,19 @@ export default function QualitySection() {
               </div>
 
               <p className="mt-2 max-w-[760px] text-sm leading-7 text-white/60">
-                Photos, quantités contrôlées, anomalies observées et éléments
-                vérifiés peuvent être regroupés dans un rapport avant
-                validation de l&apos;expédition.
+                Photos, observations, quantités contrôlées et écarts identifiés
+                peuvent être regroupés dans un rapport afin de faciliter votre
+                décision avant expédition.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {["Photos", "Quantités", "Packaging", "Defects"].map((tag) => (
+              {[
+                "Photos",
+                "Quantités",
+                "Packaging",
+                "Anomalies",
+              ].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full bg-white/10 px-4 py-2 text-xs font-bold"

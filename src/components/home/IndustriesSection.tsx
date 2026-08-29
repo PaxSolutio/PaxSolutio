@@ -3,49 +3,57 @@ import Link from "next/link";
 const industries = [
   {
     title: "Automobile",
-    description: "Véhicules, pièces et équipements.",
+    description:
+      "Véhicules, pièces, accessoires et équipements automobiles.",
     href: "/secteurs/automobile",
     code: "01",
   },
   {
     title: "Machines & Construction",
-    description: "Engins, équipements et outillage professionnel.",
+    description:
+      "Engins de chantier, machines, équipements et outillage professionnel.",
     href: "/secteurs/construction",
     code: "02",
   },
   {
     title: "Mobilier",
-    description: "Sofas, mobilier professionnel et aménagement.",
+    description:
+      "Canapés, mobilier professionnel, décoration et aménagement.",
     href: "/secteurs/mobilier",
     code: "03",
   },
   {
     title: "Beauté & Esthétique",
-    description: "Machines, consommables et équipements professionnels.",
+    description:
+      "Machines, mobilier, consommables et équipements professionnels.",
     href: "/secteurs/beaute",
     code: "04",
   },
   {
     title: "Électronique",
-    description: "Produits électroniques et accessoires.",
+    description:
+      "Équipements électroniques, accessoires et produits connectés.",
     href: "/secteurs/electronique",
     code: "05",
   },
   {
     title: "Maison & Électroménager",
-    description: "Équipements domestiques et produits lifestyle.",
+    description:
+      "Équipements domestiques, électroménager et produits pour la maison.",
     href: "/secteurs/maison",
     code: "06",
   },
   {
-    title: "Textile & Fashion",
-    description: "Vêtements, accessoires et private label.",
+    title: "Textile & Mode",
+    description:
+      "Vêtements, accessoires, personnalisation et private label.",
     href: "/secteurs/textile",
     code: "07",
   },
   {
     title: "E-commerce",
-    description: "Produits destinés aux marketplaces et boutiques en ligne.",
+    description:
+      "Produits destinés aux marketplaces, marques et boutiques en ligne.",
     href: "/secteurs/ecommerce",
     code: "08",
   },
@@ -55,19 +63,23 @@ export default function IndustriesSection() {
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
-        <div className="max-w-[760px]">
+        <div className="max-w-[780px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Expertises sectorielles
+            Sourcing par secteur
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
-            Votre industrie a ses propres
-            <span className="text-[#176BFF]"> contraintes.</span>
+            Chaque produit impose
+            <span className="text-[#176BFF]">
+              {" "}
+              ses propres critères de sourcing.
+            </span>
           </h2>
 
-          <p className="mt-6 max-w-[650px] text-lg leading-8 text-[#657386]">
-            Nos méthodes de sourcing et de contrôle s&apos;adaptent au produit,
-            au marché cible et aux contraintes spécifiques de chaque secteur.
+          <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
+            Fournisseurs, matériaux, volumes, contrôles, packaging et
+            transport varient selon les secteurs. Notre approche est adaptée à
+            la nature du produit et au marché de destination.
           </p>
         </div>
 
@@ -99,6 +111,16 @@ export default function IndustriesSection() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <Link
+            href="/secteurs"
+            className="inline-flex items-center gap-3 text-sm font-extrabold text-[#176BFF]"
+          >
+            Découvrir tous nos secteurs
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </section>
