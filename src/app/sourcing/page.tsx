@@ -29,108 +29,108 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Réduire les incertitudes",
+    title: "Réduire les risques fournisseurs",
     description:
-      "Nous structurons la recherche fournisseur selon des critères précis : produit, qualité attendue, volumes, budget et destination.",
+      "La recherche est structurée selon votre produit, vos volumes, votre budget, vos exigences qualité et votre marché afin d'éviter une sélection basée uniquement sur le prix.",
   },
   {
     number: "02",
-    title: "Comparer réellement",
+    title: "Comparer les fabricants",
     description:
-      "Prix, MOQ, délais, capacités et conditions peuvent être comparés avant de sélectionner un partenaire.",
+      "Prix, MOQ, délais de production, capacités, personnalisation, packaging et conditions commerciales peuvent être comparés avant de sélectionner un fournisseur.",
   },
   {
     number: "03",
-    title: "Centraliser votre projet",
+    title: "Centraliser votre importation",
     description:
-      "Le sourcing peut être connecté au contrôle qualité et à la logistique afin d'éviter de multiplier les intermédiaires.",
+      "Le sourcing peut être connecté à la vérification fournisseur, au contrôle qualité et à la logistique internationale afin de limiter les intermédiaires.",
   },
 ];
 
 const process = [
   {
     number: "01",
-    title: "Définition du besoin",
+    title: "Définition du cahier des charges",
     description:
-      "Nous analysons votre produit, vos quantités, votre marché, votre budget et vos contraintes.",
+      "Nous analysons le produit recherché, les caractéristiques techniques, les quantités, le budget, le marché de destination et les contraintes du projet.",
   },
   {
     number: "02",
-    title: "Recherche fournisseurs",
+    title: "Recherche de fabricants en Chine",
     description:
-      "Identification de fabricants ou partenaires susceptibles de correspondre au cahier des charges.",
+      "Identification de fabricants et fournisseurs susceptibles de répondre au cahier des charges grâce à notre réseau et aux différentes sources disponibles.",
   },
   {
     number: "03",
-    title: "Qualification",
+    title: "Qualification des fournisseurs",
     description:
-      "Analyse des informations disponibles, échanges avec les fournisseurs et comparaison des propositions.",
+      "Analyse des informations disponibles, des capacités de production, des MOQ, des délais et des conditions proposées par les fournisseurs sélectionnés.",
   },
   {
     number: "04",
-    title: "Négociation",
+    title: "Comparaison & négociation",
     description:
-      "Discussion des prix, MOQ, packaging, délais, personnalisation et conditions commerciales.",
+      "Comparaison des offres et négociation des prix, quantités minimales, délais, packaging, personnalisation et conditions commerciales.",
   },
   {
     number: "05",
     title: "Échantillon & validation",
     description:
-      "Lorsque nécessaire, un échantillon peut être organisé avant validation de la commande.",
+      "Lorsque le projet le nécessite, des échantillons peuvent être organisés afin de vérifier le produit avant le lancement de la production.",
   },
   {
     number: "06",
-    title: "Production & expédition",
+    title: "Production, contrôle & expédition",
     description:
-      "Le projet peut ensuite être accompagné jusqu'au contrôle qualité et à la logistique internationale.",
+      "Après validation, le projet peut être suivi jusqu'à la production, au contrôle qualité et à l'organisation du transport international.",
   },
 ];
 
 const offers = [
   {
-    title: "Recherche fabricant",
+    title: "Recherche de fabricants",
     description:
-      "Identification de fournisseurs adaptés au produit et aux critères du projet.",
+      "Identification de fabricants et fournisseurs en Chine selon votre produit, vos volumes et vos critères.",
   },
   {
     title: "Comparatif fournisseurs",
     description:
-      "Analyse structurée des différentes propositions obtenues.",
+      "Comparaison des prix, MOQ, délais, capacités de production et conditions commerciales.",
   },
   {
-    title: "Négociation commerciale",
+    title: "Négociation fournisseur",
     description:
-      "Prix, quantités, conditions, délais et modalités de production.",
+      "Négociation des tarifs, quantités, délais, packaging, personnalisation et modalités de commande.",
   },
   {
     title: "Échantillonnage",
     description:
-      "Organisation d'échantillons lorsqu'une validation physique est nécessaire.",
+      "Organisation et suivi d'échantillons afin de valider le produit avant la production.",
   },
   {
     title: "Private Label",
     description:
-      "Étude des possibilités de personnalisation, packaging et identité de marque.",
+      "Recherche de solutions pour votre marque : logo, packaging, couleurs, accessoires et personnalisation.",
   },
   {
     title: "Développement produit",
     description:
-      "Accompagnement lorsqu'un produit nécessite des modifications ou spécifications particulières.",
+      "Accompagnement OEM et ODM lorsqu'un produit nécessite des modifications ou un cahier des charges spécifique.",
   },
   {
-    title: "Supplier Verification",
+    title: "Vérification fournisseur",
     description:
-      "Vérification complémentaire du fournisseur avant engagement lorsque nécessaire.",
+      "Vérification complémentaire du fabricant ou du fournisseur avant engagement et lancement de commande.",
   },
   {
     title: "Contrôle qualité",
     description:
-      "Inspection potentielle de la marchandise avant son expédition.",
+      "Organisation possible d'une inspection de la marchandise avant son expédition.",
   },
   {
-    title: "Logistique",
+    title: "Logistique internationale",
     description:
-      "Coordination du transport avec la solution adaptée au volume et à la destination.",
+      "Coordination du transport maritime, aérien, ferroviaire ou routier selon le volume et la destination.",
   },
 ];
 
@@ -140,10 +140,10 @@ export default function SourcingPage() {
       <Header />
 
       <ServiceHero
-        eyebrow="Sourcing International"
-        title="Trouvez les bons fournisseurs."
-        highlightedText="Construisez une meilleure supply chain."
-        description="PaxSolutio accompagne les entreprises dans l'identification, la qualification et la négociation avec des fournisseurs adaptés à leurs projets d'importation."
+        eyebrow="Sourcing en Chine"
+        title="Sourcing en Chine : trouvez les bons fournisseurs."
+        highlightedText="Construisez une supply chain plus fiable."
+        description="PaxSolutio accompagne les entreprises dans la recherche, la qualification et la négociation avec des fabricants et fournisseurs en Chine, jusqu'au contrôle qualité et à l'organisation de l'importation."
         primaryCta="Lancer un sourcing"
         primaryHref="/#project"
         secondaryCta="Découvrir notre méthode"
@@ -151,23 +151,23 @@ export default function SourcingPage() {
       />
 
       <ServiceBenefits
-        title="Le sourcing ne consiste pas simplement à trouver un prix."
-        intro="Le bon fournisseur doit être compatible avec votre produit, votre marché, vos exigences qualité et votre modèle économique."
+        title="Le sourcing en Chine ne consiste pas simplement à trouver le prix le plus bas."
+        intro="Un bon fournisseur doit être compatible avec votre produit, vos volumes, votre marché, vos exigences qualité, vos délais et votre modèle économique. PaxSolutio structure la recherche afin de comparer les fabricants sur des critères concrets avant toute décision."
         benefits={benefits}
       />
 
       <div id="process">
         <ServiceProcess
-          eyebrow="Notre méthode"
-          title="De votre cahier des charges au fournisseur sélectionné."
-          description="Chaque mission est structurée afin de comparer les options avant de prendre une décision."
+          eyebrow="Notre méthode de sourcing"
+          title="Du cahier des charges au fournisseur sélectionné."
+          description="Notre processus de sourcing en Chine permet de structurer la recherche, comparer les fabricants et sécuriser les principales étapes avant la production et l'expédition."
           steps={process}
         />
       </div>
 
       <ServiceOfferGrid
-        eyebrow="Services sourcing"
-        title="Une mission adaptée au niveau d'accompagnement dont vous avez besoin."
+        eyebrow="Services de sourcing"
+        title="Un accompagnement adapté à chaque étape de votre projet d'importation."
         offers={offers}
       />
 
