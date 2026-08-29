@@ -1,39 +1,39 @@
 const services = [
   {
     number: "01",
-    title: "Pickup fournisseur",
+    title: "Collecte chez le fournisseur",
     description:
-      "Organisation de la collecte de vos marchandises auprès d'un ou plusieurs fournisseurs.",
+      "Organisation de la récupération des marchandises auprès d'un ou plusieurs fournisseurs avant leur acheminement vers l'entrepôt ou le terminal.",
   },
   {
     number: "02",
-    title: "Consolidation",
+    title: "Consolidation des commandes",
     description:
-      "Regroupement de plusieurs commandes avant expédition afin de centraliser l'opération.",
+      "Regroupement de marchandises provenant de plusieurs fournisseurs afin de préparer une expédition commune lorsque cela est pertinent.",
   },
   {
     number: "03",
-    title: "Warehousing",
+    title: "Stockage temporaire",
     description:
-      "Stockage temporaire lorsque le projet nécessite une étape intermédiaire.",
+      "Mise en entrepôt temporaire lorsque la marchandise doit être regroupée, préparée ou attendre une prochaine étape logistique.",
   },
   {
     number: "04",
-    title: "Documentation",
+    title: "Documents de transport",
     description:
-      "Coordination des informations et documents nécessaires au transport.",
+      "Coordination des informations et documents nécessaires à l'organisation du transport international.",
   },
   {
     number: "05",
-    title: "Dédouanement",
+    title: "Coordination douanière",
     description:
-      "Accompagnement ou coordination avec les acteurs impliqués dans les formalités douanières.",
+      "Accompagnement dans la préparation de l'opération et coordination avec les intervenants chargés des formalités douanières.",
   },
   {
     number: "06",
-    title: "Tracking",
+    title: "Suivi de l'expédition",
     description:
-      "Suivi des principales étapes de l'expédition selon les données disponibles.",
+      "Suivi des principales étapes du transport selon le mode utilisé et les informations disponibles auprès des opérateurs.",
   },
 ];
 
@@ -43,17 +43,18 @@ export default function LogisticsServices() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Beyond Freight
+            Au-delà du transport
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Le transport ne commence pas
-            <span className="text-[#176BFF]"> au départ du navire.</span>
+            La logistique commence
+            <span className="text-[#176BFF]"> bien avant le départ de la marchandise.</span>
           </h2>
 
           <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
-            Une opération logistique peut inclure plusieurs étapes avant et
-            après le transport principal.
+            Une expédition internationale peut nécessiter collecte, consolidation,
+            stockage, documentation, coordination douanière et suivi avant même
+            l&apos;acheminement vers la destination finale.
           </p>
         </div>
 

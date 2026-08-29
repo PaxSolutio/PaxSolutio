@@ -32,21 +32,21 @@ export const metadata: Metadata = {
 const benefits = [
   {
     number: "01",
-    title: "Une solution adaptée",
+    title: "Choisir le bon mode de transport",
     description:
-      "Le mode de transport est étudié selon la marchandise, le volume, la destination et les délais recherchés.",
+      "Fret maritime, aérien, ferroviaire ou routier : la solution est étudiée selon la nature de la marchandise, le volume, le budget et le délai recherché.",
   },
   {
     number: "02",
-    title: "Une chaîne coordonnée",
+    title: "Coordonner toute la chaîne logistique",
     description:
-      "La collecte, la consolidation et le transport peuvent être intégrés directement après le sourcing.",
+      "Collecte chez le fournisseur, consolidation, préparation du transport et acheminement international peuvent être organisés dans un même parcours.",
   },
   {
     number: "03",
-    title: "Un seul parcours",
+    title: "Connecter sourcing et transport",
     description:
-      "PaxSolutio et OneBillionForwarders permettent de connecter l'approvisionnement à l'acheminement international.",
+      "PaxSolutio peut relier directement le sourcing, le contrôle qualité et l'organisation logistique afin de limiter les ruptures entre chaque étape.",
   },
 ];
 
@@ -58,8 +58,8 @@ export default function LogisticsPage() {
       <LogisticsHero />
 
       <ServiceBenefits
-        title="Le meilleur transport n'est pas toujours le moins cher."
-        intro="Une bonne décision logistique doit équilibrer coût, délai, contraintes produit et fiabilité de l'opération."
+        title="Une bonne logistique Chine-France doit équilibrer coût, délai et fiabilité."
+        intro="Le transport international ne se résume pas au prix du fret. Le volume, le type de marchandise, la destination, le délai, la consolidation et les contraintes d'importation doivent être pris en compte avant de choisir une solution."
         benefits={benefits}
       />
 
@@ -72,9 +72,9 @@ export default function LogisticsPage() {
       <FreightRequestForm />
 
       <ServiceCTA
-        title="Vous avez déjà votre fournisseur et votre marchandise est prête ?"
-        description="Envoyez-nous les informations de départ, destination, poids et volume afin d'étudier votre besoin logistique."
-        buttonLabel="Demander une solution"
+        title="Votre marchandise est prête à être expédiée depuis la Chine ?"
+        description="Transmettez-nous le lieu de départ, la destination, le type de marchandise, le poids, le volume et le délai souhaité afin d'étudier une solution de transport adaptée."
+        buttonLabel="Demander un devis transport"
         href="#freight-request"
       />
 

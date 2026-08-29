@@ -18,19 +18,19 @@ export default function OBFSection() {
           </div>
 
           <div className="mt-8 text-xs font-extrabold uppercase tracking-[0.18em] text-[#79A9FF]">
-            Logistics Partnership
+            Partenaire logistique international
           </div>
 
           <h2 className="mt-5 text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] sm:text-[48px] lg:text-[54px]">
-            Le sourcing et la logistique
-            <span className="text-[#6EA4FF]"> dans une même chaîne.</span>
+            Du fournisseur en Chine
+            <span className="text-[#6EA4FF]"> jusqu&apos;à l&apos;acheminement international.</span>
           </h2>
 
           <p className="mt-6 max-w-[600px] text-base leading-8 text-white/60">
-            PaxSolutio intervient sur l&apos;approvisionnement, la coordination
-            du projet et le contrôle. OneBillionForwarders apporte
-            l&apos;infrastructure logistique nécessaire à l&apos;acheminement
-            international.
+            PaxSolutio intervient sur le sourcing, la coordination fournisseur et le
+            contrôle qualité. OneBillionForwarders prend en charge les opérations
+            logistiques nécessaires pour connecter la marchandise à son marché de
+            destination.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -55,11 +55,11 @@ export default function OBFSection() {
         <div className="rounded-[32px] border border-white/10 bg-white/[0.04] p-7 sm:p-9">
           <div className="grid gap-4">
             {[
-              ["01", "Source", "PaxSolutio"],
-              ["02", "Verify", "PaxSolutio"],
-              ["03", "Consolidate", "OBF"],
+              ["01", "Sourcing", "PaxSolutio"],
+              ["02", "Contrôle", "PaxSolutio"],
+              ["03", "Consolidation", "OBF"],
               ["04", "Transport", "OBF"],
-              ["05", "Track", "Connected"],
+              ["05", "Suivi", "Coordonné"],
             ].map(([number, title, owner]) => (
               <div
                 key={number}

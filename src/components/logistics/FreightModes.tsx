@@ -1,45 +1,45 @@
 const freightModes = [
   {
     code: "SEA",
-    title: "Transport maritime",
+    title: "Fret maritime",
     description:
-      "Solutions FCL ou LCL pour les marchandises volumineuses et les opérations d'import classiques.",
-    tags: ["FCL", "LCL", "Containers"],
+      "Transport FCL ou LCL depuis la Chine pour les marchandises volumineuses, palettes, équipements et importations en conteneur.",
+    tags: ["FCL", "LCL", "Conteneur"],
   },
   {
     code: "AIR",
-    title: "Transport aérien",
+    title: "Fret aérien",
     description:
-      "Pour les marchandises urgentes, sensibles ou à forte valeur lorsque le délai est prioritaire.",
-    tags: ["Fast", "Airport", "Urgent"],
+      "Solution adaptée aux marchandises urgentes, sensibles ou à forte valeur lorsque le délai de transport est prioritaire.",
+    tags: ["Rapide", "Aéroport", "Urgent"],
   },
   {
     code: "RAIL",
-    title: "Transport ferroviaire",
+    title: "Transport ferroviaire Chine-Europe",
     description:
-      "Une solution intermédiaire entre l'aérien et le maritime selon les routes disponibles.",
-    tags: ["China-Europe", "Rail", "Intermodal"],
+      "Alternative intermédiaire entre le maritime et l'aérien sur les liaisons ferroviaires disponibles entre la Chine et l'Europe.",
+    tags: ["Chine-Europe", "Rail", "Intermodal"],
   },
   {
     code: "TRUCK",
     title: "Transport routier",
     description:
-      "Acheminement routier ou connexion entre différentes étapes de la chaîne logistique.",
-    tags: ["Truck", "Door", "Europe"],
+      "Acheminement routier longue distance ou connexion entre fournisseurs, entrepôts, terminaux et destination finale.",
+    tags: ["Camion", "Door-to-door", "Europe"],
   },
   {
     code: "EXPRESS",
-    title: "Express",
+    title: "Transport express",
     description:
-      "Expédition rapide adaptée aux échantillons, petites commandes ou marchandises urgentes.",
-    tags: ["Parcel", "Samples", "Fast"],
+      "Expédition rapide pour les échantillons, petits colis, pièces ou commandes urgentes lorsque le volume reste limité.",
+    tags: ["Colis", "Échantillons", "Rapide"],
   },
   {
     code: "AUTO",
-    title: "Automobile",
+    title: "Transport de véhicules",
     description:
-      "Solutions spécifiques pour véhicules avec étude RoRo ou conteneur selon la destination.",
-    tags: ["RoRo", "Container", "Vehicles"],
+      "Solutions logistiques dédiées aux véhicules avec étude du transport RoRo ou en conteneur selon le modèle et la destination.",
+    tags: ["RoRo", "Conteneur", "Véhicules"],
   },
 ];
 
@@ -49,17 +49,18 @@ export default function FreightModes() {
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[800px]">
           <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Freight Solutions
+            Solutions de transport international
           </div>
 
           <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[54px]">
-            Le bon mode de transport dépend
-            <span className="text-[#176BFF]"> de votre opération.</span>
+            Choisissez le mode de transport
+            <span className="text-[#176BFF]"> adapté à votre opération.</span>
           </h2>
 
           <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
-            Volume, poids, valeur, urgence et destination sont pris en compte
-            pour orienter le choix logistique.
+            Poids, volume, valeur de la marchandise, urgence, destination et budget
+            permettent d&apos;orienter le choix entre fret maritime, aérien,
+            ferroviaire, routier ou express.
           </p>
         </div>
 
