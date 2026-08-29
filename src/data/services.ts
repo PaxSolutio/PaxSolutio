@@ -11,62 +11,137 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "sourcing",
-    category: "SUPPLY",
-    title: "Sourcing international",
+
+    category: "SOURCING",
+
+    title: "Sourcing en Chine",
+
     shortDescription:
-      "Recherche, qualification et négociation avec des fabricants adaptés à votre projet.",
+      "Recherche, comparaison et négociation avec des fabricants adaptés à votre produit, vos volumes et votre marché.",
+
     href: "/sourcing",
-    tags: ["Recherche", "Négociation", "Échantillons"],
+
+    tags: [
+      "Recherche",
+      "Négociation",
+      "Échantillons",
+    ],
   },
 
   {
     slug: "automotive",
-    category: "AUTOMOTIVE",
+
+    category: "AUTOMOBILE",
+
     title: "Sourcing automobile",
+
     shortDescription:
-      "Recherche, vérification, négociation, export et transport de véhicules.",
+      "Recherche de véhicules en Chine, comparaison des offres, vérification et coordination de l'export et du transport.",
+
     href: "/sourcing-automobile",
-    tags: ["Véhicules", "Inspection", "Export"],
+
+    tags: [
+      "Véhicules",
+      "Vérification",
+      "Export",
+    ],
+
     featured: true,
   },
 
   {
     slug: "logistics",
-    category: "FREIGHT",
+
+    category: "LOGISTIQUE",
+
     title: "Logistique internationale",
+
     shortDescription:
-      "Maritime, aérien, ferroviaire et routier selon votre opération.",
+      "Organisation du transport maritime, aérien, ferroviaire ou routier selon les caractéristiques de votre opération.",
+
     href: "/logistique",
-    tags: ["Sea", "Air", "Rail", "Truck"],
+
+    tags: [
+      "Maritime",
+      "Aérien",
+      "Rail",
+      "Routier",
+    ],
   },
 
   {
     slug: "quality",
-    category: "QUALITY",
+
+    category: "QUALITÉ",
+
     title: "Audit & contrôle qualité",
+
     shortDescription:
-      "Vérification fournisseur, audit usine et contrôle des marchandises.",
+      "Vérification fournisseur, audit usine et contrôle des marchandises avant leur expédition.",
+
     href: "/controle-qualite",
-    tags: ["Factory Audit", "PSI", "Report"],
+
+    tags: [
+      "Audit usine",
+      "Inspection",
+      "Rapport",
+    ],
   },
 
   {
     slug: "dropshipping",
+
     category: "E-COMMERCE",
+
     title: "Dropshipping & Fulfillment",
+
     shortDescription:
-      "Sourcing, stockage, préparation et expédition pour votre e-commerce.",
+      "Sourcing, réception, stockage, préparation et expédition des commandes pour votre activité e-commerce.",
+
     href: "/dropshipping",
-    tags: ["Storage", "Packing", "Shipping"],
+
+    tags: [
+      "Stockage",
+      "Préparation",
+      "Expédition",
+    ],
   },
 
   {
     slug: "suppliers",
-    category: "NETWORK",
-    title: "Réseau fournisseurs",
+
+    category: "FOURNISSEURS",
+
+    title: "Recherche de fournisseurs",
+
     shortDescription:
-      "Recherche et présélection de fabricants selon votre secteur.",
+      "Identification, comparaison et présélection de fabricants selon votre produit, vos quantités et vos exigences.",
+
     href: "/fournisseurs",
-    tags: ["Supplier", "B2B", "Multi-sector"],
+
+    tags: [
+      "Fabricants",
+      "B2B",
+      "Multi-secteurs",
+    ],
+  },
+
+  {
+    slug: "product-development",
+
+    category: "PRODUIT",
+
+    title: "Développement produit",
+
+    shortDescription:
+      "OEM, ODM, Private Label, personnalisation et échantillonnage pour développer votre propre produit avec un fabricant.",
+
+    href: "/developpement-produit",
+
+    tags: [
+      "OEM / ODM",
+      "Private Label",
+      "Personnalisation",
+    ],
   },
 ];

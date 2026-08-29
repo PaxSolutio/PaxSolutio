@@ -26,7 +26,7 @@ function DesktopMegaMenu({
       className="
         invisible absolute left-1/2 top-full
         z-[120]
-        w-[760px] -translate-x-1/2 pt-5
+        w-[820px] -translate-x-1/2 pt-5
         opacity-0 translate-y-2
         transition-all duration-200
         group-hover:visible
@@ -55,7 +55,7 @@ function DesktopMegaMenu({
                   )}
                 </div>
 
-                <span className="mt-1 text-[#176BFF] transition group-hover/link:translate-x-1">
+                <span className="mt-1 shrink-0 text-[#176BFF] transition group-hover/link:translate-x-1">
                   →
                 </span>
               </div>
@@ -100,11 +100,12 @@ function DesktopMegaMenu({
           <div className="mt-2 flex items-center justify-between gap-6 rounded-[18px] bg-[#071B33] px-6 py-5 text-white">
             <div>
               <div className="text-sm font-extrabold">
-                Vous avez déjà un projet ?
+                Vous avez un projet en Chine ?
               </div>
 
               <div className="mt-1 text-xs text-white/55">
-                Envoyez-nous votre besoin ou votre cahier des charges.
+                Produit, fournisseur, véhicule ou transport :
+                présentez-nous votre besoin.
               </div>
             </div>
 
@@ -123,8 +124,12 @@ function DesktopMegaMenu({
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openedMenu, setOpenedMenu] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
+
+  const [openedMenu, setOpenedMenu] =
+    useState<string | null>(null);
+
+  const [scrolled, setScrolled] =
+    useState(false);
 
   const headerOffer = featuredOffers.find(
     (offer) =>
@@ -139,10 +144,16 @@ export default function Header() {
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener(
+      "scroll",
+      handleScroll
+    );
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
     };
   }, []);
 
@@ -166,10 +177,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-[100] w-full border-b transition-all duration-300 ${scrolled
+        className={`fixed left-0 top-0 z-[100] w-full border-b transition-all duration-300 ${
+          scrolled
             ? "border-[#E3E9F0] bg-white/95 shadow-[0_8px_30px_rgba(7,27,51,0.06)] backdrop-blur-xl"
             : "border-transparent bg-white/90 backdrop-blur-lg"
-          }`}
+        }`}
       >
         {headerOffer && (
           <Link
@@ -192,6 +204,12 @@ export default function Header() {
               </span>
             )}
 
+            {headerOffer.price && (
+              <span className="ml-3 font-extrabold text-[#78A9FF]">
+                {headerOffer.price}
+              </span>
+            )}
+
             <span className="ml-3 font-extrabold">
               {headerOffer.cta} →
             </span>
@@ -210,7 +228,6 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* DESKTOP */}
           <nav className="hidden h-full items-center gap-8 lg:flex">
             {navigation.map((item) =>
               item.children ? (
@@ -262,7 +279,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* MOBILE BUTTON */}
           <button
             type="button"
             aria-label={
@@ -271,51 +287,58 @@ export default function Header() {
                 : "Ouvrir le menu"
             }
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((value) => !value)}
+            onClick={() =>
+              setMobileOpen((value) => !value)
+            }
             className="relative z-[110] flex h-11 w-11 items-center justify-center rounded-xl border border-[#DFE6EF] bg-white lg:hidden"
           >
             <div className="relative h-5 w-5">
               <span
-                className={`absolute left-0 top-[4px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
+                className={`absolute left-0 top-[4px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
+                  mobileOpen
                     ? "translate-y-[5px] rotate-45"
                     : ""
-                  }`}
+                }`}
               />
 
               <span
-                className={`absolute left-0 top-[9px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
+                className={`absolute left-0 top-[9px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
+                  mobileOpen
                     ? "opacity-0"
                     : "opacity-100"
-                  }`}
+                }`}
               />
 
               <span
-                className={`absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
+                className={`absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
+                  mobileOpen
                     ? "-translate-y-[5px] -rotate-45"
                     : ""
-                  }`}
+                }`}
               />
             </div>
           </button>
         </div>
       </header>
 
-      {/* MOBILE PANEL */}
       <div
-        className={`fixed inset-0 z-[90] bg-white transition duration-300 lg:hidden ${mobileOpen
+        className={`fixed inset-0 z-[90] bg-white transition duration-300 lg:hidden ${
+          mobileOpen
             ? "visible opacity-100"
             : "invisible opacity-0"
-          }`}
+        }`}
       >
         <div
-          className={`h-full overflow-y-auto px-6 pb-10 transition duration-300 ${headerOffer
+          className={`h-full overflow-y-auto px-6 pb-10 transition duration-300 ${
+            headerOffer
               ? "pt-[150px]"
               : "pt-[105px]"
-            }`}
+          }`}
         >
           <nav>
             {navigation.map((item) => {
-              const isOpen = openedMenu === item.label;
+              const isOpen =
+                openedMenu === item.label;
 
               return (
                 <div
@@ -346,10 +369,11 @@ export default function Header() {
                         className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F4F7FA] text-[#176BFF]"
                       >
                         <span
-                          className={`text-xl transition duration-200 ${isOpen
+                          className={`text-xl transition duration-200 ${
+                            isOpen
                               ? "rotate-45"
                               : ""
-                            }`}
+                          }`}
                         >
                           +
                         </span>
@@ -359,31 +383,36 @@ export default function Header() {
 
                   {item.children && (
                     <div
-                      className={`grid overflow-hidden transition-all duration-300 ${isOpen
+                      className={`grid overflow-hidden transition-all duration-300 ${
+                        isOpen
                           ? "grid-rows-[1fr] pb-5"
                           : "grid-rows-[0fr]"
-                        }`}
+                      }`}
                     >
                       <div className="min-h-0">
                         <div className="space-y-2">
-                          {item.children.map((child) => (
-                            <Link
-                              key={`${child.label}-${child.href}`}
-                              href={child.href}
-                              onClick={closeMobileMenu}
-                              className="block rounded-[18px] bg-[#F7F9FC] p-4"
-                            >
-                              <div className="text-sm font-extrabold text-[#071B33]">
-                                {child.label}
-                              </div>
-
-                              {child.description && (
-                                <div className="mt-1 text-xs leading-5 text-[#657386]">
-                                  {child.description}
+                          {item.children.map(
+                            (child) => (
+                              <Link
+                                key={`${child.label}-${child.href}`}
+                                href={child.href}
+                                onClick={closeMobileMenu}
+                                className="block rounded-[18px] bg-[#F7F9FC] p-4"
+                              >
+                                <div className="text-sm font-extrabold text-[#071B33]">
+                                  {child.label}
                                 </div>
-                              )}
-                            </Link>
-                          ))}
+
+                                {child.description && (
+                                  <div className="mt-1 text-xs leading-5 text-[#657386]">
+                                    {
+                                      child.description
+                                    }
+                                  </div>
+                                )}
+                              </Link>
+                            )
+                          )}
                         </div>
                       </div>
                     </div>
@@ -435,7 +464,7 @@ export default function Header() {
             Démarrer un projet
           </Link>
 
-          <div className="mt-8 flex gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/a-propos"
               onClick={closeMobileMenu}
@@ -444,7 +473,9 @@ export default function Header() {
               À propos
             </Link>
 
-            <span className="text-[#CBD3DD]">•</span>
+            <span className="text-[#CBD3DD]">
+              •
+            </span>
 
             <Link
               href="/contact"
@@ -452,6 +483,18 @@ export default function Header() {
               className="text-xs font-bold text-[#657386]"
             >
               Contact
+            </Link>
+
+            <span className="text-[#CBD3DD]">
+              •
+            </span>
+
+            <Link
+              href="/ressources"
+              onClick={closeMobileMenu}
+              className="text-xs font-bold text-[#657386]"
+            >
+              Guides
             </Link>
           </div>
         </div>
