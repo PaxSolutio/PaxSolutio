@@ -134,6 +134,13 @@ export const navigation: NavigationGroup[] = [
 
     children: [
       {
+        label: "Nouveautés & opportunités",
+        href: "/nouveautes",
+        description:
+          "Actualités sourcing, opportunités produits, réglementation et contenus terrain.",
+      },
+
+      {
         label: "Trouver un fournisseur en Chine",
         href: "/ressources/trouver-fournisseur-fiable-chine",
         description:

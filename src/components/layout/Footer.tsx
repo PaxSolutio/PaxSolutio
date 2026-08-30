@@ -5,6 +5,8 @@ export default function Footer() {
     <footer className="bg-[#071B33] text-white">
       <div className="mx-auto max-w-[1320px] px-6 py-20 lg:px-10 lg:py-24">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.4fr_0.85fr_0.85fr_0.85fr]">
+          {/* MARQUE */}
+
           <div>
             <Link
               href="/"
@@ -91,6 +93,8 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* SOLUTIONS */}
+
           <div>
             <h3 className="text-sm font-extrabold">
               Solutions
@@ -148,6 +152,8 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* SECTEURS */}
+
           <div>
             <h3 className="text-sm font-extrabold">
               Secteurs
@@ -198,12 +204,21 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* EXPLORER */}
+
           <div>
             <h3 className="text-sm font-extrabold">
               Explorer
             </h3>
 
             <div className="mt-6 space-y-4 text-sm">
+              <Link
+                href="/nouveautes"
+                className="block font-extrabold !text-[#79A9FF] transition hover:!text-white"
+              >
+                Nouveautés & opportunités
+              </Link>
+
               <Link
                 href="/ressources"
                 className="block !text-white/65 transition hover:!text-white"
@@ -247,26 +262,51 @@ export default function Footer() {
               </Link>
             </div>
 
+            {/* NOUVEAUTÉS */}
+
             <div className="mt-9 rounded-[18px] border border-white/10 bg-white/[0.035] p-5">
               <div className="text-[10px] font-black uppercase tracking-[0.16em] text-[#79A9FF]">
-                Ressources
+                Nouveautés
               </div>
 
               <p className="mt-3 text-xs leading-6 text-white/45">
-                Guides, analyses et futures nouveautés
-                autour du sourcing, de l&apos;import et
-                des opportunités internationales.
+                Actualités sourcing, évolutions réglementaires,
+                opportunités produits, analyses marché et contenus
+                directement issus du terrain.
+              </p>
+
+              <Link
+                href="/nouveautes"
+                className="mt-4 inline-flex text-xs font-extrabold !text-white"
+              >
+                Voir les nouveautés →
+              </Link>
+            </div>
+
+            {/* RESSOURCES */}
+
+            <div className="mt-4 rounded-[18px] border border-white/10 bg-white/[0.02] p-5">
+              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-white/50">
+                Guides
+              </div>
+
+              <p className="mt-3 text-xs leading-6 text-white/40">
+                Guides pratiques pour mieux comprendre le sourcing,
+                l&apos;import, les fournisseurs et la logistique
+                internationale.
               </p>
 
               <Link
                 href="/ressources"
                 className="mt-4 inline-flex text-xs font-extrabold !text-white"
               >
-                Explorer les contenus →
+                Explorer les ressources →
               </Link>
             </div>
           </div>
         </div>
+
+        {/* BAS DE PAGE */}
 
         <div className="mt-16 border-t border-white/10 pt-7">
           <div className="flex flex-col gap-5 text-xs text-white/40 md:flex-row md:items-center md:justify-between">

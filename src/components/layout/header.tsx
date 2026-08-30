@@ -177,11 +177,10 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-[100] w-full border-b transition-all duration-300 ${
-          scrolled
+        className={`fixed left-0 top-0 z-[100] w-full border-b transition-all duration-300 ${scrolled
             ? "border-[#E3E9F0] bg-white/95 shadow-[0_8px_30px_rgba(7,27,51,0.06)] backdrop-blur-xl"
             : "border-transparent bg-white/90 backdrop-blur-lg"
-        }`}
+          }`}
       >
         {headerOffer && (
           <Link
@@ -294,27 +293,24 @@ export default function Header() {
           >
             <div className="relative h-5 w-5">
               <span
-                className={`absolute left-0 top-[4px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
-                  mobileOpen
+                className={`absolute left-0 top-[4px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
                     ? "translate-y-[5px] rotate-45"
                     : ""
-                }`}
+                  }`}
               />
 
               <span
-                className={`absolute left-0 top-[9px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
-                  mobileOpen
+                className={`absolute left-0 top-[9px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
                     ? "opacity-0"
                     : "opacity-100"
-                }`}
+                  }`}
               />
 
               <span
-                className={`absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${
-                  mobileOpen
+                className={`absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-[#071B33] transition duration-300 ${mobileOpen
                     ? "-translate-y-[5px] -rotate-45"
                     : ""
-                }`}
+                  }`}
               />
             </div>
           </button>
@@ -322,18 +318,16 @@ export default function Header() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[90] bg-white transition duration-300 lg:hidden ${
-          mobileOpen
+        className={`fixed inset-0 z-[90] bg-white transition duration-300 lg:hidden ${mobileOpen
             ? "visible opacity-100"
             : "invisible opacity-0"
-        }`}
+          }`}
       >
         <div
-          className={`h-full overflow-y-auto px-6 pb-10 transition duration-300 ${
-            headerOffer
+          className={`h-full overflow-y-auto px-6 pb-10 transition duration-300 ${headerOffer
               ? "pt-[150px]"
               : "pt-[105px]"
-          }`}
+            }`}
         >
           <nav>
             {navigation.map((item) => {
@@ -369,11 +363,10 @@ export default function Header() {
                         className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F4F7FA] text-[#176BFF]"
                       >
                         <span
-                          className={`text-xl transition duration-200 ${
-                            isOpen
+                          className={`text-xl transition duration-200 ${isOpen
                               ? "rotate-45"
                               : ""
-                          }`}
+                            }`}
                         >
                           +
                         </span>
@@ -383,11 +376,10 @@ export default function Header() {
 
                   {item.children && (
                     <div
-                      className={`grid overflow-hidden transition-all duration-300 ${
-                        isOpen
+                      className={`grid overflow-hidden transition-all duration-300 ${isOpen
                           ? "grid-rows-[1fr] pb-5"
                           : "grid-rows-[0fr]"
-                      }`}
+                        }`}
                     >
                       <div className="min-h-0">
                         <div className="space-y-2">
@@ -483,6 +475,18 @@ export default function Header() {
               className="text-xs font-bold text-[#657386]"
             >
               Contact
+            </Link>
+
+            <span className="text-[#CBD3DD]">
+              •
+            </span>
+
+            <Link
+              href="/nouveautes"
+              onClick={closeMobileMenu}
+              className="text-xs font-bold text-[#657386]"
+            >
+              Nouveautés
             </Link>
 
             <span className="text-[#CBD3DD]">

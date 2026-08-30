@@ -2,8 +2,9 @@ import type { MetadataRoute } from "next";
 
 import { industries } from "@/data/industries";
 import { resources } from "@/data/resources";
+import { createServerSupabaseClient } from "@/lib/supabase/server";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://paxsolutio.com";
 
   const mainRoutes = [
@@ -73,6 +74,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
     },
 
+    // CMS / actualités
+    {
+      path: "/nouveautes",
+      priority: 0.85,
+      changeFrequency: "daily" as const,
+    },
+
     {
       path: "/a-propos",
       priority: 0.65,
@@ -116,9 +124,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: resource.featured ? 0.8 : 0.7,
   }));
 
+  /*
+   * Publications du CMS
+   *
+   * Seules les publications réellement publiées
+   * sont ajoutées au sitemap.
+   */
+  let newsPages: MetadataRoute.Sitemap = [];
+
+  try {
+    const supabase = createServerSupabaseClient();
+
+    const { data: posts, error } = await supabase
+      .from("news_posts")
+      .select("slug, updated_at, published_at")
+      .eq("status", "published")
+      .order("published_at", { ascending: false });
+
+    if (error) {
+      console.error(
+        "Erreur récupération nouveautés pour sitemap :",
+        error
+      );
+    } else {
+      newsPages = (posts ?? []).map((post) => ({
+        url: `${baseUrl}/nouveautes/${post.slug}`,
+        lastModified:
+          post.updated_at ??
+          post.published_at ??
+          undefined,
+        changeFrequency: "weekly" as const,
+        priority: 0.75,
+      }));
+    }
+  } catch (error) {
+    /*
+     * Le sitemap reste disponible même si Supabase
+     * rencontre momentanément un problème.
+     */
+    console.error(
+      "Erreur génération sitemap nouveautés :",
+      error
+    );
+  }
+
   return [
     ...staticPages,
     ...industryPages,
     ...resourcePages,
+    ...newsPages,
   ];
 }
