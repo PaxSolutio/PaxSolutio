@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AutomotiveLogistics() {
@@ -26,43 +27,55 @@ export default function AutomotiveLogistics() {
 
             <Link
               href="/logistique"
-              className="mt-9 inline-flex min-h-14 items-center justify-center rounded-xl bg-white px-7 text-sm font-extrabold text-[#071B33] transition hover:-translate-y-0.5"
+              className="mt-9 inline-flex min-h-14 items-center justify-center rounded-xl bg-white px-7 text-sm font-extrabold !text-[#071B33] transition hover:-translate-y-0.5"
             >
               Découvrir la logistique
               <span className="ml-3">→</span>
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-8">
-              <span className="text-xs font-black tracking-[0.18em] text-[#7FAEFF]">
-                RORO
-              </span>
+          <div className="relative min-h-[520px] overflow-hidden rounded-[32px] border border-white/10">
+            <Image
+              src="/automotive/logistique-automobile.jpg"
+              alt="Transport international de véhicules"
+              fill
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover"
+            />
 
-              <h3 className="mt-12 text-2xl font-extrabold">
-                Transport RoRo
-              </h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071B33]/95 via-[#071B33]/55 to-[#071B33]/20" />
 
-              <p className="mt-4 text-sm leading-7 text-white/55">
-                Le véhicule est chargé et déchargé en roulant sur un navire roulier,
-                lorsque des lignes adaptées sont disponibles entre les ports concernés.
-              </p>
-            </div>
+            <div className="absolute inset-x-5 bottom-5 grid gap-4 sm:inset-x-6 sm:bottom-6 sm:grid-cols-2">
+              <div className="rounded-[24px] border border-white/15 bg-[#071B33]/80 p-6 backdrop-blur-md">
+                <span className="text-xs font-black tracking-[0.18em] text-[#7FAEFF]">
+                  RORO
+                </span>
 
-            <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-8">
-              <span className="text-xs font-black tracking-[0.18em] text-[#7FAEFF]">
-                CONTAINER
-              </span>
+                <h3 className="mt-8 text-2xl font-extrabold">
+                  Transport RoRo
+                </h3>
 
-              <h3 className="mt-12 text-2xl font-extrabold">
-                Transport en conteneur
-              </h3>
+                <p className="mt-4 text-sm leading-7 text-white/65">
+                  Le véhicule est chargé et déchargé en roulant sur un navire roulier,
+                  lorsque des lignes adaptées sont disponibles entre les ports concernés.
+                </p>
+              </div>
 
-              <p className="mt-4 text-sm leading-7 text-white/55">
-                Le véhicule est acheminé dans un conteneur lorsque cette solution est
-                compatible avec ses dimensions, la route disponible et les contraintes
-                de l'opération.
-              </p>
+              <div className="rounded-[24px] border border-white/15 bg-[#071B33]/80 p-6 backdrop-blur-md">
+                <span className="text-xs font-black tracking-[0.18em] text-[#7FAEFF]">
+                  CONTAINER
+                </span>
+
+                <h3 className="mt-8 text-2xl font-extrabold">
+                  Transport en conteneur
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-white/65">
+                  Le véhicule est acheminé dans un conteneur lorsque cette solution est
+                  compatible avec ses dimensions, la route disponible et les contraintes
+                  de l&apos;opération.
+                </p>
+              </div>
             </div>
           </div>
         </div>

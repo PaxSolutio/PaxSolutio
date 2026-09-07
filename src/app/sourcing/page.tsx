@@ -148,6 +148,9 @@ export default function SourcingPage() {
         primaryHref="/#project"
         secondaryCta="Découvrir notre méthode"
         secondaryHref="#process"
+        image="/sourcing/sourcing-chine-terrain-v2.jpg"
+        imageAlt="Échange avec un fournisseur en Chine"
+        badge="Présence terrain en Chine"
       />
 
       <ServiceBenefits

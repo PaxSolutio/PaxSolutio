@@ -3,106 +3,129 @@ const steps = [
     number: "01",
     title: "Cahier des charges",
     description:
-      "Vous nous présentez le produit, les quantités, le budget, les spécifications et le marché de destination.",
+      "Produit, quantités, budget, spécifications et marché cible.",
   },
   {
     number: "02",
     title: "Recherche",
     description:
-      "Identification de fabricants ou fournisseurs correspondant aux principaux critères définis.",
+      "Identification des fabricants et fournisseurs adaptés.",
   },
   {
     number: "03",
     title: "Comparaison",
     description:
-      "Prix, MOQ, capacités, personnalisation, délais et conditions sont comparés avant sélection.",
+      "Prix, MOQ, capacités, délais et conditions comparés.",
   },
   {
     number: "04",
     title: "Échantillon",
     description:
-      "Lorsque nécessaire, un échantillon ou prototype permet de valider le produit avant production.",
+      "Validation du produit ou du prototype lorsque nécessaire.",
   },
   {
     number: "05",
     title: "Production",
     description:
-      "Les échanges avec le fabricant sont suivis pendant la préparation de votre commande.",
+      "Suivi des échanges et de la préparation de la commande.",
   },
   {
     number: "06",
-    title: "Contrôle qualité",
+    title: "Contrôle",
     description:
-      "La marchandise peut être inspectée avant expédition selon les critères définis.",
+      "Inspection possible avant expédition selon vos critères.",
   },
   {
     number: "07",
     title: "Logistique",
     description:
-      "Collecte, consolidation et transport sont organisés selon le volume, la destination et le délai.",
+      "Collecte, consolidation et organisation du transport.",
   },
   {
     number: "08",
     title: "Acheminement",
     description:
-      "La marchandise poursuit son transport international jusqu'à la destination prévue.",
+      "Transport international jusqu’à la destination prévue.",
   },
 ];
 
 export default function ProcessTimeline() {
   return (
-    <section className="bg-white py-24 lg:py-32">
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
-        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+    <section className="bg-white py-14 lg:py-24">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
+        {/* INTRODUCTION */}
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div>
-            <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
+            <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
               Notre méthode
             </div>
 
-            <h2 className="max-w-[720px] text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
+            <h2 className="mt-4 max-w-[720px] text-[36px] font-extrabold leading-[1.06] tracking-[-0.045em] text-[#071B33] sm:text-[44px] lg:text-[48px]">
               Du besoin initial
               <span className="text-[#176BFF]">
                 {" "}
-                à l&apos;expédition.
+                à l&apos;acheminement.
               </span>
             </h2>
           </div>
 
-          <p className="max-w-[440px] text-base leading-7 text-[#657386]">
+          <p className="max-w-[500px] text-base leading-8 text-[#657386] lg:justify-self-end">
             Chaque projet peut suivre l&apos;ensemble du parcours ou seulement
-            certaines étapes selon votre organisation et vos partenaires
-            existants.
+            certaines étapes selon vos besoins, vos fournisseurs et votre
+            organisation.
           </p>
         </div>
 
-        <div className="relative mt-16">
-          <div className="absolute left-[23px] top-4 hidden h-[calc(100%-32px)] w-px bg-[#DCE5F0] md:block lg:left-0 lg:top-[26px] lg:h-px lg:w-full" />
+        {/* TIMELINE */}
+        <div className="relative mt-12">
+          <div className="absolute left-[18px] top-4 h-[calc(100%-32px)] w-px bg-[#DDE5EE] lg:left-0 lg:top-[22px] lg:h-px lg:w-full" />
 
-          <div className="grid gap-5 lg:grid-cols-4">
-            {steps.map((step, index) => (
+          <div className="relative grid gap-8 lg:grid-cols-4 lg:gap-x-7 lg:gap-y-12">
+            {steps.map((step) => (
               <div
                 key={step.number}
-                className="relative rounded-[24px] border border-[#E6ECF3] bg-white p-7 shadow-[0_12px_40px_rgba(7,27,51,0.04)]"
+                className="group relative pl-14 transition duration-300 lg:pl-0"
               >
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-[#176BFF] text-xs font-black text-white shadow-md">
+                <div className="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full border-4 border-white bg-[#176BFF] text-[10px] font-black text-white shadow-sm transition duration-300 group-hover:scale-110 group-hover:shadow-[0_8px_22px_rgba(23,107,255,0.28)] lg:relative lg:z-10 lg:h-11 lg:w-11">
                   {step.number}
                 </div>
 
-                <h3 className="mt-7 text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
-                  {step.title}
-                </h3>
+                <div className="lg:mt-5">
+                  <h3 className="text-lg font-extrabold tracking-[-0.025em] text-[#071B33] transition duration-300 group-hover:text-[#176BFF]">
+                    {step.title}
+                  </h3>
 
-                <p className="mt-3 text-sm leading-7 text-[#657386]">
-                  {step.description}
-                </p>
-
-                {index < steps.length - 1 && (
-                  <div className="mt-6 text-sm font-bold text-[#176BFF] lg:hidden">
-                    ↓
-                  </div>
-                )}
+                  <p className="mt-2 max-w-[250px] text-sm leading-6 text-[#657386] transition duration-300 group-hover:text-[#4D5E73]">
+                    {step.description}
+                  </p>
+                </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* RÉSUMÉ */}
+        <div className="mt-14 rounded-[24px] border border-[#DDE5EE] bg-[#F6F8FB] px-6 py-5">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#52647B]">
+            <span>Brief</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Recherche</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Sélection</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Échantillon</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Production</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Contrôle</span>
+            <span className="text-[#A6B2C1]">→</span>
+
+            <span>Transport</span>
           </div>
         </div>
       </div>

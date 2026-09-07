@@ -1,5 +1,8 @@
 "use client";
 
+import IntelligenceBrief, {
+    type IntelligenceBriefData,
+} from "@/components/admin/IntelligenceBrief";
 import CreateIntelligenceArticleButton from "@/components/admin/CreateIntelligenceArticleButton";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -55,6 +58,7 @@ type RunResponse = {
 type Props = {
     missions: IntelligenceMission[];
     initialItems: IntelligenceItem[];
+    initialBrief: IntelligenceBriefData | null;
 };
 
 function frequencyLabel(frequency: IntelligenceMission["frequency"]) {
@@ -184,6 +188,7 @@ function scoreClass(score: number | null) {
 export default function IntelligenceRunner({
     missions,
     initialItems,
+    initialBrief,
 }: Props) {
     const [selectedMissionId, setSelectedMissionId] = useState(
         missions[0]?.id ?? ""
@@ -191,6 +196,9 @@ export default function IntelligenceRunner({
 
     const [items, setItems] =
         useState<IntelligenceItem[]>(initialItems);
+
+    const [selectedSourceIds, setSelectedSourceIds] =
+        useState<string[]>([]);
 
     const [running, setRunning] = useState(false);
 
@@ -206,6 +214,27 @@ export default function IntelligenceRunner({
             ) ?? null,
         [missions, selectedMissionId]
     );
+
+    function showSources(ids: string[]) {
+        if (!Array.isArray(ids) || ids.length === 0) {
+            return;
+        }
+
+        setSelectedSourceIds(ids);
+
+        window.setTimeout(() => {
+            document
+                .getElementById("intelligence-items")
+                ?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+        }, 50);
+    }
+
+    function clearSourceFilter() {
+        setSelectedSourceIds([]);
+    }
 
     async function runMission() {
         if (!selectedMissionId || running) {
@@ -284,6 +313,16 @@ export default function IntelligenceRunner({
         (item) => (item.total_score ?? 0) >= 75
     ).length;
 
+    const visibleItems =
+        selectedSourceIds.length > 0
+            ? items.filter((item) =>
+                selectedSourceIds.includes(item.id)
+            )
+            : items;
+
+    const sourceFilterActive =
+        selectedSourceIds.length > 0;
+
     return (
         <main className="min-h-screen bg-[#06101f] text-white">
             {/* =====================================================
@@ -308,6 +347,13 @@ export default function IntelligenceRunner({
                             className="hidden text-sm font-medium text-slate-400 transition hover:text-white sm:block"
                         >
                             Nouveautés
+                        </Link>
+
+                        <Link
+                            href="/admin/intelligence/opportunites"
+                            className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-300 transition hover:bg-emerald-500/20"
+                        >
+                            Dossiers Intelligence
                         </Link>
 
                         <LogoutButton />
@@ -382,6 +428,15 @@ export default function IntelligenceRunner({
                         </div>
                     </div>
                 </div>
+
+                {/* =====================================================
+    BRIEF STRATÉGIQUE
+====================================================== */}
+
+                <IntelligenceBrief
+                    initialBrief={initialBrief}
+                    onShowSources={showSources}
+                />
 
                 {/* =====================================================
             MOTEUR MANUEL
@@ -471,8 +526,8 @@ export default function IntelligenceRunner({
                             {result && (
                                 <div
                                     className={`mt-5 rounded-xl border px-4 py-3 text-sm ${result.type === "success"
-                                            ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
-                                            : "border-red-500/20 bg-red-500/10 text-red-300"
+                                        ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+                                        : "border-red-500/20 bg-red-500/10 text-red-300"
                                         }`}
                                 >
                                     {result.message}
@@ -548,7 +603,10 @@ export default function IntelligenceRunner({
             DERNIERS ITEMS
         ====================================================== */}
 
-                <section>
+                <section
+                    id="intelligence-items"
+                    className="scroll-mt-8"
+                >
                     <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
                         <div>
                             <div className="text-sm font-medium text-blue-400">
@@ -560,13 +618,25 @@ export default function IntelligenceRunner({
                             </h2>
                         </div>
 
-                        <div className="text-sm text-slate-500">
-                            {items.length} résultat
-                            {items.length > 1 ? "s" : ""}
+                        <div className="flex flex-wrap items-center gap-3">
+                            {sourceFilterActive && (
+                                <button
+                                    type="button"
+                                    onClick={clearSourceFilter}
+                                    className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-2 text-xs font-medium text-blue-300 transition hover:bg-blue-500/20"
+                                >
+                                    ← Voir toutes les informations
+                                </button>
+                            )}
+
+                            <div className="text-sm text-slate-500">
+                                {visibleItems.length} résultat
+                                {visibleItems.length > 1 ? "s" : ""}
+                            </div>
                         </div>
                     </div>
 
-                    {items.length === 0 ? (
+                    {visibleItems.length === 0 ? (
                         <div className="rounded-2xl border border-dashed border-white/10 px-8 py-16 text-center">
                             <div className="text-xl font-semibold">
                                 Aucun signal détecté pour le moment
@@ -579,10 +649,13 @@ export default function IntelligenceRunner({
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {items.map((item) => (
+                            {visibleItems.map((item) => (
                                 <article
                                     key={item.id}
-                                    className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 transition hover:border-white/15"
+                                    className={`rounded-2xl border p-6 transition ${sourceFilterActive
+                                        ? "border-blue-500/25 bg-blue-500/[0.05]"
+                                        : "border-white/10 bg-white/[0.025] hover:border-white/15"
+                                        }`}
                                 >
                                     <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-start">
                                         <div className="min-w-0 flex-1">

@@ -1,9 +1,9 @@
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-40 lg:pb-32 lg:pt-48">
-      <div className="absolute right-[-180px] top-[-100px] h-[560px] w-[560px] rounded-full bg-[#EAF2FF] blur-[50px]" />
+    <section className="relative isolate overflow-hidden bg-white pb-24 pt-40 lg:pb-32 lg:pt-48">
+      <div className="pointer-events-none absolute right-[-180px] top-[-100px] -z-10 h-[560px] w-[560px] rounded-full bg-[#EAF2FF] blur-[50px]" />
 
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[920px]">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
             About PaxSolutio

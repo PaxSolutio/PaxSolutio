@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function QualityHero() {
@@ -41,8 +42,17 @@ export default function QualityHero() {
           </div>
         </div>
 
-        <div className="relative min-h-[500px]">
-          <div className="absolute inset-0 rounded-[36px] border border-white/10 bg-white/[0.04]" />
+        <div className="relative min-h-[500px] overflow-hidden rounded-[36px] border border-white/10">
+          <Image
+            src="/quality/controle-qualite-terrain-2.jpg"
+            alt="Inspection et contrôle qualité en usine en Chine"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-cover"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-br from-[#071B33]/92 via-[#071B33]/72 to-[#071B33]/48" />
 
           <div className="absolute left-[9%] right-[9%] top-[10%] rounded-[24px] border border-white/10 bg-white/[0.05] p-6">
             <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#7FAEFF]">

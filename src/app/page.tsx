@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import CredibilitySection from "@/components/home/CredibilitySection";
+import FeaturedOffersSection from "@/components/home/FeaturedOffersSection";
+import FounderVideoSection from "@/components/home/FounderVideoSection";
+import SectorShowcase from "@/components/home/SectorShowcase";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
+import LatestNewsSection from "@/components/home/LatestNewsSection";
 
 import Hero from "@/components/home/hero";
 import TrustBar from "@/components/home/trustbar";
@@ -10,7 +14,6 @@ import ServicesGrid from "@/components/home/servicesgrid";
 import ProcessTimeline from "@/components/home/processtimeline";
 import AutomotiveSection from "@/components/home/AutomotiveSection";
 import LogisticsSection from "@/components/home/LogisticsSection";
-import IndustriesSection from "@/components/home/IndustriesSection";
 import SupplierNetwork from "@/components/home/SupplierNetwork";
 import QualitySection from "@/components/home/QualitySection";
 import ProjectForm from "@/components/home/ProjectForm";
@@ -40,13 +43,16 @@ export default function Home() {
 
       <Hero />
       <TrustBar />
+      <FounderVideoSection />
+      <FeaturedOffersSection />
       <CredibilitySection />
+      <LatestNewsSection />
+      <SectorShowcase />
       <ValueProposition />
       <ServicesGrid />
       <ProcessTimeline />
       <AutomotiveSection />
       <LogisticsSection />
-      <IndustriesSection />
       <SupplierNetwork />
       <QualitySection />
       <ProjectForm />

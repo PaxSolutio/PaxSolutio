@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#071B33] text-white">
-      <div className="mx-auto max-w-[1320px] px-6 py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto max-w-[1320px] px-6 pb-28 pt-20 lg:px-10 lg:pb-28 lg:pt-24 xl:py-24">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.4fr_0.85fr_0.85fr_0.85fr]">
           {/* MARQUE */}
 
@@ -27,7 +27,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-9">
-              <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#79A9FF]">
+              <div className="text-[10px] font-black uppercase tracking-[0.18em] !text-[#79A9FF]">
                 Partenaire logistique
               </div>
 
@@ -35,7 +35,7 @@ export default function Footer() {
                 href="https://www.obforwarders.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 text-sm font-extrabold !text-white transition hover:!text-[#79A9FF]"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-extrabold !text-white transition hover:!text-[#5F9BFF]"
               >
                 OneBillionForwarders
                 <span>↗</span>
@@ -265,7 +265,7 @@ export default function Footer() {
             {/* NOUVEAUTÉS */}
 
             <div className="mt-9 rounded-[18px] border border-white/10 bg-white/[0.035] p-5">
-              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-[#79A9FF]">
+              <div className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#5F9BFF]">
                 Nouveautés
               </div>
 
@@ -286,7 +286,7 @@ export default function Footer() {
             {/* RESSOURCES */}
 
             <div className="mt-4 rounded-[18px] border border-white/10 bg-white/[0.02] p-5">
-              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-white/50">
+              <div className="text-[10px] font-black uppercase tracking-[0.16em] text-[#5F9BFF]">
                 Guides
               </div>
 

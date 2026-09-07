@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/data/industries";
 
@@ -30,34 +31,48 @@ export default function IndustriesGrid() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {industries.map((industry) => (
             <Link
               key={industry.slug}
               href={`/secteurs/${industry.slug}`}
-              className="group flex min-h-[340px] flex-col rounded-[28px] border border-[#E2E8F0] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-[#C9D9F1] hover:shadow-[0_22px_65px_rgba(7,27,51,0.08)]"
+              className="group flex min-h-[430px] flex-col overflow-hidden rounded-[28px] border border-[#E2E8F0] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#C9D9F1] hover:shadow-[0_22px_65px_rgba(7,27,51,0.08)]"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
-                  {industry.code}
-                </span>
+              <div className="relative h-[160px] w-full shrink-0 overflow-hidden bg-[#EAF2FF]">
+                <Image
+                  src={industry.image}
+                  alt={industry.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1279px) 50vw, 25vw"
+                  className="object-cover transition duration-700 group-hover:scale-[1.04]"
+                />
 
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F2F6FB] text-[#176BFF] transition group-hover:translate-x-1 group-hover:bg-[#176BFF] group-hover:text-white">
-                  →
-                </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
               </div>
 
-              <div className="mt-auto">
-                <h2 className="text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
-                  {industry.name}
-                </h2>
+              <div className="flex flex-1 flex-col p-7">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
+                    {industry.code}
+                  </span>
 
-                <p className="mt-4 text-sm leading-7 text-[#657386]">
-                  {industry.shortDescription}
-                </p>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F2F6FB] text-[#176BFF] transition group-hover:translate-x-1 group-hover:bg-[#176BFF] group-hover:text-white">
+                    →
+                  </span>
+                </div>
 
-                <div className="mt-7 text-sm font-extrabold text-[#176BFF]">
-                  Voir le sourcing {industry.name.toLowerCase()} →
+                <div className="mt-7 flex flex-1 flex-col">
+                  <h2 className="text-2xl font-extrabold leading-tight tracking-[-0.035em] text-[#071B33] xl:min-h-[58px]">
+                    {industry.name}
+                  </h2>
+
+                  <p className="mt-4 text-sm leading-7 text-[#657386]">
+                    {industry.shortDescription}
+                  </p>
+
+                  <div className="mt-auto pt-7 text-sm font-extrabold leading-5 text-[#176BFF]">
+                    Voir le sourcing {industry.name.toLowerCase()} →
+                  </div>
                 </div>
               </div>
             </Link>

@@ -2,6 +2,7 @@ export type Industry = {
   slug: string;
   code: string;
   name: string;
+  image: string;
 
   metaTitle: string;
   metaDescription: string;
@@ -31,6 +32,7 @@ export const industries: Industry[] = [
     code: "01",
 
     name: "Automobile",
+    image: "/sectors/automobile-2.jpg",
 
     metaTitle: "Sourcing Automobile en Chine & Import de Véhicules",
 
@@ -107,6 +109,7 @@ export const industries: Industry[] = [
     code: "02",
 
     name: "Machines & Construction",
+    image: "/sectors/construction.png",
 
     metaTitle: "Sourcing Machines & Engins de Chantier en Chine",
 
@@ -183,6 +186,7 @@ export const industries: Industry[] = [
     code: "03",
 
     name: "Mobilier",
+    image: "/sectors/mobilier-2.jpg",
 
     metaTitle: "Sourcing Mobilier en Chine & Fabricants de Meubles",
 
@@ -259,6 +263,7 @@ export const industries: Industry[] = [
     code: "04",
 
     name: "Beauté & Esthétique",
+    image: "/sectors/beaute.png",
 
     metaTitle: "Sourcing Beauté & Machines Esthétiques en Chine",
 
@@ -335,6 +340,7 @@ export const industries: Industry[] = [
     code: "05",
 
     name: "Électronique",
+    image: "/sectors/electronique.png",
 
     metaTitle: "Sourcing Électronique en Chine & Fabricants OEM ODM",
 
@@ -411,6 +417,7 @@ export const industries: Industry[] = [
     code: "06",
 
     name: "Maison & Électroménager",
+    image: "/sectors/maison-2.jpg",
 
     metaTitle: "Sourcing Électroménager & Produits Maison en Chine",
 
@@ -487,6 +494,7 @@ export const industries: Industry[] = [
     code: "07",
 
     name: "Textile & Fashion",
+    image: "/sectors/textile-2.png",
 
     metaTitle: "Sourcing Textile en Chine & Fabricants de Vêtements",
 
@@ -563,6 +571,7 @@ export const industries: Industry[] = [
     code: "08",
 
     name: "E-commerce",
+    image: "/sectors/ecommerce-2.png",
 
     metaTitle: "Sourcing E-commerce en Chine & Private Label",
 

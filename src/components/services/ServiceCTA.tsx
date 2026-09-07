@@ -29,7 +29,7 @@ export default function ServiceCTA({
 
           <Link
             href={href}
-            className="inline-flex min-h-14 shrink-0 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
+            className="inline-flex min-h-14 shrink-0 items-center justify-center rounded-xl bg-[#176BFF] !text-white px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
           >
             {buttonLabel}
             <span className="ml-3">→</span>

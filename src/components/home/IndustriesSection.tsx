@@ -2,125 +2,89 @@ import Link from "next/link";
 
 const industries = [
   {
-    title: "Automobile",
-    description:
-      "Véhicules, pièces, accessoires et équipements automobiles.",
-    href: "/secteurs/automobile",
+    title: "Maison & Électroménager",
+    href: "/secteurs/maison",
     code: "01",
   },
   {
-    title: "Machines & Construction",
-    description:
-      "Engins de chantier, machines, équipements et outillage professionnel.",
-    href: "/secteurs/construction",
+    title: "Textile & Mode",
+    href: "/secteurs/textile",
     code: "02",
   },
   {
-    title: "Mobilier",
-    description:
-      "Canapés, mobilier professionnel, décoration et aménagement.",
-    href: "/secteurs/mobilier",
-    code: "03",
-  },
-  {
-    title: "Beauté & Esthétique",
-    description:
-      "Machines, mobilier, consommables et équipements professionnels.",
-    href: "/secteurs/beaute",
-    code: "04",
-  },
-  {
-    title: "Électronique",
-    description:
-      "Équipements électroniques, accessoires et produits connectés.",
-    href: "/secteurs/electronique",
-    code: "05",
-  },
-  {
-    title: "Maison & Électroménager",
-    description:
-      "Équipements domestiques, électroménager et produits pour la maison.",
-    href: "/secteurs/maison",
-    code: "06",
-  },
-  {
-    title: "Textile & Mode",
-    description:
-      "Vêtements, accessoires, personnalisation et private label.",
-    href: "/secteurs/textile",
-    code: "07",
-  },
-  {
     title: "E-commerce",
-    description:
-      "Produits destinés aux marketplaces, marques et boutiques en ligne.",
     href: "/secteurs/ecommerce",
-    code: "08",
+    code: "03",
   },
 ];
 
 export default function IndustriesSection() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-[#F6F8FB] py-12 lg:py-20">
       <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
-        <div className="max-w-[780px]">
-          <div className="mb-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-            Sourcing par secteur
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          {/* INTRO */}
+          <div>
+            <div className="mb-4 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
+              Et au-delà
+            </div>
+
+            <h2 className="max-w-[520px] text-[32px] font-extrabold leading-[1.08] tracking-[-0.04em] text-[#071B33] sm:text-[38px]">
+              Votre produit ne rentre pas
+              <span className="text-[#176BFF]"> dans une seule catégorie.</span>
+            </h2>
+
+            <p className="mt-5 max-w-[500px] text-sm leading-7 text-[#657386]">
+              Notre réseau permet également d&apos;étudier des projets dans
+              d&apos;autres univers selon le produit, les volumes recherchés et
+              le marché de destination.
+            </p>
+
+            <Link
+              href="/secteurs"
+              className="mt-6 inline-flex items-center gap-3 text-sm font-extrabold !text-[#071B33] transition hover:text-[#176BFF]"
+            >
+              Découvrir tous les secteurs
+              <span>→</span>
+            </Link>
           </div>
 
-          <h2 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[56px]">
-            Chaque produit impose
-            <span className="text-[#176BFF]">
-              {" "}
-              ses propres critères de sourcing.
-            </span>
-          </h2>
-
-          <p className="mt-6 max-w-[680px] text-lg leading-8 text-[#657386]">
-            Fournisseurs, matériaux, volumes, contrôles, packaging et
-            transport varient selon les secteurs. Notre approche est adaptée à
-            la nature du produit et au marché de destination.
-          </p>
-        </div>
-
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <Link
-              key={industry.title}
-              href={industry.href}
-              className="group flex min-h-[260px] flex-col rounded-[26px] border border-[#E6ECF3] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-[#C9D9F1] hover:shadow-[0_22px_65px_rgba(7,27,51,0.08)]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-black tracking-[0.18em] text-[#176BFF]">
+          {/* AUTRES SECTEURS */}
+          <div className="overflow-hidden rounded-[26px] border border-[#E1E7EF] bg-white">
+            {industries.map((industry, index) => (
+              <Link
+                key={industry.title}
+                href={industry.href}
+                className={`group flex min-h-[92px] items-center gap-5 px-6 transition hover:bg-[#F8FAFD] sm:px-8 ${
+                  index !== industries.length - 1
+                    ? "border-b border-[#E6ECF3]"
+                    : ""
+                }`}
+              >
+                <span className="w-8 text-[10px] font-black tracking-[0.16em] text-[#176BFF]">
                   {industry.code}
                 </span>
 
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F3F7FC] text-[#176BFF] transition group-hover:bg-[#176BFF] group-hover:text-white">
+                <span className="flex-1 text-base font-extrabold tracking-[-0.02em] text-[#071B33] sm:text-lg">
+                  {industry.title}
+                </span>
+
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F2F6FB] text-[#176BFF] transition duration-300 group-hover:bg-[#176BFF] group-hover:text-white">
                   →
                 </span>
-              </div>
+              </Link>
+            ))}
 
-              <div className="mt-auto">
-                <h3 className="text-xl font-extrabold tracking-[-0.03em] text-[#071B33]">
-                  {industry.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-[#657386]">
-                  {industry.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-10">
-          <Link
-            href="/secteurs"
-            className="inline-flex items-center gap-3 text-sm font-extrabold text-[#176BFF]"
-          >
-            Découvrir tous nos secteurs
-            <span>→</span>
-          </Link>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[#E6ECF3] bg-[#FBFCFE] px-6 py-4 text-[10px] font-black uppercase tracking-[0.14em] text-[#8A96A5] sm:px-8">
+              <span>Produit</span>
+              <span className="text-[#176BFF]">→</span>
+              <span>Contraintes</span>
+              <span className="text-[#176BFF]">→</span>
+              <span>Fournisseurs</span>
+              <span className="text-[#176BFF]">→</span>
+              <span>Marché cible</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

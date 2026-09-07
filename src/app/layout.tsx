@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "PaxSolutio — Sourcing en Chine & Supply Chain",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description:
       "Recherche fournisseurs, sourcing en Chine, automobile, développement produit, contrôle qualité et logistique internationale.",
 
-    images: ["/og-image.jpg"],
+    images: ["/og-image.webp"],
   },
 
   robots: {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function AutomotiveHero() {
@@ -48,8 +49,17 @@ export default function AutomotiveHero() {
           </div>
         </div>
 
-        <div className="relative min-h-[520px]">
-          <div className="absolute inset-0 rounded-[36px] border border-white/10 bg-white/[0.04]" />
+        <div className="relative min-h-[520px] overflow-hidden rounded-[36px] border border-white/10">
+          <Image
+            src="/automotive/hero-automobile.jpg"
+            alt="Véhicule sourcé en Chine"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-cover"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-br from-[#071B33]/92 via-[#071B33]/72 to-[#071B33]/48" />
 
           <div className="absolute left-[9%] top-[9%] right-[9%] rounded-[24px] border border-white/10 bg-white/[0.05] p-6 backdrop-blur">
             <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#7FAEFF]">
@@ -80,16 +90,22 @@ export default function AutomotiveHero() {
             </div>
           </div>
 
-          <div className="absolute bottom-[9%] left-[9%] right-[9%] grid grid-cols-3 gap-3">
+          <div className="absolute bottom-[4%] left-[6%] right-[6%] grid grid-cols-3 gap-2 sm:bottom-[5%] sm:left-[9%] sm:right-[9%] sm:gap-3">
             {["Rechercher", "Vérifier", "Exporter"].map((item, index) => (
               <div
                 key={item}
-                className="rounded-[20px] border border-white/10 bg-[#0B2848] p-5"
+                className="rounded-[16px] border border-white/10 bg-[#0B2848] px-3 py-4 text-center sm:rounded-[20px] sm:p-5"
               >
-                <div className="text-[10px] font-black text-[#6EA4FF]">
+                <div className="text-[9px] font-black text-[#6FA4FF] sm:text-[10px]">
                   0{index + 1}
                 </div>
-                <div className="mt-3 text-sm font-extrabold">{item}</div>
+
+                <div
+                  className={`mt-2 font-extrabold leading-tight sm:mt-3 ${item === "Rechercher" ? "text-[11px] sm:text-[12px]" : "text-[12px] sm:text-sm"
+                    }`}
+                >
+                  {item}
+                </div>
               </div>
             ))}
           </div>

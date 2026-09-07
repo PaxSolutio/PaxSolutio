@@ -272,7 +272,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <Link
               href="/#project"
-              className="inline-flex min-h-12 items-center rounded-xl bg-[#176BFF] px-5 text-sm font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
+              className="inline-flex min-h-12 items-center rounded-xl bg-[#176BFF] px-5 text-sm font-bold !text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
             >
               Démarrer un projet
             </Link>

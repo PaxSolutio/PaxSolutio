@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function IndustriesHero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-40 lg:pb-32 lg:pt-48">
-      <div className="absolute right-[-180px] top-[-120px] h-[560px] w-[560px] rounded-full bg-[#EAF2FF] blur-[50px]" />
+    <section className="relative isolate overflow-hidden bg-white pb-24 pt-40 lg:pb-32 lg:pt-48">
+      <div className="pointer-events-none absolute right-[-180px] top-[-120px] -z-10 h-[560px] w-[560px] rounded-full bg-[#EAF2FF] blur-[50px]" />
 
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1320px] px-6 lg:px-10">
         <div className="max-w-[940px]">
           <div className="mb-6 text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
             Sourcing par secteur
@@ -29,7 +29,7 @@ export default function IndustriesHero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="#industries-list"
-              className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
+              className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold !text-white transition hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
             >
               Explorer les secteurs
               <span className="ml-3">→</span>

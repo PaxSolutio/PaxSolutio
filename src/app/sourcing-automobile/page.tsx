@@ -8,6 +8,7 @@ import AutomotiveOptions from "@/components/automotive/AutomotiveOptions";
 import AutomotiveProcess from "@/components/automotive/AutomotiveProcess";
 import AutomotiveLogistics from "@/components/automotive/AutomotiveLogistics";
 import VehicleRequestForm from "@/components/automotive/VehicleRequestForm";
+import VehicleShowcase from "@/components/automotive/VehicleShowcase";
 
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceCTA from "@/components/services/ServiceCTA";
@@ -62,6 +63,8 @@ export default function AutomotivePage() {
         intro="Le modèle, la version, la disponibilité, l'état du véhicule, les conditions de vente, les documents disponibles, le mode d'export et le transport doivent être étudiés ensemble avant de valider une opération."
         benefits={benefits}
       />
+
+      <VehicleShowcase />
 
       <AutomotiveOptions />
 

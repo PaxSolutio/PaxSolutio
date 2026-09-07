@@ -59,26 +59,64 @@ export default function QualityServices() {
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {qualityServices.map((service) => (
-            <div
-              key={service.code}
-              className="flex min-h-[320px] flex-col rounded-[28px] border border-[#E5EAF1] bg-[#FBFCFE] p-8"
-            >
-              <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
-                {service.code}
-              </span>
+          {qualityServices.map((service) => {
+            const isProductionVisual = service.code === "DUPRO";
 
-              <div className="mt-auto">
-                <h3 className="text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
-                  {service.title}
-                </h3>
+            if (isProductionVisual) {
+              return (
+                <div
+                  key={service.code}
+                  className="group relative min-h-[320px] overflow-hidden rounded-[28px] border border-[#D8E2EE] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_65px_rgba(7,27,51,0.12)]"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-[1.03]"
+                    style={{
+                      backgroundImage: "url('/quality/inspection-production-2.jpg')",
+                    }}
+                  />
 
-                <p className="mt-4 text-sm leading-7 text-[#657386]">
-                  {service.description}
-                </p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071B33]/95 via-[#071B33]/60 to-[#071B33]/20" />
+
+                  <div className="relative z-10 flex min-h-[320px] flex-col p-8">
+                    <span className="text-xs font-black tracking-[0.18em] text-[#8CB8FF]">
+                      {service.code}
+                    </span>
+
+                    <div className="mt-auto">
+                      <h3 className="text-2xl font-extrabold tracking-[-0.035em] !text-white">
+                        {service.title}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-7 text-white/70">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={service.code}
+                className="flex min-h-[320px] flex-col rounded-[28px] border border-[#E5EAF1] bg-[#FBFCFE] p-8"
+              >
+                <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
+                  {service.code}
+                </span>
+
+                <div className="mt-auto">
+                  <h3 className="text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-[#657386]">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -65,43 +65,98 @@ export default function FreightModes() {
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {freightModes.map((mode) => (
-            <div
-              key={mode.code}
-              className="group flex min-h-[330px] flex-col rounded-[28px] border border-[#E5EAF1] bg-[#FBFCFE] p-8 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_65px_rgba(7,27,51,0.08)]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
-                  {mode.code}
-                </span>
+          {freightModes.map((mode) => {
+            const isSeaVisual = mode.code === "SEA";
 
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#176BFF] transition group-hover:bg-[#176BFF] group-hover:text-white">
-                  →
-                </span>
-              </div>
+            if (isSeaVisual) {
+              return (
+                <div
+                  key={mode.code}
+                  className="group relative min-h-[330px] overflow-hidden rounded-[28px] border border-[#D8E2EE] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_65px_rgba(7,27,51,0.12)]"
+                >
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-[1.03]"
+                    style={{
+                      backgroundImage: "url('/logistics/fret-maritime.jpg')",
+                    }}
+                  />
 
-              <div className="mt-auto">
-                <h3 className="text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
-                  {mode.title}
-                </h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071B33]/95 via-[#071B33]/60 to-[#071B33]/20" />
 
-                <p className="mt-4 text-sm leading-7 text-[#657386]">
-                  {mode.description}
-                </p>
+                  <div className="relative z-10 flex min-h-[330px] flex-col p-8">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black tracking-[0.18em] text-[#8CB8FF]">
+                        {mode.code}
+                      </span>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {mode.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-white px-3 py-2 text-[11px] font-bold text-[#52647B]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition group-hover:bg-white group-hover:text-[#071B33]">
+                        →
+                      </span>
+                    </div>
+
+                    <div className="mt-auto">
+                      <h3 className="text-2xl font-extrabold tracking-[-0.035em] !text-white">
+                        {mode.title}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-7 text-white/70">
+                        {mode.description}
+                      </p>
+
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {mode.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-white/10 bg-white/10 px-3 py-2 text-[11px] font-bold text-white/85 backdrop-blur-sm"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={mode.code}
+                className="group flex min-h-[330px] flex-col rounded-[28px] border border-[#E5EAF1] bg-[#FBFCFE] p-8 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_65px_rgba(7,27,51,0.08)]"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black tracking-[0.18em] text-[#176BFF]">
+                    {mode.code}
+                  </span>
+
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#176BFF] transition group-hover:bg-[#176BFF] group-hover:text-white">
+                    →
+                  </span>
+                </div>
+
+                <div className="mt-auto">
+                  <h3 className="text-2xl font-extrabold tracking-[-0.035em] text-[#071B33]">
+                    {mode.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-[#657386]">
+                    {mode.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {mode.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-white px-3 py-2 text-[11px] font-bold text-[#52647B]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

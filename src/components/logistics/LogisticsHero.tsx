@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function LogisticsHero() {
@@ -44,8 +45,17 @@ export default function LogisticsHero() {
           </div>
         </div>
 
-        <div className="relative min-h-[520px]">
-          <div className="absolute inset-0 rounded-[36px] border border-white/10 bg-white/[0.04]" />
+        <div className="relative min-h-[520px] overflow-hidden rounded-[36px] border border-white/10">
+          <Image
+            src="/logistics/logistique-terrain-2.jpg"
+            alt="Transport international et logistique Chine-Europe"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-br from-[#071B33]/92 via-[#071B33]/70 to-[#071B33]/45" />
 
           <div className="absolute left-[8%] right-[8%] top-[10%] rounded-[24px] border border-white/10 bg-white/[0.05] p-6">
             <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#7FAEFF]">

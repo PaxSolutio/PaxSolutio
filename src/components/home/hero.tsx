@@ -26,11 +26,11 @@ function FlowCard({
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-32 lg:min-h-[850px] lg:pt-0">
+    <section className="relative overflow-hidden bg-white pt-24 lg:min-h-[850px] lg:pt-0">
       <div className="absolute left-[-180px] top-[120px] h-[500px] w-[500px] rounded-full bg-[#EAF2FF] blur-[30px]" />
       <div className="absolute right-[-200px] top-[-140px] h-[600px] w-[600px] rounded-full bg-[#E8F8FC] opacity-70 blur-[50px]" />
 
-      <div className="relative mx-auto grid min-h-[760px] max-w-[1440px] items-center gap-16 px-6 pb-20 pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pb-0 lg:pt-28">
+      <div className="relative mx-auto grid min-h-[760px] max-w-[1440px] items-center gap-16 px-6 pb-20 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pb-0 lg:pt-28">
         <div className="relative z-10 max-w-[760px]">
           <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#DCE8F8] bg-[#F6FAFF] px-4 py-2">
             <span className="h-2 w-2 rounded-full bg-[#176BFF]" />
@@ -57,7 +57,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="#project"
-              className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
+              className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold !text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
             >
               Présenter mon projet
               <span className="ml-3 text-lg">→</span>
@@ -91,28 +91,28 @@ export default function Hero() {
           <FlowCard
             label="01 • SOURCER"
             title="Identifier le fournisseur"
-            position="left-[5%] top-[12%] w-[210px]"
+            position="left-[4%] top-[12%] w-[195px] lg:left-[5%] lg:w-[210px]"
           />
 
           <FlowCard
             label="02 • VÉRIFIER"
             title="Contrôler la production"
-            position="right-[2%] top-[34%] w-[210px]"
+            position="right-[2%] top-[31%] w-[210px] lg:right-[-1%] lg:top-[27%] lg:w-[210px]"
           />
 
           <FlowCard
             label="03 • EXPÉDIER"
             title="Organiser le transport"
-            position="left-[8%] top-[57%] w-[210px]"
+            position="left-[8%] top-[57%] w-[210px] lg:left-[2%] lg:top-[56%] lg:w-[210px]"
           />
 
           <FlowCard
             label="04 • LIVRER"
             title="Acheminer à destination"
-            position="right-[5%] top-[78%] w-[210px]"
+            position="right-[3%] top-[78%] w-[195px] lg:right-[5%] lg:w-[210px]"
           />
+          <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[22px] border border-white bg-[#071B33] shadow-[0_25px_80px_rgba(7,27,51,0.22)] lg:h-28 lg:w-28 lg:rounded-[28px]">
 
-          <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[28px] border border-white bg-[#071B33] shadow-[0_25px_80px_rgba(7,27,51,0.22)]">
             <div className="text-center">
               <div className="text-[12px] font-black tracking-[0.12em] text-white">
                 PAX
