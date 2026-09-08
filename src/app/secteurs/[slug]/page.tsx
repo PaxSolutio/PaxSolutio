@@ -42,7 +42,7 @@ export async function generateMetadata({
     },
 
     openGraph: {
-      title: `${industry.metaTitle} | PaxSolutio`,
+      title: industry.metaTitle,
       description: industry.metaDescription,
       url: `/secteurs/${industry.slug}`,
     },

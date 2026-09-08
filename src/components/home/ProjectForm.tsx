@@ -169,13 +169,75 @@ export default function ProjectForm() {
               </div>
 
               <div className="mt-12 border-t border-white/10 pt-7">
-                <div className="text-[11px] font-black uppercase tracking-[0.16em] text-white/40">
-                  PaxSolutio
+
+                <div className="text-[11px] font-black uppercase tracking-[0.16em] text-[#75A8FF]">
+                  Un projet à étudier ?
                 </div>
 
-                <p className="mt-2 text-sm leading-6 text-white/55">
-                  Équipe opérationnelle en France et en Chine.
-                </p>
+                <div className="mt-5 space-y-4">
+
+                  <div className="flex gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#176BFF] text-[11px] font-black text-white">
+                      ✓
+                    </span>
+
+                    <div>
+                      <div className="text-sm font-extrabold text-white">
+                        Étude sans engagement
+                      </div>
+                      <p className="mt-1 text-xs leading-5 text-white/55">
+                        Nous analysons d’abord votre besoin et sa faisabilité.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#176BFF] text-[11px] font-black text-white">
+                      ✓
+                    </span>
+
+                    <div>
+                      <div className="text-sm font-extrabold text-white">
+                        Réponse sous 24–48 h ouvrées
+                      </div>
+                      <p className="mt-1 text-xs leading-5 text-white/55">
+                        Un premier retour après analyse de votre demande.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="mt-7 rounded-[18px] border border-white/10 bg-white/[0.06] p-5">
+
+                  <div className="text-[10px] font-black uppercase tracking-[0.16em] text-[#75A8FF]">
+                    Contact direct
+                  </div>
+
+                  <div className="mt-2 text-sm font-extrabold text-white">
+                    WhatsApp professionnel
+                  </div>
+
+                  <div className="mt-1 text-xs text-white/55">
+                    +33 7 43 57 42 34
+                  </div>
+
+                  <a
+                    href="https://wa.me/33743574234"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#176BFF] px-4 text-xs font-extrabold !text-white transition hover:-translate-y-0.5 hover:bg-[#2B78FF]"
+                  >
+                    Échanger sur WhatsApp
+                    <span className="ml-2">→</span>
+                  </a>
+
+                </div>
+
+                <div className="mt-6 text-[11px] font-bold text-white/35">
+                  PaxSolutio · France + Chine
+                </div>
+
               </div>
             </div>
 
