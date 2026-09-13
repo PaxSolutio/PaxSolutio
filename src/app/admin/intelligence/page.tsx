@@ -38,6 +38,38 @@ type IntelligenceItem = {
   generated_news_post_id: string | null;
 };
 
+type IntelligenceOpportunityDashboard = {
+  id: string;
+  title: string;
+  product_name: string | null;
+  opportunity_kind: string;
+  priority_score: number | null;
+  confidence_score: number | null;
+  status:
+  | "to_review"
+  | "analyzing"
+  | "validated"
+  | "rejected"
+  | "converted";
+  created_at: string;
+};
+
+type IntelligenceExecutionProjectDashboard = {
+  id: string;
+  opportunity_id: string;
+  title: string;
+  product_name: string | null;
+  target_market: string | null;
+  target_country: string | null;
+  status: string;
+  priority: string;
+  target_purchase_price: number | null;
+  target_landed_cost: number | null;
+  target_sale_price: number | null;
+  currency: string | null;
+  updated_at: string;
+};
+
 export default async function AdminIntelligencePage() {
   // =========================================================
   // 1. AUTHENTIFICATION
@@ -161,7 +193,108 @@ export default async function AdminIntelligencePage() {
   }
 
   // =========================================================
-  // 5. DERNIER BRIEF STRATÉGIQUE
+  // 5. OPPORTUNITÉS INTELLIGENCE
+  // =========================================================
+
+  const {
+    data: opportunitiesData,
+    error: opportunitiesError,
+  } = await supabase
+    .from("intelligence_opportunities")
+    .select(
+      `
+      id,
+      title,
+      product_name,
+      opportunity_kind,
+      priority_score,
+      confidence_score,
+      status,
+      created_at
+    `
+    )
+    .order("created_at", {
+      ascending: false,
+    });
+
+  if (opportunitiesError) {
+    console.error(
+      "Erreur récupération opportunités Intelligence :",
+      opportunitiesError
+    );
+  }
+
+  // =========================================================
+  // PROJETS D'EXÉCUTION
+  // =========================================================
+
+  const {
+    data: executionProjectsData,
+    error: executionProjectsError,
+  } = await supabase
+    .from("intelligence_execution_projects")
+    .select(
+      `
+      id,
+      opportunity_id,
+      title,
+      product_name,
+      target_market,
+      target_country,
+      status,
+      priority,
+      target_purchase_price,
+      target_landed_cost,
+      target_sale_price,
+      currency,
+      updated_at
+    `
+    )
+    .order("updated_at", {
+      ascending: false,
+    });
+
+  if (executionProjectsError) {
+    console.error(
+      "Erreur récupération projets Intelligence :",
+      executionProjectsError
+    );
+  }
+
+  const { data: executionSuppliers } = await supabase
+    .from("intelligence_execution_suppliers")
+    .select(`
+    id,
+    execution_project_id,
+    verification_status
+  `);
+
+  const { data: executionQuotes } = await supabase
+    .from("intelligence_execution_quotes")
+    .select(`
+    id,
+    execution_project_id,
+    status,
+    landed_cost,
+    landed_cost_unit,
+    gross_margin,
+    gross_margin_percent
+  `);
+
+  const { data: executionCompliance } = await supabase
+    .from("intelligence_execution_compliance")
+    .select(`
+    id,
+    execution_project_id,
+    status,
+    risk_level,
+    overall_score,
+    missing_requirements,
+    blocker_count
+  `);
+
+  // =========================================================
+  // 6. DERNIER BRIEF STRATÉGIQUE
   // =========================================================
 
   const {
@@ -204,7 +337,7 @@ export default async function AdminIntelligencePage() {
   }
 
   // =========================================================
-  // 6. NORMALISATION
+  // 7. NORMALISATION
   // =========================================================
 
   const missions =
@@ -213,13 +346,19 @@ export default async function AdminIntelligencePage() {
   const recentItems =
     (itemsData ?? []) as unknown as IntelligenceItem[];
 
+  const opportunities =
+    (opportunitiesData ?? []) as unknown as IntelligenceOpportunityDashboard[];
+
+  const executionProjects =
+    (executionProjectsData ?? []) as unknown as IntelligenceExecutionProjectDashboard[];
+
   const latestBrief =
     briefData
       ? (briefData as unknown as IntelligenceBriefData)
       : null;
 
   // =========================================================
-  // 7. INTERFACE
+  // 8. INTERFACE
   // =========================================================
 
   return (
@@ -227,6 +366,11 @@ export default async function AdminIntelligencePage() {
       missions={missions}
       initialItems={recentItems}
       initialBrief={latestBrief}
+      initialOpportunities={opportunities}
+      initialExecutionProjects={executionProjects}
+      initialExecutionSuppliers={executionSuppliers ?? []}
+      initialExecutionQuotes={executionQuotes ?? []}
+      initialExecutionCompliance={executionCompliance ?? []}
     />
   );
 }

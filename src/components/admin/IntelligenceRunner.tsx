@@ -1,5 +1,6 @@
 "use client";
 
+import IntelligenceOverviewDashboard from "@/components/admin/intelligence/IntelligenceOverviewDashboard";
 import IntelligenceBrief, {
     type IntelligenceBriefData,
 } from "@/components/admin/IntelligenceBrief";
@@ -40,6 +41,64 @@ type IntelligenceItem = {
     generated_news_post_id: string | null;
 };
 
+type IntelligenceOpportunityDashboard = {
+    id: string;
+    title: string;
+    product_name: string | null;
+    opportunity_kind: string;
+    priority_score: number | null;
+    confidence_score: number | null;
+    status:
+    | "to_review"
+    | "analyzing"
+    | "validated"
+    | "rejected"
+    | "converted";
+    created_at: string;
+};
+
+type IntelligenceExecutionProjectDashboard = {
+    id: string;
+    opportunity_id: string;
+    title: string;
+    product_name: string | null;
+    target_market: string | null;
+    target_country: string | null;
+    status: string;
+    priority: string;
+    target_purchase_price: number | null;
+    target_landed_cost: number | null;
+    target_sale_price: number | null;
+    currency: string | null;
+    updated_at: string;
+};
+
+type IntelligenceExecutionSupplierDashboard = {
+    id: string;
+    execution_project_id: string;
+    verification_status: string;
+};
+
+type IntelligenceExecutionQuoteDashboard = {
+    id: string;
+    execution_project_id: string;
+    status: string;
+    landed_cost: number | null;
+    landed_cost_unit: number | null;
+    gross_margin: number | null;
+    gross_margin_percent: number | null;
+};
+
+type IntelligenceExecutionComplianceDashboard = {
+    id: string;
+    execution_project_id: string;
+    status: string;
+    risk_level: string | null;
+    overall_score: number | null;
+    missing_requirements: string[] | null;
+    blocker_count: number | null;
+};
+
 type RunResponse = {
     success: boolean;
     error?: string;
@@ -59,6 +118,11 @@ type Props = {
     missions: IntelligenceMission[];
     initialItems: IntelligenceItem[];
     initialBrief: IntelligenceBriefData | null;
+    initialOpportunities: IntelligenceOpportunityDashboard[];
+    initialExecutionProjects: IntelligenceExecutionProjectDashboard[];
+    initialExecutionSuppliers: IntelligenceExecutionSupplierDashboard[];
+    initialExecutionQuotes: IntelligenceExecutionQuoteDashboard[];
+    initialExecutionCompliance: IntelligenceExecutionComplianceDashboard[];
 };
 
 function frequencyLabel(frequency: IntelligenceMission["frequency"]) {
@@ -189,6 +253,11 @@ export default function IntelligenceRunner({
     missions,
     initialItems,
     initialBrief,
+    initialOpportunities,
+    initialExecutionProjects,
+    initialExecutionSuppliers,
+    initialExecutionQuotes,
+    initialExecutionCompliance,
 }: Props) {
     const [selectedMissionId, setSelectedMissionId] = useState(
         missions[0]?.id ?? ""
@@ -329,109 +398,28 @@ export default function IntelligenceRunner({
           HEADER
       ====================================================== */}
 
-            <header className="border-b border-white/10 bg-[#071321]">
-                <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
-                    <div>
-                        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
-                            PaxSolutio
-                        </div>
-
-                        <div className="mt-1 font-semibold">
-                            Administration
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-5">
-                        <Link
-                            href="/admin/nouveautes"
-                            className="hidden text-sm font-medium text-slate-400 transition hover:text-white sm:block"
-                        >
-                            Nouveautés
-                        </Link>
-
-                        <Link
-                            href="/admin/intelligence/opportunites"
-                            className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-300 transition hover:bg-emerald-500/20"
-                        >
-                            Dossiers Intelligence
-                        </Link>
-
-                        <LogoutButton />
-                    </div>
-                </div>
-            </header>
-
-            <div className="mx-auto max-w-7xl px-6 py-12">
-                {/* =====================================================
+            {/* =====================================================
             TITRE
         ====================================================== */}
 
-                <div className="mb-10">
-                    <div className="mb-3 text-sm font-medium text-blue-400">
-                        Veille stratégique automatisée
-                    </div>
-
-                    <h1 className="text-4xl font-semibold tracking-tight">
-                        PaxSolutio Intelligence
-                    </h1>
-
-                    <p className="mt-3 max-w-3xl leading-7 text-slate-400">
-                        Analysez les marchés, produits, entreprises,
-                        réglementations, événements géopolitiques et
-                        opportunités susceptibles d&apos;impacter le commerce
-                        international.
-                    </p>
-                </div>
-
-                {/* =====================================================
+            {/* =====================================================
             KPIs
         ====================================================== */}
 
-                <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Missions actives
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold">
-                            {missions.length}
-                        </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Informations
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold">
-                            {items.length}
-                        </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Candidats éditoriaux
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold text-blue-300">
-                            {editorialCandidateCount}
-                        </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Priorité haute
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold text-emerald-300">
-                            {highPriorityCount}
-                        </div>
-                    </div>
-                </div>
-
-                {/* =====================================================
+            {/* =====================================================
     BRIEF STRATÉGIQUE
 ====================================================== */}
+
+            <div className="mx-auto max-w-7xl px-6 py-8">
+                <IntelligenceOverviewDashboard
+                    missions={missions}
+                    items={items}
+                    opportunities={initialOpportunities}
+                    executionProjects={initialExecutionProjects}
+                    executionSuppliers={initialExecutionSuppliers}
+                    executionQuotes={initialExecutionQuotes}
+                    executionCompliance={initialExecutionCompliance}
+                />
 
                 <IntelligenceBrief
                     initialBrief={initialBrief}

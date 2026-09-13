@@ -1,276 +1,253 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
 import { createAuthServerClient } from "@/lib/supabase/auth-server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import LogoutButton from "@/components/admin/LogoutButton";
+
+export const dynamic = "force-dynamic";
 
 type NewsPost = {
-    id: string;
-    slug: string;
-    title: string;
-    category: string;
-    status: string;
-    featured: boolean;
-    created_at: string;
-    published_at: string | null;
+  id: string;
+  slug: string;
+  title: string;
+  category: string;
+  status: string;
+  featured: boolean;
+  created_at: string;
+  published_at: string | null;
 };
 
 function categoryLabel(category: string) {
-    switch (category) {
-        case "actualite":
-            return "Actualité";
+  switch (category) {
+    case "actualite":
+      return "Actualité";
 
-        case "reglementation":
-            return "Réglementation";
+    case "reglementation":
+      return "Réglementation";
 
-        case "opportunite":
-            return "Opportunité";
+    case "opportunite":
+      return "Opportunité";
 
-        case "terrain":
-            return "Terrain";
+    case "terrain":
+      return "Terrain";
 
-        default:
-            return category;
-    }
+    default:
+      return category;
+  }
 }
 
 export default async function AdminNewsPage() {
-    // 1. Vérification de la session utilisateur
-    const authSupabase = await createAuthServerClient();
+  const authSupabase = await createAuthServerClient();
 
-    const {
-        data: { user },
-        error: userError,
-    } = await authSupabase.auth.getUser();
+  const {
+    data: { user },
+    error: userError,
+  } = await authSupabase.auth.getUser();
 
-    if (userError || !user) {
-        redirect("/admin/login");
-    }
+  if (userError || !user) {
+    redirect("/admin/login");
+  }
 
-    // 2. Client serveur sécurisé avec Service Role
-    // Il n'est jamais exposé au navigateur.
-    const serverSupabase = createServerSupabaseClient();
+  const supabase = createServerSupabaseClient();
 
-    // 3. Vérification que l'utilisateur connecté est administrateur
-    const { data: admin, error: adminError } = await serverSupabase
-        .from("admin_users")
-        .select("user_id")
-        .eq("user_id", user.id)
-        .maybeSingle();
+  const {
+    data: admin,
+    error: adminError,
+  } = await supabase
+    .from("admin_users")
+    .select("user_id")
+    .eq("user_id", user.id)
+    .maybeSingle();
 
-    if (adminError) {
-        console.error("Erreur vérification administrateur :", adminError);
-        redirect("/admin/login");
-    }
+  if (adminError || !admin) {
+    redirect("/admin/login");
+  }
 
-    if (!admin) {
-        redirect("/admin/login");
-    }
+  const {
+    data: postsData,
+    error: postsError,
+  } = await supabase
+    .from("news_posts")
+    .select(
+      `
+        id,
+        slug,
+        title,
+        category,
+        status,
+        featured,
+        created_at,
+        published_at
+      `
+    )
+    .order("created_at", {
+      ascending: false,
+    });
 
-    // 4. Récupération des publications
-    const { data: posts, error: postsError } = await serverSupabase
-        .from("news_posts")
-        .select(
-            "id, slug, title, category, status, featured, created_at, published_at"
-        )
-        .order("created_at", { ascending: false });
-
-    if (postsError) {
-        console.error("Erreur récupération nouveautés :", postsError);
-    }
-
-    const publicationList = (posts ?? []) as NewsPost[];
-
-    const publishedCount = publicationList.filter(
-        (post) => post.status === "published"
-    ).length;
-
-    const draftCount = publicationList.filter(
-        (post) => post.status === "draft"
-    ).length;
-
-    return (
-        <main className="min-h-screen bg-[#06101f] text-white">
-            <header className="border-b border-white/10 bg-[#071321]">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-                    <div>
-                        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-400">
-                            PaxSolutio
-                        </div>
-
-                        <div className="mt-1 font-semibold">
-                            Administration
-                        </div>
-                    </div>
-
-                    <LogoutButton />
-                </div>
-            </header>
-
-            <div className="mx-auto max-w-7xl px-6 py-12">
-                <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                    <div>
-                        <div className="mb-3 text-sm font-medium text-blue-400">
-                            Gestion éditoriale
-                        </div>
-
-                        <h1 className="text-4xl font-semibold tracking-tight">
-                            Nouveautés
-                        </h1>
-
-                        <p className="mt-3 max-w-2xl text-slate-400">
-                            Gérez les actualités, opportunités, informations réglementaires
-                            et contenus terrain de PaxSolutio.
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-3">
-                        <Link
-                            href="/admin/intelligence"
-                            className="inline-flex items-center justify-center rounded-xl border border-blue-500/30 bg-blue-500/10 px-5 py-3 font-semibold text-blue-300 transition hover:bg-blue-500/20 hover:text-blue-200"
-                        >
-                            Intelligence
-                        </Link>
-
-                        <Link
-                            href="/admin/nouveautes/nouveau"
-                            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 font-semibold transition hover:bg-blue-500"
-                        >
-                            + Nouvelle publication
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="mb-10 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Total
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold">
-                            {publicationList.length}
-                        </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Publiées
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold">
-                            {publishedCount}
-                        </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                        <div className="text-sm text-slate-400">
-                            Brouillons
-                        </div>
-
-                        <div className="mt-2 text-3xl font-semibold">
-                            {draftCount}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]">
-                    {publicationList.length === 0 ? (
-                        <div className="px-8 py-16 text-center">
-                            <div className="text-xl font-semibold">
-                                Aucune publication
-                            </div>
-
-                            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-slate-400">
-                                Créez votre première actualité, opportunité ou publication
-                                terrain.
-                            </p>
-
-                            <Link
-                                href="/admin/nouveautes/nouveau"
-                                className="mt-7 inline-flex rounded-xl bg-blue-600 px-5 py-3 font-semibold hover:bg-blue-500"
-                            >
-                                Créer une publication
-                            </Link>
-                        </div>
-                    ) : (
-                        <div className="overflow-x-auto">
-                            <table className="w-full min-w-[800px] text-left">
-                                <thead className="border-b border-white/10 text-xs uppercase tracking-wider text-slate-500">
-                                    <tr>
-                                        <th className="px-6 py-4">
-                                            Publication
-                                        </th>
-
-                                        <th className="px-6 py-4">
-                                            Catégorie
-                                        </th>
-
-                                        <th className="px-6 py-4">
-                                            Statut
-                                        </th>
-
-                                        <th className="px-6 py-4">
-                                            Mise en avant
-                                        </th>
-
-                                        <th className="px-6 py-4 text-right">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    {publicationList.map((post) => (
-                                        <tr
-                                            key={post.id}
-                                            className="border-b border-white/[0.06] last:border-0"
-                                        >
-                                            <td className="px-6 py-5">
-                                                <div className="font-medium">
-                                                    {post.title}
-                                                </div>
-
-                                                <div className="mt-1 text-xs text-slate-500">
-                                                    /nouveautes/{post.slug}
-                                                </div>
-                                            </td>
-
-                                            <td className="px-6 py-5 text-sm text-slate-300">
-                                                {categoryLabel(post.category)}
-                                            </td>
-
-                                            <td className="px-6 py-5">
-                                                {post.status === "published" ? (
-                                                    <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
-                                                        Publié
-                                                    </span>
-                                                ) : (
-                                                    <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs font-medium text-amber-300">
-                                                        Brouillon
-                                                    </span>
-                                                )}
-                                            </td>
-
-                                            <td className="px-6 py-5 text-sm text-slate-300">
-                                                {post.featured ? "Oui" : "—"}
-                                            </td>
-
-                                            <td className="px-6 py-5 text-right">
-                                                <Link
-                                                    href={`/admin/nouveautes/${post.id}`}
-                                                    className="text-sm font-medium text-blue-400 hover:text-blue-300"
-                                                >
-                                                    Modifier
-                                                </Link>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </main>
+  if (postsError) {
+    console.error(
+      "Erreur récupération publications :",
+      postsError
     );
+  }
+
+  const posts =
+    (postsData ?? []) as NewsPost[];
+
+  const publishedCount = posts.filter(
+    (post) => post.status === "published"
+  ).length;
+
+  const draftCount = posts.filter(
+    (post) => post.status === "draft"
+  ).length;
+
+  const featuredCount = posts.filter(
+    (post) => post.featured
+  ).length;
+
+  return (
+    <div className="mx-auto max-w-7xl">
+      <div className="mb-8 flex flex-col justify-between gap-5 xl:flex-row xl:items-end">
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-400">
+            Gestion éditoriale
+          </div>
+
+          <h1 className="mt-2 text-3xl font-semibold">
+            Publications
+          </h1>
+
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-500">
+            Actualités, opportunités, informations réglementaires
+            et contenus terrain de PaxSolutio.
+          </p>
+        </div>
+
+        <Link
+          href="/admin/nouveautes/nouveau"
+          className="inline-flex h-10 items-center justify-center rounded-xl bg-white px-4 text-sm font-semibold text-black transition hover:bg-zinc-200"
+        >
+          + Nouvelle publication
+        </Link>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <Metric label="Total" value={posts.length} />
+        <Metric label="Publiées" value={publishedCount} tone="green" />
+        <Metric label="Brouillons" value={draftCount} tone="amber" />
+        <Metric label="À la une" value={featuredCount} tone="blue" />
+      </div>
+
+      <section className="mt-8 overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.025]">
+        <div className="border-b border-white/[0.07] px-6 py-5">
+          <div className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+            Bibliothèque éditoriale
+          </div>
+
+          <h2 className="mt-2 text-lg font-semibold">
+            Toutes les publications
+          </h2>
+        </div>
+
+        {posts.length === 0 ? (
+          <div className="px-6 py-16 text-center">
+            <div className="font-medium text-zinc-300">
+              Aucune publication.
+            </div>
+
+            <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-zinc-600">
+              Crée ta première actualité, opportunité ou publication terrain.
+            </p>
+          </div>
+        ) : (
+          <div className="divide-y divide-white/[0.06]">
+            {posts.map((post) => (
+              <Link
+                key={post.id}
+                href={`/admin/nouveautes/${post.id}`}
+                className="grid gap-4 px-6 py-5 transition hover:bg-white/[0.025] lg:grid-cols-[minmax(0,1.4fr)_160px_130px_120px_90px] lg:items-center"
+              >
+                <div className="min-w-0">
+                  <div className="truncate text-sm font-semibold text-zinc-200">
+                    {post.title}
+                  </div>
+
+                  <div className="mt-1 text-xs text-zinc-600">
+                    /nouveautes/{post.slug}
+                  </div>
+                </div>
+
+                <div className="text-xs text-zinc-400">
+                  {categoryLabel(post.category)}
+                </div>
+
+                <StatusBadge status={post.status} />
+
+                <div className="text-xs text-zinc-400">
+                  {post.featured ? "À la une" : "Standard"}
+                </div>
+
+                <div className="text-right text-xs font-semibold text-blue-300">
+                  Modifier →
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function Metric({
+  label,
+  value,
+  tone = "default",
+}: {
+  label: string;
+  value: number;
+  tone?: "default" | "green" | "amber" | "blue";
+}) {
+  const cls = {
+    default: "text-white",
+    green: "text-emerald-300",
+    amber: "text-amber-300",
+    blue: "text-blue-300",
+  }[tone];
+
+  return (
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5">
+      <div className="text-xs uppercase tracking-[0.14em] text-zinc-500">
+        {label}
+      </div>
+
+      <div className={`mt-3 text-3xl font-semibold ${cls}`}>
+        {value}
+      </div>
+    </div>
+  );
+}
+
+function StatusBadge({
+  status,
+}: {
+  status: string;
+}) {
+  const isPublished =
+    status === "published";
+
+  return (
+    <span
+      className={`inline-flex w-fit rounded-lg border px-2.5 py-1.5 text-[11px] font-medium ${
+        isPublished
+          ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+          : "border-amber-500/20 bg-amber-500/10 text-amber-300"
+      }`}
+    >
+      {isPublished
+        ? "Publié"
+        : "Brouillon"}
+    </span>
+  );
 }
