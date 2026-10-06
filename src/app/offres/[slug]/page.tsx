@@ -1,5 +1,6 @@
 import OfferGallery from "@/components/offers/OfferGallery";
 import OfferQuoteForm from "@/components/offers/OfferQuoteForm";
+import OfferPaymentBox from "@/components/offers/OfferPaymentBox";
 
 import type {
     Metadata,
@@ -243,6 +244,32 @@ export default async function OfferPage({
                                 destination et
                                 la logistique.
                             </p>
+
+                            <OfferPaymentBox
+                                offerId={offer.id}
+                                currency={offer.currency}
+                                paymentEnabled={
+                                    offer.payment_enabled === true
+                                }
+                                paymentPrice={
+                                    offer.payment_price
+                                }
+                                fullPaymentEnabled={
+                                    offer.full_payment_enabled === true
+                                }
+                                depositEnabled={
+                                    offer.deposit_enabled === true
+                                }
+                                depositType={
+                                    offer.deposit_type
+                                }
+                                depositPercent={
+                                    offer.deposit_percent
+                                }
+                                depositAmount={
+                                    offer.deposit_amount
+                                }
+                            />
 
                             <Link
                                 href="#demande-devis"
