@@ -35,6 +35,8 @@ type OfferPaymentBoxProps = {
 type CreateIntentResponse = {
     success?: boolean;
 
+    environment?: "prod" | "demo";
+
     order?: {
         id?: string;
         merchant_order_id?: string;
@@ -536,12 +538,17 @@ export default function OfferPaymentBox({
 
             setCheckoutVisible(true);
 
-            /*
-             * L'environnement Sandbox
-             * Airwallex.js s'appelle "demo".
-             */
+            if (
+                data.environment !== "prod" &&
+                data.environment !== "demo"
+            ) {
+                throw new Error(
+                    "Environnement Airwallex invalide."
+                );
+            }
+
             await init({
-                env: "demo",
+                env: data.environment,
 
                 enabledElements: [
                     "payments",

@@ -86,14 +86,14 @@ export async function POST(
 
     const offerId =
       typeof body.offer_id ===
-      "string"
+        "string"
         ? body.offer_id
         : "";
 
     const paymentMode:
       PaymentMode | null =
       body.payment_mode === "full" ||
-      body.payment_mode === "deposit"
+        body.payment_mode === "deposit"
         ? body.payment_mode
         : null;
 
@@ -178,7 +178,7 @@ export async function POST(
 
     if (
       offer.status !==
-        "published" ||
+      "published" ||
       !offer.payment_enabled
     ) {
       return NextResponse.json(
@@ -297,7 +297,7 @@ export async function POST(
           ) ||
           fixedAmount <= 0 ||
           fixedAmount >=
-            totalPrice
+          totalPrice
         ) {
           throw new Error(
             "Montant d'acompte invalide."
@@ -550,6 +550,11 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
+      environment:
+        process.env.AIRWALLEX_ENV ===
+          "production"
+          ? "prod"
+          : "demo",
 
       order: {
         id:
