@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -56,6 +57,8 @@ type IntelligenceActionRow = {
 };
 
 export default async function IntelligenceActionsPage() {
+  await requireAdminPage();
+
     const authSupabase =
         await createAuthServerClient();
 

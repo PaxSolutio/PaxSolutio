@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextRequest, NextResponse } from "next/server";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -107,6 +109,9 @@ export async function GET(
     _request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(_request);
+  if (accessDenied) return accessDenied;
+
     try {
         const { id } =
             await context.params;
@@ -160,6 +165,9 @@ export async function POST(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const { id } =
             await context.params;
@@ -398,6 +406,9 @@ export async function PATCH(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const { id } =
             await context.params;

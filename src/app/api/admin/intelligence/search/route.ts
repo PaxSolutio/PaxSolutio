@@ -1,3 +1,4 @@
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextRequest, NextResponse } from "next/server";
 
 import { createAuthServerClient } from "@/lib/supabase/auth-server";
@@ -30,6 +31,9 @@ function cleanSearchValue(
 export async function GET(
   request: NextRequest
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   // =========================================================
   // AUTHENTIFICATION
   // =========================================================

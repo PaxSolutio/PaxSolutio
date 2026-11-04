@@ -1,3 +1,6 @@
+import { commercialPrice, commercialCopy } from "@/lib/commercial-pricing";
+import { isReadOnlyPreview } from "@/lib/preview-safety";
+import OfferPrice from "@/components/offers/OfferPrice";
 import OfferGallery from "@/components/offers/OfferGallery";
 import OfferQuoteForm from "@/components/offers/OfferQuoteForm";
 import OfferPaymentBox from "@/components/offers/OfferPaymentBox";
@@ -15,20 +18,6 @@ import {
 
 export const dynamic =
     "force-dynamic";
-
-function formatPrice(
-    value: number,
-    currency = "EUR"
-) {
-    return new Intl.NumberFormat(
-        "fr-FR",
-        {
-            style: "currency",
-            currency,
-            maximumFractionDigits: 0,
-        }
-    ).format(value);
-}
 
 async function getOffer(
     slug: string
@@ -127,6 +116,8 @@ export default async function OfferPage({
         notFound();
     }
 
+    const price = commercialPrice(offer);
+
     const gallery =
         Array.isArray(
             offer.gallery_urls
@@ -196,41 +187,7 @@ export default async function OfferPage({
                         ) : null}
 
                         <div className="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_14px_45px_rgba(15,23,42,0.06)]">
-                            {offer.market_price ? (
-                                <div className="text-sm text-slate-400">
-                                    Prix marché
-                                    indicatif{" "}
-                                    <span className="ml-1 line-through">
-                                        {formatPrice(
-                                            offer.market_price,
-                                            offer.currency ??
-                                            "EUR"
-                                        )}
-                                    </span>
-                                </div>
-                            ) : null}
-
-                            {offer.price_from ? (
-                                <div className="mt-1">
-                                    <div className="text-sm font-medium text-slate-500">
-                                        {offer.price_label ??
-                                            "À partir de"}
-                                    </div>
-
-                                    <div className="mt-1 text-4xl font-extrabold tracking-[-0.04em] text-[#16A36A]">
-                                        {formatPrice(
-                                            offer.price_from,
-                                            offer.currency ??
-                                            "EUR"
-                                        )}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="text-2xl font-semibold text-[#081426]">
-                                    Prix sur
-                                    demande
-                                </div>
-                            )}
+                            <OfferPrice offer={offer} />
 
                             <p className="mt-4 text-xs leading-5 text-slate-500">
                                 Tarif indicatif
@@ -242,10 +199,10 @@ export default async function OfferPage({
                                 fournisseur, le
                                 marché de
                                 destination et
-                                la logistique.
+                                la logistique. Transport, douane et immatriculation : uniquement si expressément inclus au devis.
                             </p>
 
-                            <OfferPaymentBox
+                            {!isReadOnlyPreview() && price.amount !== null ? <OfferPaymentBox
                                 offerId={offer.id}
                                 currency={offer.currency}
                                 paymentEnabled={
@@ -269,7 +226,7 @@ export default async function OfferPage({
                                 depositAmount={
                                     offer.deposit_amount
                                 }
-                            />
+                            /> : <p className="mt-5 text-sm leading-6 text-slate-600">{isReadOnlyPreview() ? "Preview de validation : envois et paiements désactivés." : "Les conditions tarifaires seront confirmées sur devis avant tout paiement."}</p>}
 
                             <Link
                                 href="#demande-devis"
@@ -393,17 +350,13 @@ export default async function OfferPage({
                                 <div className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-[0_14px_40px_rgba(15,23,42,0.05)] md:p-10">
                                     {offer.short_description ? (
                                         <p className="text-lg font-semibold leading-8 text-[#06101d]">
-                                            {
-                                                offer.short_description
-                                            }
+                                            {commercialCopy(offer.short_description, price.amount !== null)}
                                         </p>
                                     ) : null}
 
                                     {offer.description ? (
                                         <div className="mt-6 whitespace-pre-line text-sm leading-7 text-slate-600">
-                                            {
-                                                offer.description
-                                            }
+                                            {commercialCopy(offer.description, price.amount !== null)}
                                         </div>
                                     ) : null}
                                 </div>
@@ -487,8 +440,9 @@ export default async function OfferPage({
                     offerTitle={offer.title}
                     offerSlug={offer.slug}
                     priceFrom={
-                        offer.price_from
+                        price.amount
                     }
+                    priceText={price.amount !== null ? `${price.label} ${price.text}` : price.text}
                     currency={
                         offer.currency
                     }

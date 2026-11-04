@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -47,6 +48,8 @@ const STATUS_CLASSES: Record<
 };
 
 export default async function IntelligenceDossiersPage() {
+  await requireAdminPage();
+
   // =========================================================
   // AUTHENTIFICATION
   // =========================================================

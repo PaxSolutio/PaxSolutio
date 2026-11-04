@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { businessClubUrl } from "@/data/businessClub";
 
 export default function Footer() {
   return (
@@ -253,6 +254,10 @@ export default function Footer() {
               >
                 À propos
               </Link>
+
+              <a href={businessClubUrl} className="block !text-white/65 transition hover:!text-white">
+                Le Business Club
+              </a>
 
               <Link
                 href="/contact"

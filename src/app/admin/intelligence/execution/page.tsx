@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -95,6 +96,8 @@ export default async function IntelligenceExecutionPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  await requireAdminPage();
+
   const params = await searchParams;
 
   const supabase =

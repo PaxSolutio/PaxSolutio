@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextRequest, NextResponse } from "next/server";
 
 import { createAuthServerClient } from "@/lib/supabase/auth-server";
@@ -44,6 +46,9 @@ export async function POST(
     _request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(_request);
+  if (accessDenied) return accessDenied;
+
     try {
         const auth =
             await verifyAdmin();

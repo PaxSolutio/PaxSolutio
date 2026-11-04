@@ -54,13 +54,13 @@ export default function ProcessTimeline() {
     <section className="bg-white py-14 lg:py-24">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
         {/* INTRODUCTION */}
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-center">
           <div>
             <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
               Notre méthode
             </div>
 
-            <h2 className="mt-4 max-w-[720px] text-[36px] font-extrabold leading-[1.06] tracking-[-0.045em] text-[#071B33] sm:text-[44px] lg:text-[48px]">
+            <h2 className="mt-4 max-w-[720px] [overflow-wrap:anywhere] text-[36px] font-extrabold leading-[1.06] tracking-[-0.045em] text-[#071B33] sm:text-[44px] lg:text-[48px]">
               Du besoin initial
               <span className="text-[#176BFF]">
                 {" "}

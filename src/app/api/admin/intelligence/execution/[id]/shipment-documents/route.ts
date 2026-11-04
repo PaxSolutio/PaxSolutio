@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import {
     NextRequest,
     NextResponse,
@@ -117,6 +119,9 @@ export async function GET(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const auth =
             await verifyAdmin();
@@ -231,6 +236,9 @@ export async function POST(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const auth =
             await verifyAdmin();
@@ -450,6 +458,9 @@ export async function PATCH(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const auth =
             await verifyAdmin();
@@ -671,6 +682,9 @@ export async function DELETE(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const auth =
             await verifyAdmin();

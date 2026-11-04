@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import { redirect } from "next/navigation";
 
 import { createAuthServerClient } from "@/lib/supabase/auth-server";
@@ -97,6 +98,8 @@ export default async function IntelligenceRadarPage({
 }: {
   searchParams: Promise<SearchParams>;
 }) {
+  await requireAdminPage();
+
   const params = await searchParams;
 
   // =========================================================

@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import IntelligenceExecutionCommercial from "@/components/admin/IntelligenceExecutionCommercial";
 import IntelligenceExecutionLogistics from "@/components/admin/IntelligenceExecutionLogistics";
 import IntelligenceExecutionCompliance from "@/components/admin/IntelligenceExecutionCompliance";
@@ -82,6 +83,8 @@ function formatPrice(
 export default async function ExecutionProjectPage({
     params,
 }: PageProps) {
+  await requireAdminPage();
+
     const { id } = await params;
 
     const supabase =

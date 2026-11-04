@@ -1,7 +1,16 @@
+import { isReadOnlyPreview, previewRequestAllowed } from "@/lib/preview-safety";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
+  if (isReadOnlyPreview()) {
+    const response = previewRequestAllowed(request.method, request.nextUrl.pathname, process.env.PAX_PREVIEW_ADMIN_READS === "true")
+      ? NextResponse.next({ request })
+      : new NextResponse("Preview de validation : action indisponible.", { status: 423 });
+    response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    response.headers.set("Cache-Control", "private, no-store");
+    return response;
+  }
   let response = NextResponse.next({
     request,
   });
@@ -40,6 +49,8 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/api/:path*",
+    "/admin/:path*",
     "/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

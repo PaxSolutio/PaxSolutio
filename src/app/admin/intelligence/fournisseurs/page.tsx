@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -73,6 +74,8 @@ const VERIFICATION_LABELS: Record<string, string> = {
 // =========================================================
 
 export default async function IntelligenceSuppliersPage() {
+  await requireAdminPage();
+
   // =======================================================
   // AUTHENTIFICATION
   // =======================================================

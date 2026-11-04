@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -5,6 +6,8 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 export const dynamic = "force-dynamic";
 
 export default async function AdminOffersPage() {
+  await requireAdminPage();
+
     const supabase =
         createServerSupabaseClient();
 

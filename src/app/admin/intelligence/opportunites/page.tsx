@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import { redirect } from "next/navigation";
 
 import IntelligenceOpportunitiesBoard from "@/components/admin/IntelligenceOpportunitiesBoard";
@@ -41,6 +42,8 @@ export type IntelligenceOpportunity = {
 };
 
 export default async function IntelligenceOpportunitiesPage() {
+  await requireAdminPage();
+
     const authSupabase =
         await createAuthServerClient();
 

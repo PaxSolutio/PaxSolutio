@@ -18,6 +18,10 @@ import SupplierNetwork from "@/components/home/SupplierNetwork";
 import QualitySection from "@/components/home/QualitySection";
 import ProjectForm from "@/components/home/ProjectForm";
 import FinalCTA from "@/components/home/FinalCTA";
+import BusinessClubSection from "@/components/home/BusinessClubSection";
+
+// The catalogue must reflect current published prices on every request.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Sourcing Chine & Import International",
@@ -57,6 +61,7 @@ export default function Home() {
       <QualitySection />
       <ProjectForm />
       <FinalCTA />
+      <BusinessClubSection />
 
       <Footer />
     </main>

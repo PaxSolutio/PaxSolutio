@@ -1,4 +1,6 @@
 import Link from "next/link";
+import HeroQuickLinks from "./HeroQuickLinks";
+import styles from "./Hero.module.css";
 
 function FlowCard({
   label,
@@ -26,13 +28,13 @@ function FlowCard({
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-24 lg:min-h-[850px] lg:pt-0">
+    <section className={styles.hero}>
       <div className="absolute left-[-180px] top-[120px] h-[500px] w-[500px] rounded-full bg-[#EAF2FF] blur-[30px]" />
       <div className="absolute right-[-200px] top-[-140px] h-[600px] w-[600px] rounded-full bg-[#E8F8FC] opacity-70 blur-[50px]" />
 
-      <div className="relative mx-auto grid min-h-[760px] max-w-[1440px] items-center gap-16 px-6 pb-20 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:pb-0 lg:pt-28">
+      <div className={styles.layout}>
         <div className="relative z-10 max-w-[760px]">
-          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-[#DCE8F8] bg-[#F6FAFF] px-4 py-2">
+          <div className="hero-kicker mb-7 inline-flex items-center gap-3 rounded-full border border-[#DCE8F8] bg-[#F6FAFF] px-4 py-2">
             <span className="h-2 w-2 rounded-full bg-[#176BFF]" />
 
             <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#48617F]">
@@ -40,21 +42,19 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="max-w-[800px] text-[46px] font-extrabold leading-[1.03] tracking-[-0.055em] text-[#071B33] sm:text-[58px] lg:text-[72px]">
+          <h1 className={styles.title}>
             Votre sourcing en Chine,
             <br />
             du fournisseur à
             <span className="text-[#176BFF]"> la livraison.</span>
           </h1>
 
-          <p className="mt-7 max-w-[650px] text-lg leading-8 text-[#657386] lg:text-xl">
-            PaxSolutio accompagne entreprises et entrepreneurs dans la
-            recherche de fournisseurs en Chine, la négociation, le
-            développement produit, le contrôle qualité et l&apos;organisation
-            de leur importation internationale.
+          <p className={styles.description}>
+            Du sourcing en Chine à votre livraison : recherche de fournisseurs,
+            contrôle qualité, import automobile et transport international.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="hero-actions mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="#project"
               className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#176BFF] px-7 text-sm font-extrabold !text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0F5BE0]"
@@ -71,7 +71,9 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[#657386]">
+          <HeroQuickLinks />
+
+          <div className="hero-credentials mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[#657386]">
             <span>✓ Sourcing B2B</span>
             <span>✓ Automobile</span>
             <span>✓ Private Label</span>
@@ -79,7 +81,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[520px] w-full max-w-[620px] lg:h-[650px]">
+        <div className={styles.diagram}>
           <div className="absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#EAF2FF] to-[#E8F8FC]" />
 
           <div className="absolute left-1/2 top-[13%] h-[72%] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#8CB8FF] to-transparent" />

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminPage } from "@/lib/admin-access";
 import { redirect } from "next/navigation";
 
 import IntelligenceRunner from "@/components/admin/IntelligenceRunner";
@@ -71,6 +73,8 @@ type IntelligenceExecutionProjectDashboard = {
 };
 
 export default async function AdminIntelligencePage() {
+  await requireAdminPage();
+
   // =========================================================
   // 1. AUTHENTIFICATION
   // =========================================================

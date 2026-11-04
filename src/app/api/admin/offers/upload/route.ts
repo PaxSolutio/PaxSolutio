@@ -1,9 +1,12 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import {
     NextRequest,
     NextResponse,
 } from "next/server";
 
 import { randomUUID } from "crypto";
+import { imageExtension } from "@/lib/admin-input";
 
 import {
     createServerSupabaseClient,
@@ -22,6 +25,9 @@ const ALLOWED_TYPES = [
 export async function POST(
     request: NextRequest
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const formData =
             await request.formData();
@@ -75,23 +81,17 @@ export async function POST(
             );
         }
 
-        const extension =
-            file.name
-                .split(".")
-                .pop()
-                ?.toLowerCase() ||
-            "jpg";
+        const buffer = Buffer.from(await file.arrayBuffer());
+        const extension = imageExtension(buffer, file.type);
+        if (!extension) {
+            return NextResponse.json({ success: false, error: "Le contenu du fichier ne correspond pas à une image autorisée." }, { status: 400 });
+        }
 
         const fileName =
             `${Date.now()}-${randomUUID()}.${extension}`;
 
         const filePath =
             `offers/${fileName}`;
-
-        const buffer =
-            Buffer.from(
-                await file.arrayBuffer()
-            );
 
         const supabase =
             createServerSupabaseClient();

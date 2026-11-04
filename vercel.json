@@ -4,5 +4,11 @@
       "path": "/api/cron/intelligence",
       "schedule": "0 * * * *"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
+  "buildCommand": "npm run build -- --webpack"
 }

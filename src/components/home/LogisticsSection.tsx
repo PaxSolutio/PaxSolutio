@@ -33,9 +33,9 @@ export default function LogisticsSection() {
     <section className="bg-[#F6F8FB] py-14 lg:py-24">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
         <div className="overflow-hidden rounded-[32px] border border-[#DDE5EE] bg-white shadow-[0_18px_55px_rgba(7,27,51,0.05)]">
-          <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid min-w-0 grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             {/* CONTENU GAUCHE */}
-            <div className="p-8 sm:p-10 lg:p-12">
+            <div className="min-w-0 p-6 sm:p-10 lg:p-12">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="font-black tracking-[-0.04em] text-[#071B33]">
                   PAX
@@ -118,7 +118,7 @@ export default function LogisticsSection() {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071B33] via-[#071B33]/45 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 p-8 sm:p-10 lg:p-12">
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 lg:p-12">
                   <div className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#9EC0FF]">
                     Acheminement international
                   </div>
@@ -132,7 +132,7 @@ export default function LogisticsSection() {
               </div>
 
               {/* MODES DE TRANSPORT */}
-              <div className="p-8 sm:p-10 lg:p-12">
+              <div className="min-w-0 p-6 sm:p-10 lg:p-12">
                 <div className="grid gap-3 sm:grid-cols-2">
                   {freightModes.map((mode) => (
                     <div

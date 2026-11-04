@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -57,6 +58,8 @@ function formatMoney(
 }
 
 export default async function IntelligenceQuotesPage() {
+  await requireAdminPage();
+
   const authSupabase = await createAuthServerClient();
 
   const {

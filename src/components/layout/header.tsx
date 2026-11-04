@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 
 import { navigation } from "@/data/navigation";
 import { featuredOffers } from "@/data/featuredOffers";
+import { businessClubUrl } from "@/data/businessClub";
+import styles from "./BusinessClubTab.module.css";
+import InformationBanner from "./InformationBanner";
 
 type NavigationItem = (typeof navigation)[number];
 
@@ -182,6 +185,7 @@ export default function Header() {
             : "border-transparent bg-white/90 backdrop-blur-lg"
           }`}
       >
+        <InformationBanner />
         {headerOffer && (
           <Link
             href={headerOffer.href}
@@ -227,7 +231,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden h-full items-center gap-8 lg:flex">
+          <nav className={`hidden h-full items-center gap-4 xl:gap-8 lg:flex ${styles.compactNav}`}>
             {navigation.map((item) =>
               item.children ? (
                 <div
@@ -261,7 +265,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-semibold text-[#35445A] transition hover:text-[#176BFF]"
+                  className={item.href === businessClubUrl ? styles.tab : "text-sm font-semibold text-[#35445A] transition hover:text-[#176BFF]"}
                 >
                   {item.label}
                 </Link>
@@ -325,8 +329,8 @@ export default function Header() {
       >
         <div
           className={`h-full overflow-y-auto px-6 pb-10 transition duration-300 ${headerOffer
-              ? "pt-[150px]"
-              : "pt-[105px]"
+              ? "pt-[194px]"
+              : "pt-[149px]"
             }`}
         >
           <nav>
@@ -343,7 +347,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className="flex-1 py-5 text-[20px] font-extrabold tracking-[-0.03em] text-[#071B33]"
+                      className={item.href === businessClubUrl ? styles.mobileTab : "flex-1 py-5 text-[20px] font-extrabold tracking-[-0.03em] text-[#071B33]"}
                     >
                       {item.label}
                     </Link>

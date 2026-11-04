@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
@@ -7,9 +9,7 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+function openAIClient() { return new OpenAI({ apiKey: process.env.OPENAI_API_KEY }); }
 
 type IntelligenceSource = {
   source_url: string;
@@ -131,6 +131,9 @@ async function requireAdmin() {
 export async function POST(
   request: Request
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     // =========================================================
     // AUTH
@@ -486,7 +489,7 @@ SEO
     // =========================================================
 
     const response =
-      await openai.responses.create({
+      await openAIClient().responses.create({
         model: "gpt-5.6-terra",
 
         reasoning: {

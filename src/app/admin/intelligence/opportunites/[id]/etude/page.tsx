@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
@@ -130,6 +131,8 @@ function TextList({
 export default async function ProductStudyPage({
     params,
 }: PageProps) {
+  await requireAdminPage();
+
     const { id } = await params;
 
     const authSupabase =

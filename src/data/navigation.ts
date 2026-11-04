@@ -1,3 +1,5 @@
+import { businessClubUrl } from "./businessClub";
+
 export type NavigationItem = {
   label: string;
   href: string;
@@ -184,6 +186,10 @@ export const navigation: NavigationGroup[] = [
     ],
   },
 
+  {
+    label: "Le Business Club",
+    href: businessClubUrl,
+  },
   {
     label: "À propos",
     href: "/a-propos",

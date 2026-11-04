@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import {
     NextRequest,
     NextResponse,
@@ -22,6 +24,9 @@ export async function POST(
     request: NextRequest,
     context: RouteContext
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
     try {
         const { id } =
             await context.params;

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextRequest, NextResponse } from "next/server";
 
 import { runIntelligenceQuery } from "@/lib/intelligence/run-intelligence-query";
@@ -7,6 +9,9 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 export const runtime = "nodejs";
 
 export async function POST(request: NextRequest) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     // =========================================================
     // 1. Vérification de l'utilisateur connecté

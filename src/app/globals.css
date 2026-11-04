@@ -46,3 +46,7 @@ a {
   background: var(--pax-blue);
   color: white;
 }
+/* Fixed information strip: keep in-page destinations visible. */
+#offres, #project, #solutions { scroll-margin-top: 145px; }
+:focus-visible { outline: 3px solid #1057cc; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

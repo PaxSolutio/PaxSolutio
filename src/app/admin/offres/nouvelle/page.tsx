@@ -1,8 +1,12 @@
+export const dynamic = "force-dynamic";
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 
 import CommercialOfferForm from "@/components/admin/CommercialOfferForm";
 
-export default function NewOfferPage() {
+export default async function NewOfferPage() {
+  await requireAdminPage();
+
     return (
         <main className="min-h-screen bg-[#06101d] px-5 py-8 text-white lg:px-10">
             <div className="mx-auto max-w-5xl">

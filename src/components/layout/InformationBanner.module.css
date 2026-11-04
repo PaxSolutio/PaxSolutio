@@ -1,0 +1,5 @@
+.banner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:40px;padding:0 max(24px,calc((100vw - 1360px)/2));background:#1057cc;color:#fff;column-gap:20px;font-size:12px;line-height:1.4}
+.label{font-size:9px;letter-spacing:.14em;font-weight:700;white-space:nowrap}.message{text-align:center;font-weight:600;animation:messageIn .35s ease both}.pause{justify-self:end;display:grid;place-items:center;min-width:44px;min-height:40px;background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer}.pause:hover{background:#ffffff17}.pause:focus-visible{outline:2px solid #fff;outline-offset:-4px;border-radius:4px}.pause:disabled{opacity:.65;cursor:default}
+@keyframes messageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.banner{grid-template-columns:1fr 36px;gap:5px;padding:0 16px;min-height:44px;font-size:11px}.label{display:none}.pause{min-height:44px;min-width:36px}.message{padding:5px 0}}
+@media(prefers-reduced-motion:reduce){.message{animation:none}}

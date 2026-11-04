@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import { NextResponse } from "next/server";
 import { createAuthServerClient } from "@/lib/supabase/auth-server";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -186,6 +188,9 @@ function validatePayload(body: NewsPayload) {
 // ============================================================
 
 export async function POST(request: Request) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     const adminCheck = await requireAdmin();
 
@@ -285,6 +290,9 @@ export async function POST(request: Request) {
 // ============================================================
 
 export async function PATCH(request: Request) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     const adminCheck = await requireAdmin();
 
@@ -441,6 +449,9 @@ export async function PATCH(request: Request) {
 export async function DELETE(
   request: Request
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     const adminCheck = await requireAdmin();
 

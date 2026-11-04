@@ -1,118 +1,20 @@
 import Link from "next/link";
-
 import CommercialOfferCard from "@/components/offers/CommercialOfferCard";
-import { createServerSupabaseClient } from "@/lib/supabase/server";
-
-export default async function FeaturedOffersSection() {
-    const supabase =
-        createServerSupabaseClient();
-
-    const {
-        data: offers,
-        error,
-    } = await supabase
-        .from("commercial_offers")
-        .select(
-            `
-            id,
-            title,
-            slug,
-            subtitle,
-            short_description,
-            category,
-            image_url,
-            price_from,
-            market_price,
-            currency,
-            price_label,
-            cta_label,
-            featured
-            `
-        )
-        .eq("status", "published")
-        .eq("homepage", true)
-        .order("featured", {
-            ascending: false,
-        })
-        .order("published_at", {
-            ascending: false,
-            nullsFirst: false,
-        })
-        .limit(3);
-
-    if (error) {
-        console.error(
-            "Erreur offres homepage :",
-            error
-        );
-
-        return null;
-    }
-
-    if (!offers || offers.length === 0) {
-        return null;
-    }
-
-    return (
-        <section className="bg-[#F6F8FB] pb-20 pt-12 lg:pb-24 lg:pt-14">
-            <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
-                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                    <div className="max-w-2xl">
-                        <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#176BFF]">
-                            Offres & opportunités
-                        </div>
-
-                        <h2 className="mt-4 text-[34px] font-extrabold leading-[1.08] tracking-[-0.045em] text-[#071B33] sm:text-[42px]">
-                            Des opportunités
-                            concrètes, directement
-                            accessibles.
-                        </h2>
-
-                        <p className="mt-5 max-w-xl text-base leading-7 text-[#657386]">
-                            Une sélection de
-                            produits et
-                            équipements proposés
-                            via notre réseau de
-                            fournisseurs, avec
-                            accompagnement
-                            sourcing, contrôle
-                            qualité et logistique.
-                        </p>
-                    </div>
-
-                    <Link
-                        href="/offres"
-                        className="inline-flex shrink-0 items-center text-sm font-extrabold !text-[#176BFF] transition hover:translate-x-1 lg:mt-9"
-                    >
-                        Voir toutes les offres
-                        <span className="ml-2">
-                            →
-                        </span>
-                    </Link>
-                </div>
-
-                <div
-                    className={`mt-10 grid gap-7 ${offers.length === 1
-                        ? "max-w-[580px]"
-                        : offers.length === 2
-                            ? "md:grid-cols-2"
-                            : "md:grid-cols-2 xl:grid-cols-3"
-                        }`}
-                >
-                    {offers.map(
-                        (offer) => (
-                            <CommercialOfferCard
-                                key={
-                                    offer.id
-                                }
-                                offer={
-                                    offer
-                                }
-                            />
-                        )
-                    )}
-                </div>
-            </div>
-        </section>
-    );
+import {createServerSupabaseClient} from "@/lib/supabase/server";
+import styles from "./FeaturedOffersSection.module.css";
+export default async function FeaturedOffersSection(){
+  const {data:offers,error}=await createServerSupabaseClient().from("commercial_offers")
+    .select("id,title,slug,subtitle,short_description,category,image_url,gallery_urls,price_from,currency,price_label,conditions,selling_points,specifications,cta_type,featured")
+    .eq("status","published").eq("homepage",true)
+    .order("featured",{ascending:false}).order("published_at",{ascending:false,nullsFirst:false}).limit(3);
+  return <section id="offres" className={styles.section} aria-labelledby="showroom-title">
+    <div className={styles.container}>
+      <div className={styles.heading}>
+        <div><p className={styles.eyebrow}><span aria-hidden="true"/>LE SHOWROOM PAXSOLUTIO</p><h2 id="showroom-title">Des produits.<br/><span>Des projets concrets.</span></h2></div>
+        <div className={styles.intro}><p>Une sélection de produits et d’équipements à découvrir. Configuration, sourcing et transport : construisons une offre adaptée à votre projet.</p><Link href="/offres">Explorer toutes les offres <span aria-hidden="true">↗</span></Link></div>
+      </div>
+      {!error&&offers?.length?<div className={styles.grid}>{offers.map((offer,index)=><CommercialOfferCard key={offer.id} offer={offer} variant={index===0?"featured":"secondary"}/>)}</div>:<div className={styles.empty}><p>Notre sélection est momentanément indisponible.</p><Link href="/#project">Parlons de votre recherche <span aria-hidden="true">↗</span></Link></div>}
+      <div className={styles.note}><span>VOTRE PROJET, VOTRE CONFIGURATION</span><p>Prix, fiscalité, disponibilité et conditions logistiques sont précisés avant toute commande.</p></div>
+    </div>
+  </section>;
 }

@@ -20,16 +20,16 @@ export default function FounderVideoSection() {
         <section className="border-t border-[#E2E8F0] bg-[#F3F6FA] py-14 lg:py-16">
             <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
 
-                <div className="grid items-center gap-12 md:grid-cols-[1fr_360px] md:gap-12 lg:grid-cols-[1fr_400px] lg:gap-16">
+                <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,360px)] md:gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
 
                     {/* TEXTE */}
-                    <div className="max-w-[650px]">
+                    <div className="min-w-0 max-w-[650px]">
 
                         <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#1F5EFF]">
                             Derrière PaxSolutio
                         </p>
 
-                        <h2 className="text-[40px] font-black leading-[0.98] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[62px]">
+                        <h2 className="text-[34px] min-[390px]:text-[40px] [overflow-wrap:anywhere] font-black leading-[0.98] tracking-[-0.045em] text-[#071B33] sm:text-[48px] lg:text-[62px]">
                             Plus qu&apos;un intermédiaire.
                             <span className="block text-[#1F5EFF]">
                                 Une présence sur le terrain.
@@ -43,7 +43,7 @@ export default function FounderVideoSection() {
                         </p>
 
                         {/* BOUTONS */}
-                        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <div className="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
 
                             <button
                                 type="button"

@@ -104,7 +104,7 @@ function formatPrice(
                     : 2,
             maximumFractionDigits: 2,
         }
-    ).format(value);
+    ).format(value) + (currency === "EUR" ? " TTC" : "");
 }
 
 function sleep(ms: number) {

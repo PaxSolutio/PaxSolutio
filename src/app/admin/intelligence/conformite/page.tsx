@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -41,6 +42,8 @@ const RISK_LABELS: Record<string, string> = {
 };
 
 export default async function IntelligenceCompliancePage() {
+  await requireAdminPage();
+
   const authSupabase = await createAuthServerClient();
 
   const {

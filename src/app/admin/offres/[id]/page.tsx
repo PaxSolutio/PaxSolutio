@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -13,6 +14,8 @@ export default async function EditOfferPage({
         id: string;
     }>;
 }) {
+  await requireAdminPage();
+
     const { id } = await params;
 
     const supabase =

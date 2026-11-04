@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+import { requireAdminRequest } from "@/lib/admin-access";
 import {
   NextRequest,
   NextResponse,
@@ -240,6 +242,9 @@ function validatePaymentFields(
 export async function POST(
   request: NextRequest
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     const body =
       await request.json();
@@ -530,6 +535,9 @@ export async function POST(
 export async function PATCH(
   request: NextRequest
 ) {
+  const accessDenied = await requireAdminRequest(request);
+  if (accessDenied) return accessDenied;
+
   try {
     const body =
       await request.json();

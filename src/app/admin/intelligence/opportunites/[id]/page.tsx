@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import IntelligenceHumanDecision from "@/components/admin/IntelligenceHumanDecision";
 import IntelligenceExecutionAction from "@/components/admin/IntelligenceExecutionAction";
 import IntelligenceDecisionTimeline from "@/components/admin/IntelligenceDecisionTimeline";
@@ -39,6 +40,8 @@ function getStatusLabel(status: string) {
 export default async function IntelligenceOpportunityPage({
     params,
 }: PageProps) {
+  await requireAdminPage();
+
     const { id } = await params;
 
     const authSupabase =

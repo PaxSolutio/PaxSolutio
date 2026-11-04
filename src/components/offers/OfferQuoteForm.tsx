@@ -14,6 +14,7 @@ type Props = {
     offerTitle: string;
     offerSlug: string;
     priceFrom?: number | null;
+    priceText?: string;
     currency?: string | null;
 };
 
@@ -29,9 +30,9 @@ function formatPrice(
         {
             style: "currency",
             currency,
-            maximumFractionDigits: 0,
+            maximumFractionDigits: 2,
         }
-    ).format(value);
+    ).format(value) + (currency === "EUR" ? " TTC" : "");
 }
 
 export default function OfferQuoteForm({
@@ -39,6 +40,7 @@ export default function OfferQuoteForm({
     offerTitle,
     offerSlug,
     priceFrom,
+    priceText,
     currency = "EUR",
 }: Props) {
     const [loading, setLoading] =
@@ -191,19 +193,14 @@ export default function OfferQuoteForm({
                                 {offerTitle}
                             </div>
 
-                            {priceFrom ? (
+                            {priceText || priceFrom ? (
                                 <div className="mt-4">
                                     <div className="text-xs text-slate-400">
                                         Prix affiché
                                     </div>
 
                                     <div className="mt-1 text-2xl font-extrabold text-[#39D98A]">
-                                        À partir de{" "}
-                                        {formatPrice(
-                                            priceFrom,
-                                            currency ??
-                                                "EUR"
-                                        )}
+                                        {priceText ?? ("À partir de " + formatPrice(priceFrom!, currency ?? "EUR"))}
                                     </div>
                                 </div>
                             ) : null}

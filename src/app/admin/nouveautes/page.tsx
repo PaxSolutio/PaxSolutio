@@ -1,3 +1,4 @@
+import { requireAdminPage } from "@/lib/admin-access";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -37,6 +38,8 @@ function categoryLabel(category: string) {
 }
 
 export default async function AdminNewsPage() {
+  await requireAdminPage();
+
   const authSupabase = await createAuthServerClient();
 
   const {

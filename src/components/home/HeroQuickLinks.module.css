@@ -1,0 +1,8 @@
+.links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:25px}
+.card{min-width:0;display:grid;grid-template-columns:24px 1fr;gap:10px 8px;position:relative;align-content:start;min-height:112px;padding:15px 13px;border:1px solid #dce5ef;border-radius:12px;background:#f7faff;color:#071b33;box-shadow:0 4px 15px #071b3304;animation:arrive .55s both;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:nth-child(2){animation-delay:.08s}.card:nth-child(3){animation-delay:.16s}.card:nth-child(4){animation-delay:.24s}
+.card svg{width:24px;height:24px;color:#0f5bd6}.card>span:not(.arrow){grid-column:1/-1;font-size:13px;font-weight:700;line-height:1.4;max-width:130px}.arrow{position:absolute;right:13px;top:13px;color:#0f5bd6;font-size:18px}
+.card:hover{transform:translateY(-4px);border-color:#176bff;box-shadow:0 10px 25px #071b330d;background:#fff}.card:focus-visible{outline:3px solid #176bff;outline-offset:3px}
+@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:600px){.links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px}.card{min-height:80px;padding:12px}.card>span:not(.arrow){font-size:12px;max-width:none}.card svg{width:20px;height:20px}.card{gap:7px}.arrow{top:9px}}
+@media(prefers-reduced-motion:reduce){.card{animation:none;transition:none}.card:hover{transform:none}}

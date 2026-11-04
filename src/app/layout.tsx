@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { isReadOnlyPreview } from "@/lib/preview-safety";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paxsolutio.com"),
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     images: ["/og-image.webp"],
   },
 
-  robots: {
+  robots: isReadOnlyPreview() ? { index: false, follow: false } : {
     index: true,
     follow: true,
 
