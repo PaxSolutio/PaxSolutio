@@ -1,2 +1,2 @@
 /** Informational site only. No database, account or application transfer. */
-export const businessClubUrl = "https://psbc-vitrine-preprod.vercel.app";
+export const businessClubUrl = "https://psbusinessclub.fr";
