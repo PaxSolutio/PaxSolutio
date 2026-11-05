@@ -76,7 +76,8 @@ export async function validateAdminRequest(request: Request): Promise<Response |
   // Cookie-authenticated changes must originate from this exact application.
   const origin = request.headers.get("origin");
   if (origin !== url.origin || request.headers.get("sec-fetch-site") === "cross-site") return reject(403, "Origine de la requête refusée.");
-  const upload = url.pathname === "/api/admin/offers/upload";
+  const trackingUpload = request.method === "POST" && url.pathname === "/api/admin/suivi/photos";
+  const upload = url.pathname === "/api/admin/offers/upload" || trackingUpload;
   const type = request.headers.get("content-type") || "";
   // Existing action buttons send an empty POST. Keep this narrow contract
   // after identity, membership, route identifier and CSRF checks.
@@ -90,7 +91,7 @@ export async function validateAdminRequest(request: Request): Promise<Response |
     return body?.length === 0 ? null : reject(400, "Corps de requête inattendu.");
   }
   if (!(upload ? type.startsWith("multipart/form-data;") : /^application\/json(?:;|$)/i.test(type))) return reject(415, "Format de requête non pris en charge.");
-  const bytes = await boundedBody(request, upload ? 9 * 1024 * 1024 : 256 * 1024);
+  const bytes = await boundedBody(request, trackingUpload ? 2 * 1024 * 1024 + 16384 : upload ? 9 * 1024 * 1024 : 256 * 1024);
   if (!bytes) return reject(413, "Requête trop volumineuse.");
   if (upload) return null;
   let body: Record<string, unknown>;

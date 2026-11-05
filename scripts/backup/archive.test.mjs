@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {randomBytes} from 'node:crypto';import {seal,open,MAX_BYTES} from './archive.mjs';
+const context={source:'paxsolutio-synthetic',scope:'isolated-restore'},files=[{name:'database.dump',data:Buffer.from('FICTITIOUS CUSTOMER ONLY')},{name:'roles.sql',data:Buffer.from('CREATE ROLE synthetic NOLOGIN;')}];
+test('authenticated round-trip preserves every byte',()=>{const k=randomBytes(32),out=open(seal(files,k,context),k,context);for(let i=0;i<files.length;i++)assert(out.files[i].data.equals(files[i].data));});
+test('same plaintext and key produce different encrypted archives',()=>{const k=randomBytes(32);assert(!seal(files,k,context).equals(seal(files,k,context)));});
+test('plaintext is absent from envelope',()=>{const a=seal(files,randomBytes(32),context);assert(!a.includes(files[0].data));});
+test('wrong key releases no plaintext',()=>{assert.throws(()=>open(seal(files,randomBytes(32),context),randomBytes(32),context));});
+for(const where of ['ciphertext','tag','header','nonce'])test('tampered '+where+' is refused',()=>{const k=randomBytes(32),a=seal(files,k,context),end=24+a.readUInt32BE(8);const index=where==='tag'?a.length-1:where==='header'?15:where==='nonce'?end-1:end+2;a[index]^=1;assert.throws(()=>open(a,k,context));});
+test('truncated backup is refused',()=>{const k=randomBytes(32),a=seal(files,k,context);for(const length of [0,8,20,a.length-1])assert.throws(()=>open(a.subarray(0,length),k,context));});
+test('a backup for another source is refused',()=>{const k=randomBytes(32);assert.throws(()=>open(seal(files,k,context),k,{...context,source:'production'}));});
+test('excessive or forged header length is refused',()=>{const k=randomBytes(32),a=seal(files,k,context);a.writeUInt32BE(0xffffffff,8);assert.throws(()=>open(a,k,context));});
+test('weak key, path traversal and duplicate artifact names are refused',()=>{assert.throws(()=>seal(files,Buffer.alloc(16),context));assert.throws(()=>seal([{name:'../dump.sql',data:Buffer.alloc(1)}],randomBytes(32),context));assert.throws(()=>seal([files[0],files[0]],randomBytes(32),context));});
+test('oversize input fails closed without unencrypted fallback',()=>{assert.throws(()=>seal([{name:'database.dump',data:Buffer.alloc(MAX_BYTES/2+1)}],randomBytes(32),context));});

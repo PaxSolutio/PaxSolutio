@@ -45,6 +45,7 @@ const primaryNavigation: NavigationItem[] = [
 ];
 
 const operationalNavigation: NavigationItem[] = [
+  {label: "Suivi des projets", href: "/admin/suivi-projets", icon: "↗"},
   {
     label: "Fournisseurs",
     href: "/admin/intelligence/fournisseurs",

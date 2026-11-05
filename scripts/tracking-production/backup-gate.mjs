@@ -1,0 +1,23 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';import {execFileSync} from 'node:child_process';import sharp from 'sharp';
+import {privateApiSession,clearApiSession,apiClient,verifyProject} from '../backup/temporary-api.mjs';
+import {decryptPrivate} from '../backup/real-common.mjs';import {storageCredential,storageFetch,save,PROOF,hash} from './common.mjs';
+const routine=process.argv[2]==='--routine';assert(process.argv.length===(routine?3:2));const proof={at:new Date().toISOString(),status:'preparing',routine,historicalArchivesRemoved:0};let s,key,canary,created=false;const stage=x=>{proof.stage=x;save('backup-operation',proof);console.log('STAGE '+x);};
+function run(file,args=[],input){const out=execFileSync(process.execPath,[file,...args],{input,encoding:'utf8',timeout:300000,maxBuffer:1024*1024,stdio:['pipe','pipe','pipe']});const row=JSON.parse(out.trim().split('\n').at(-1));if(row.status==='blocked'||row.status==='cleanup-failed')throw Error('SUBPROCESS_GATE_REFUSED');return row;}
+try{s=privateApiSession();proof.identity=verifyProject(await apiClient(s.token)('project'));stage('historical-key-recovery');
+ const old=JSON.parse(fs.readFileSync('deployment/tracking/recovery-anchor.json'));assert.equal(hash(fs.readFileSync(path.join(s.backupDirectory,old.archive.name))),old.archive.sha256);const recovered=decryptPrivate(s,old.archive.name,'database-pre-tracking');for(const f of recovered.files)f.data.fill(0);proof.existingArchiveKeyVerified=true;
+ key=await storageCredential();stage('private-object-canary');const bucket=await storageFetch(key,'/storage/v1/bucket/pax-tracking-media');assert(bucket.ok);const b=await bucket.json();assert.equal(b.public,false);assert.equal(Number(b.file_size_limit),2097152);
+ if(!routine){const listed=await storageFetch(key,'/storage/v1/object/list/pax-tracking-media',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prefix:'',limit:2})});assert(listed.ok);assert.equal((await listed.json()).length,0,'Tracking bucket not empty before isolated canary');
+ canary=randomUUID()+'/'+randomUUID()+'/'+randomUUID()+'.webp';proof.canaryPath=canary;
+ const image=await sharp('docs/suivi-final-20261105/preuves/demo-wpc-1.png').webp().toBuffer();
+ const upload=await storageFetch(key,'/storage/v1/object/pax-tracking-media/'+canary,{method:'POST',headers:{'Content-Type':'image/webp','x-upsert':'false','cache-control':'max-age=0'},body:image});image.fill(0);assert(upload.ok,'Canary upload refused');created=true;}
+ stage('consistent-encrypted-database-export');const db=run('scripts/backup/temporary-backup.mjs',['export']);assert.equal(db.status,'encrypted-database-backup-created-restore-and-storage-pending');
+ const keyBytes=Buffer.from(s.key.toString('hex')+'\n');
+ try{stage('networkless-database-restore');const r=run('scripts/backup/real-restore.mjs',['--key-stdin'],keyBytes);assert.equal(r.status,'passed');assert(r.containerRemoved);
+ stage('encrypted-public-and-private-storage');const sb=run('scripts/backup/real-storage.mjs',['backup']);assert.equal(sb.status,'encrypted-storage-created-restore-required');if(!routine)assert.equal(sb.privateObjects,1);proof.privateObjects=sb.privateObjects;
+ stage('networkless-storage-restore');const sr=run('scripts/backup/real-storage.mjs',['restore','--key-stdin'],keyBytes);assert.equal(sr.status,'passed');assert(sr.containerRemoved);
+ stage('offline-full-key-recovery');const recovery=run('scripts/backup/verify-recovery-key.mjs',['--key-stdin'],keyBytes);assert.equal(recovery.status,'passed');proof.recoveredArchives=recovery.archivesAuthenticated;proof.restoredObjects=sr.restored;proof.databaseArchive=db.backup.archive;
+ }finally{keyBytes.fill(0);}
+ proof.status='passed';
+}catch(e){proof.status='blocked';proof.code=/^[A-Z0-9_]{4,80}$/.test(e.message)?e.message:(e.code==='ETIMEDOUT'?'SUBPROCESS_TIMEOUT':'BACKUP_OPERATION_REFUSED');process.exitCode=1;}
+finally{if(created){try{stage('remove-exact-fictitious-canary');const before=await storageFetch(key,'/storage/v1/object/authenticated/pax-tracking-media/'+canary);assert(before.ok);await before.body?.cancel();const del=await storageFetch(key,'/storage/v1/object/pax-tracking-media',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({prefixes:[canary]})});assert(del.ok);const after=await storageFetch(key,'/storage/v1/object/authenticated/pax-tracking-media/'+canary);assert(!after.ok);await after.body?.cancel();proof.canaryRemoved=true;}catch{proof.status='cleanup-failed';process.exitCode=1;}}
+ key='';clearApiSession(s);proof.finishedAt=new Date().toISOString();save('backup-operation',proof);console.log(JSON.stringify(proof));}

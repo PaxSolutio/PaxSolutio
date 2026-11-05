@@ -43,3 +43,9 @@ next-env.d.ts
 # Local publication staging and evidence
 /.release/
 /docs/mission-deux-chantiers/preuves/
+
+# Private backup material and local recipe artifacts
+*.pxbak
+*.dpapi
+/supabase/.temp/
+/docs/**/preuves/

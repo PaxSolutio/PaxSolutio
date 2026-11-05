@@ -1,0 +1,10 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {connection,teamId,deploymentReady} from 'file:///C:/Users/medhy/OneDrive/Documents/ChatGPT/PSBC%20Page%20web/preproduction/audit/vercel-resume-common.mjs';
+export {connection,teamId,deploymentReady};export const PROJECT='prj_6KmH32e1SdUtewpAyee3JyajASMf',REF='nymrbqulweokwlaucrkv',BASE='647e7b0d898b3ec5f45e9930dc2b6137ddfa054c',OLD='dpl_DcqW5FL3p1ugPJC3NvtGeX95onmy';
+export const PROOF=process.env.PAX_BACKUP_PROOF_DIR??'docs/suivi-production-20261105/preuves';export const hash=b=>createHash('sha256').update(b).digest('hex');
+if(!/^docs\/suivi-production-20261105\/preuves(?:\/runs\/[a-z0-9-]+)?$/.test(PROOF))throw Error('PROOF_DIRECTORY_REFUSED');
+export const save=(name,p)=>{fs.mkdirSync(PROOF,{recursive:true});fs.writeFileSync(PROOF+'/'+name+'.json',JSON.stringify(p,null,2));};
+export function assertProject(p){assert.equal(p.id,PROJECT);assert.equal(p.name,'pax-solutio');assert.equal(p.accountId,teamId);assert.equal(p.link?.repo,'PaxSolutio');assert(['all_except_custom_domains','prod_deployment_urls_and_all_previews'].includes(p.ssoProtection?.deploymentType));assert(!Object.keys(p.protectionBypass??{}).length);assert(!Object.keys(p.deploymentProtectionExceptions??{}).length);}
+export async function storageCredential(){const raw=execFileSync('pwsh',['-NoProfile','-File','scripts/backup/read-private-api.ps1'],{encoding:'utf8',stdio:['pipe','pipe','pipe'],maxBuffer:32768});const s=JSON.parse(raw);assert.equal(s.projectRef,REF);if(typeof s.storageKey!=='string'||s.storageKey.length<30)throw Error('PRIVATE_STORAGE_KEY_UNAVAILABLE');return s.storageKey;}
+export async function storageFetch(key,path,init={}){assert(path.startsWith('/storage/v1/'));if(process.env.NODE_TLS_REJECT_UNAUTHORIZED==='0')throw Error('TLS_BYPASS_REFUSED');const r=await fetch('https://'+REF+'.supabase.co'+path,{...init,headers:{apikey:key,Authorization:'Bearer '+key,...init.headers},redirect:'error',signal:AbortSignal.timeout(60000)});return r;}

@@ -135,6 +135,7 @@ export const navigation: NavigationGroup[] = [
     href: "/ressources",
 
     children: [
+      {label: "Avancement de mon projet", href: "/suivi", description: "Consulter les étapes et l’estimation renseignées par votre gestionnaire."},
       {
         label: "Nouveautés & opportunités",
         href: "/nouveautes",

@@ -1,10 +1,12 @@
 import { isReadOnlyPreview, previewRequestAllowed } from "@/lib/preview-safety";
+import {trackingPreviewAllowed} from '@/lib/tracking/preview';
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
   if (isReadOnlyPreview()) {
-    const response = previewRequestAllowed(request.method, request.nextUrl.pathname, process.env.PAX_PREVIEW_ADMIN_READS === "true")
+    const localTracking = process.env.PAX_TRACKING_MODE === "local" && process.env.PAX_TRACKING_LOCAL_ONLY === "true" && !process.env.VERCEL && /^(127\.0\.0\.1|localhost):\d+$/.test(request.headers.get("host") || "") && ["/api/suivi", "/api/admin/suivi"].includes(request.nextUrl.pathname);
+    const response = localTracking || trackingPreviewAllowed(request.method,request.nextUrl.pathname) || previewRequestAllowed(request.method, request.nextUrl.pathname, process.env.PAX_PREVIEW_ADMIN_READS === "true")
       ? NextResponse.next({ request })
       : new NextResponse("Preview de validation : action indisponible.", { status: 423 });
     response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
